@@ -1,0 +1,335 @@
+%---------------------------------%
+% PACKAGES
+%---------------------------------%
+% Input encoding.
+\usepackage[utf8]{inputenc} % For accents in spanish: transforms "á" into "\'a"
+\usepackage[T1]{fontenc} % Output encoding. Use to avoid silly problems on the output.
+                         % See: http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+\usepackage[sfdefault]{FiraSans}
+\usepackage{FiraMono}
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% Matrices
+\usepackage{mathtools}
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+\usepackage{gauss}
+% Customization for augmented matrices; 
+% see https://tex.stackexchange.com/questions/146723/how-to-typeset-row-operations-on-augmented-matrix
+% Patch gauss macros for doing their work in `align'
+% and other amsmath environments; see http://tex.stackexchange.com/questions/146532/
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\g@matrix
+    {\vbox\bgroup}
+    {\vbox\bgroup\normalbaselines} % restore the standard baselineskip
+    {}{}
+\makeatother
+\newcommand{\BAR}{%
+    \hspace{-\arraycolsep}%
+    \strut\vrule % the `\vrule` is as high and deep as a strut
+    \hspace{-\arraycolsep}%
+}
+% Math blackboard font
+\usepackage{bbm}
+% Fonts
+\usepackage{lmodern} 
+% \usepackage[sfdefault]{FiraSans}
+\usepackage[normalem]{ulem}
+\usepackage{eulervm}
+% Graphics
+\usepackage{graphicx} 
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{animate}
+\usepackage{caption}
+% Algorithms
+\usepackage[ruled]{algorithm2e}
+\newcommand{\lIfElse}[3]{\lIf{#1}{#2 \textbf{else}~#3}}
+% Boxes
+\usepackage[most]{tcolorbox}
+% For reference enumerations lists
+\usepackage{enumitem}
+% \setlist{labelwidth = \widthof{0.}, leftmargin = {\labelwidth+\labelsep}, 
+%         rightmargin = \leftmargin} % Setting left marging = right marging in itemize envirnment
+% Import icons
+\usepackage{fontawesome}
+% Hyperlink
+\usepackage{hyperref}
+\hypersetup{
+	final,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=0,
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdftitle={Introduction to Mathematics},    % title
+    pdfdisplaydoctitle=true, %display document title instead of file name in title bar
+    pdftoolbar=true,
+    pdfmenubar=true,
+    pdflang={English},
+    pdfauthor={Abel Guada Azze},     % author
+    pdfsubject={Introduction to Mathematics},   % subject of the document
+    pdfcreator={Abel Guada Azze},   % creator of the document
+    pdfproducer={Abel Guada Azze}, % producer of the document
+    pdfkeywords={Mathematics} {introduction}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    breaklinks=true,
+    hidelinks,
+    colorlinks,
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=black,        % color of links to bibliography
+    filecolor=cyan,      % color of file links
+    urlcolor=magenta           % color of external links
+}
+%----------------------------------- Tikz
+\usepackage{tikz}
+\usepackage{pgfplots}
+% \pgfplotsset{compat=1.18}
+% \usepackage{tkz-euclide}
+\usetikzlibrary{shapes,arrows.meta,matrix,positioning,calc}
+\newcommand{\tikzmark}[1]{\tikz[baseline,remember picture] \coordinate (#1) {};}
+% ---------- Helpers: 2-set and 3-set Venns ----------
+% \VennTwoCounts{LabelA}{LabelB}{onlyA}{both}{onlyB}{Neither}{Universe}
+\newcommand{\VennTwoCounts}[7]{%
+  \begin{tikzpicture}[scale=1.0,baseline=(current bounding box.center)]
+    \def\r{1.8}   % circle radius (cm)
+    \def\dx{2.35} % distance between centres (cm)
+    \def\pad{0.60} % padding between circles and rectangle (cm)
+
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (\dx,0);
+
+    % Universe rectangle (outline only)
+    \draw[line width=.8pt, rounded corners=2pt]
+      ($(A)+(-\r-\pad,-\r-\pad)$) rectangle ($(B)+(\r+\pad,\r+\pad)$);
+
+    % Set fills + outlines
+    \fill[black!8] (A) circle (\r);
+    \fill[black!8] (B) circle (\r);
+    \draw[line width=.8pt] (A) circle (\r);
+    \draw[line width=.8pt] (B) circle (\r);
+
+    % Universe label (top-left inside the box)
+    \node[font=\scriptsize,anchor=north west]
+      at ($(A)+(-\r-\pad+0.12,\r+\pad-0.12)$) {#7};
+
+    % Set labels
+    \node[font=\small\bfseries] at ($(A)+(0,0.68*\r)$) {#1};
+    \node[font=\small\bfseries] at ($(B)+(0,0.68*\r)$) {#2};
+
+    % Counts
+    \node[font=\small] at ($ (A)+(-0.60*\r,-0.05*\r) $) {#3}; % only A
+    \node[font=\small] at ($ .5*(A)+.5*(B) $) {#4};           % both
+    \node[font=\small] at ($ (B)+(0.60*\r,-0.05*\r) $) {#5};  % only B
+    \node[font=\small]
+      at ($ (B)+(\r+0.3*\pad,0.78*\r) $) {#6};                % outside
+  \end{tikzpicture}%
+}
+
+
+%---------------------------------%
+% Biblio
+%---------------------------------%
+
+%---------------------------------%
+% SETTINGS
+%---------------------------------%
+% displays sections and subsections numbered in the TOC
+\setbeamertemplate{section in toc}[sections numbered]
+% \setbeamertemplate{subsection in toc}[subsections numbered]
+% gets rid of bottom navigation bars
+\setbeamertemplate{footline}{}
+% gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+% sets images' path
+\graphicspath{{img/}}
+% resets footnote counter at the beginning of each section
+\AtBeginEnvironment{frame}{\setcounter{footnote}{0}}
+% beamer margins
+\setbeamersize
+{
+    text margin left=3mm,
+    text margin right=3mm,
+    % sidebar width left=.0cm,
+    % sidebar width right=.0cm,
+    % description width,
+    % description width of=,
+    % mini frame size=,
+    % mini frame offset
+}
+% redefines block environment to add small space between title and content
+\let\oldblock\block
+\let\endoldblock\endblock
+\renewenvironment{block}[1]
+    {\begin{oldblock}{#1}
+        \vspace{0.1cm}
+    }
+    { 
+    \end{oldblock}
+    }
+
+%---------------------------------%
+% SETTINGS
+%---------------------------------%
+%---------------------------------%
+% TITLE PAGE
+%---------------------------------%
+\setbeamertemplate{title page}{
+    \vspace{-0.4cm}
+    
+    \textcolor{CUNEForange}{\rule{\textwidth}{0.05cm}}
+    \vspace{-0.65cm}
+    
+    \begin{minipage}{0.2\textwidth}
+        \includegraphics[width = 2.0cm]{Logo-CUNEF.png}
+    \end{minipage}
+    \begin{minipage}{0.7\textwidth}
+        
+        \quad \Huge \usebeamertemplate*{title}
+        
+    \end{minipage}    
+    \vspace{-0.25cm}
+    
+    \textcolor{CUNEForange}{\rule{\textwidth}{0.05cm}}
+    \vspace{1.5cm}
+
+    \begin{minipage}{0.075\textwidth}
+        
+    \end{minipage}\hfill\textcolor{CUNEForange}{\vrule\vrule\vrule}
+    \begin{minipage}{0.825\textwidth}
+        \begin{itemize}[leftmargin = *, label= $ $]
+            \item {\hspace{1.05pt} \faUser\quad Abel Guada Azze}
+            \item {\hspace{0pt} \faEnvelope\quad \href{mailto:abel.guada@cunef.edu}{abel.guada@cunef.edu}}
+            \item {\hspace{0pt} \faSuitcase\quad F4.5 - C. de Leonardo Prieto Castro, 2}
+            \item {\hspace{0pt} \faUniversity\ \ \ Department of Quantitative Methods - CUNEF Universidad}
+            \item {\hspace{0pt} \faGraduationCap\ \ \ Bachelor in Philosophy, Politics and Economics}
+        \end{itemize}
+    \end{minipage}
+}
+\setbeamertemplate{title}{
+  \linespread{1.0}%
+  \inserttitle%
+  \par%
+  \vspace*{0.5em}
+}
+\setbeamertemplate{subtitle}{
+  \insertsubtitle%
+  \par%
+  \vspace*{0.5em}
+}
+\titlegraphic{\includegraphics[height = 2.0cm]{logo-CUNEF.png}}	
+\author[]{Abel G. Azze}
+\institute[]{Department of Quantitative Methods \\ CUNEF Universidad}
+\date{}
+%---------------------------------%
+% TITLE PAGE
+%---------------------------------%
+%---------------------------------%
+% CUSTOM COMMANDS AND DEFINITIONS
+%---------------------------------%
+% define new colors
+\definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\definecolor{firebrick3}{RGB}{207, 33, 32}
+\definecolor{deepskyblue3}{RGB}{0, 155, 206}
+\definecolor{darkorange3}{RGB}{206, 102, 0}
+\definecolor{darkolivegreen3}{RGB}{163, 207, 91}
+\definecolor{CUNEForange}{RGB}{237, 114, 1}
+\definecolor{CUNEFblue}{RGB}{36, 51, 71}
+\definecolor{background-gray}{RGB}{251, 251, 250}
+\definecolor{block-background-gray}{RGB}{229, 230, 230}
+% coloring commands
+\newcommand{\red}[1]{\textcolor{firebrick3}{#1}}
+\newcommand{\black}[1]{\textcolor{black}{#1}}
+\newcommand{\blue}[1]{\textcolor{deepskyblue3}{#1}}
+\newcommand{\green}[1]{\textcolor{darkolivegreen3}{#1}}
+\newcommand{\orange}[1]{\textcolor{darkorange3}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\Corange}[1]{\textcolor{CUNEForange}{#1}}
+\newcommand{\Cblue}[1]{\textcolor{CUNEFblue}{#1}}
+% footnote without number
+\newcommand\footnotenonum[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+% hyperbolic secant
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+% Plain macros
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\Z}{\mathbb{Z}} % entire number set
+\newcommand{\Q}{\mathbb{Q}} % rational number set
+\newcommand{\R}{\mathbb{R}} % real number set
+\newcommand{\I}{\mathbb{I}} % imaginary number set
+\newcommand{\cF}{\mathcal{F}} % sigma-algebra
+\newcommand{\cD}{\mathcal{D}} % stopping set
+\newcommand{\cX}{\mathcal{X}} % bridge sets
+\newcommand{\cC}{\mathcal{C}} % continuation set
+\newcommand{\cB}{\mathcal{B}} % ball around a point
+\newcommand{\cA}{\mathcal{A}} % subset of R+xR
+\newcommand{\cR}{\mathcal{R}} % compact set
+\newcommand{\cN}{\mathcal{N}} % normal distribution
+\newcommand{\rmd}{\mathrm{d}} % differential operator
+\newcommand{\rmb}{\mathsf{b}} % OSB of the original OSP
+\newcommand{\rK}{\mathsf{K}} % Kernel of the original OSP
+\newcommand{\rPhi}{\mathsf{\Phi}} % Phi of the original OSP
+\newcommand{\rphi}{\mathsf{\boldsymbol{\phi}}} % Phi of the original OSP
+\newcommand{\InfGen}{\mathbb{L}} % infinitesimal generator
+\newcommand{\InfGenOr}{\mathsf{L}} % infinitesimal generator. Original version
+\newcommand{\Ind}{\mathbbm{1}} % indicator function
+\newcommand{\lp}{\left(} % left parenthesis
+\newcommand{\rp}{\right)} % right parenthesis
+\newcommand{\lb}{\left[} % left brackets
+\newcommand{\rb}{\right]} % right brackets
+\newcommand{\lc}{\left\{} % left curly brackets
+\newcommand{\rc}{\right\}} % right curly brackets
+\newcommand{\blp}{\big(}
+\newcommand{\brp}{\big)}
+\newcommand{\blb}{\big[}
+\newcommand{\brb}{\big]}
+\newcommand{\blc}{\big\{}
+\newcommand{\brc}{\big\}}
+% Macros with arguments
+\newcommand\redsout{\bgroup\markoverwith{\textcolor{red}{\rule[0.5ex]{2pt}{0.4pt}}}\ULon}
+\newcommand\bluesout{\bgroup\markoverwith{\textcolor{blue}{\rule[0.5ex]{2pt}{0.4pt}}}\ULon}
+\newcommand{\lrav}[1]{\left|#1\right|} % absolute value
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\lrp}[1]{\lp#1\rp} % left-right parenthesis
+\newcommand{\lrb}[1]{\lb#1\rb} % left-right brackets
+\newcommand{\lrc}[1]{\lc#1\rc} % left-right curly brackets
+\newcommand{\blrp}[1]{\blp#1\brp} % big left-right parenthesis
+\newcommand{\blrb}[1]{\blb#1\brb} % big left-right brackets
+\newcommand{\blrc}[1]{\blc#1\brc} % big left-right curly brackets
+\newcommand{\Prob}[1]{\mathbb{P}\lp #1\rp} % probability 1
+\newcommand{\Pro}[2]{\mathbb{P}_{#2}\lp #1\rp} % probability 2
+\renewcommand{\Pr}{\mathbb{P}} % probability 3
+\newcommand{\PProb}[1]{\mathsf{P}\lp #1\rp} % probability 1.2
+\newcommand{\PPro}[2]{\mathsf{P}_{#2}\lp #1\rp} % probability 2.2
+\newcommand{\PPr}{\mathsf{P}} % probability 3.2
+\newcommand{\Esp}[1]{\mathbb{E}\lb #1\rb} % mean 1
+\newcommand{\Espbigg}[1]{\mathbb{E}\bigg[\!#1\bigg]} % mean 1 bigg
+\newcommand{\Es}[2]{\mathbb{E}_{#2}\lb #1\rb} % mean 2
+\newcommand{\Esbigg}[2]{\mathbb{E}_{#2}\bigg[\!#1\bigg]} % mean 2 bigg
+\newcommand{\E}{\mathbb{E}} % mean 3
+\newcommand{\EEsp}[1]{\mathsf{E}\lb #1\rb} % mean 1.2
+\newcommand{\EEs}[2]{\mathsf{E}_{#2}\lb #1\rb} % mean 2.2
+\newcommand{\EE}{\mathsf{E}} % mean 3.2
+\newcommand{\V}[1]{\mathbb{V}\mathrm{ar}\lb #1\rb} % variance 1
+\newcommand{\Vs}[2]{\mathbb{V}\mathrm{ar}_{#2}\lb #1\rb} % variance 2
+\newcommand{\VV}[1]{\mathrm{V}\mathrm{ar}\lb #1\rb} % variance 1 original OSP
+\newcommand{\VVs}[2]{\mathrm{V}\mathrm{ar}_{#2}\lb #1\rb} % variance 2 original OSP
+\newcommand{\Cov}[2]{\mathbb{C}\mathrm{ov}\lb #1,#2\rb} % covariance
+\newcommand{\CCov}[2]{\mathsf{C}\mathrm{ov}\lb #1,#2\rb} % covariance original OSP
+%---------------------------------%
+% CUSTOM COMMANDS AND DEFINITIONS
+%---------------------------------%

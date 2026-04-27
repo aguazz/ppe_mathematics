@@ -1,0 +1,290 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{exam}
+\printanswers % Uncomment to show answers
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\arabic{footnote}}} % Ensure numeric superscripts
+\renewcommand{\thefootnote}{\arabic{footnote}} % Ensure numeric labels
+\makeatother
+\setcounter{footnote}{1}
+\newcommand{\BAR}{%
+    \hspace{-\arraycolsep}%
+    \strut\vrule % the `\vrule` is as high and deep as a strut
+    \hspace{-\arraycolsep}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}{PPE}
+\newcommand{\exam}{2nd Midterm}
+\newcommand{\subject}{Mathematics}
+\newcommand{\theyear}{2024/25}
+\newcommand{\ccauthor}{A. G. Azze}
+\newcommand{\thedate}{Dec 5, 2024}
+\newcommand{\university}{CUNEF Universidad}
+% Setting header and footer
+\pagestyle{headandfoot}
+\header{\degree \\ \subject\ - \theyear}{}{\thedate \\ \ccauthor}
+\footer{\university}{}{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 50 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+            
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Question
+\question[3]
+    Suppose the distribution of income for of civil engineers in a specific region is given by the following Lorenz curve:  
+    \[
+    L(x) = \frac{3}{4}x^p + ax.%, \quad \text{(Civil Engineers)}.%;\quad
+    % L_2(x) = \frac{2}{3}x^4 + \frac{1}{3}x, \quad \text{(Mechanical Engineers)}.
+    \]  
+
+    \begin{minipage}{0.6\textwidth}
+        \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+            \item Find\footnote{
+            \mbox{Recall that $L(x)$ represents the proportion of overall wealth held by the poorest $x\%$ of the population (e.g., $L(0.5) = 0.2$} 
+            indicates that  the poorest $50\%$ of the population holds $20\%$ of the wealth).
+            } the value of $a$.
+            \item Given the definition of the Gini index as $G = A/(A+B)$, where:
+            \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+                \item $A$: area between $f(x) = x$ and the Lorenz curve $L(x)$, and 
+                \item $B$: area under the Lorenz curve (see Figure \ref{fig:gini-lorenz}). 
+            \end{enumerate}
+            Prove that $G = 2 \int_0^1 (x - L(x)) \, \mathrm{d}x$.
+            \item Provided that the Gini index is $3/8$, find the value of $p$.
+            % \item Compute the Gini index for the Mechanical Engineers.
+            % \item Which engineer is more equitable?
+    \end{enumerate}
+    \end{minipage}
+    \begin{minipage}{0.35\textwidth}
+        \vspace{-2.5cm}
+        
+        \begin{center}
+            \includegraphics[width = \textwidth, height = 5.5cm]{img/Gini_Lorenz.png}
+            {\small Figure 1: Gini index and Lorenz curve}
+            \label{fig:gini-lorenz}
+        \end{center}
+    \end{minipage}
+
+    
+    
+% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item A Lorenz curve $L(x)$ satisfies: $L(1) = 1$ (poorest $100\%$ holds $100\%$ wealth). For $L_1(x) = \frac{3}{4}x^p + ax$, this means that $1 = L_1(1) = \frac{3}{4} + a$, which implies that $a = \frac{1}{4}$.
+
+        \item The total area $A+B$ under the line $f(x)=x$ is $0.5$ (triangle with base $1$ and height $1$).The area between the line and the Lorenz curve is $A = \int_0^1(x - L(x))\,\mathrm{d} x$. Then, $A/(A+B) = 2 \int_0^1 (x - L(x))$.
+
+        \item Note that
+        \begin{align*}
+            \frac{3}{8} &= 2 \int_0^1 (x - L_1(x)) \, \mathrm{d}x = 2 \int_0^1 \left(x - \left(\frac{3}{4}x^p + \frac{1}{4}x\right)\right) \, \mathrm{d}x = \frac{3}{2} \left(\frac{1}{2} - \frac{1}{p+1}\right) = \frac{3}{4} - \frac{3}{2(p+1)},
+        \end{align*}
+        which results in $p = 3$.
+
+        % \item We compute the Gini index for $L_2$ as follows:
+        % \begin{align*}
+        %     2 \int_0^1 (x - L_2(x)) \, \mathrm{d}x = 2 \int_0^1 \left(\frac{2}{3}x - \frac{2}{3}x^4\right) \, \mathrm{d}x = \frac{2}{5} = 0.4.
+        % \end{align*}
+
+        % \item Since the Gini index is lower for Civil Engineers, they have a more equitable income distribution.
+        
+    \end{enumerate}
+\end{solution}
+
+% Question
+\question[3]
+     Suppose that an economy has two sectors, Mining and Electricity, and:
+     \begin{enumerate}[leftmargin = 0.5cm, label = (\textit{\roman*}), rightmargin = 0.2cm]
+        \item for each unit of output, Mining requires $0.4$ units of its own production and $0.2$ units of Electricity;
+        \item producing one unit of Electricity requires $0.2$ units of Mining and $0.6$ units of its own production.
+     \end{enumerate}
+        Assume that the final demand is $d_1 =20$ units for the Mining industry and $d_2 = 10$ units of Electricity, and Let $x_1$ and $x_2$ be the total production of Mining and Electricity needed to fulfill the demand, respectively.
+
+        \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+            \item Write the system of linear equations given by the supply-demand equilibrium.
+            
+            \item Express the system in matrix form, that is, find a matrix $A$ such that $Ax = d$, for $x = (x_1, x_2)$ and $d =(d_1, d_2)$.
+
+            \item Check that $A^{-1} = 
+            \begin{pmatrix}
+                2 & 1 \\
+                1 & 3 
+            \end{pmatrix}$.
+
+            \item Find $x_1$ and $x_2$ using $A^{-1}$. 
+        
+        \end{enumerate}
+    
+%% Solution
+\begin{solution}[0cm]
+    
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item The production \(x_1\) and \(x_2\) must satisfy the total demand, including intermediate consumption and final demand, meaning that (\textit{i}) implies $x_1 = 0.4x_1 + 0.2x_2 + d_1$ and (\textit{ii}) results in $x_2 = 0.2x_1 + 0.6x_2 + d_2.$, which can be expressed as the system of linear equations
+        \begin{align*}
+            0.6x_1 - 0.2x_2 &= 20, \\
+            -0.2x_1 + 0.4x_2 &= 10.            
+        \end{align*}
+
+        \item In matrix form, the system can be written as $Ax = d$, for
+        \[
+        A = 
+        \begin{pmatrix}
+        0.6 & -0.2 \\
+        -0.2 & 0.4
+        \end{pmatrix}
+        \]
+
+        \item A straightforward matrix multiplication verifies that
+        \[ 
+        \begin{pmatrix}
+        0.6 & -0.2 \\
+        -0.2 & 0.4
+        \end{pmatrix}
+        \begin{pmatrix}
+        2 & 1 \\
+        1 & 3 
+        \end{pmatrix} = 
+        \begin{pmatrix}
+        1 & 0 \\
+        0 & 1 
+        \end{pmatrix},
+        \]
+        meaning that the provided matrix is the inverse of $A$. 
+
+        \item We get that:
+        \[
+        x = \begin{pmatrix} 2 & 1 \\ 1 & 3 \end{pmatrix} \begin{pmatrix} 20 \\ 10 \end{pmatrix} = \begin{pmatrix} 50 \\ 50 \end{pmatrix}.
+        \]
+        Hence $x_1 = 50$, and $x_2 = 50$.
+        
+    \end{enumerate}   
+    
+\end{solution}
+
+% Question
+\question[2]
+    Find the values of $c$ and $d$ for which the following system of equations has: (\textit{i}) no solution; (\textit{ii}) infinitely many solutions; (\textit{iii}) exactly one solution.
+    $$
+    \left\{
+    \begin{aligned}
+        2x  + y - z &= 4, \\
+        x   + y + z &= 2, \\
+        x   + cy + z &= d.
+    \end{aligned}
+    \right.
+    $$
+
+%% Solution
+\begin{solution}[0cm]
+    The augmented matrix form is
+    \[
+    \begin{pmatrix}
+    2 & 1 & -1 & \BAR & 4 \\
+    1 & 1 & 1 & \BAR & 2 \\
+    1 & c & 1 & \BAR & d
+    \end{pmatrix},
+    \]
+    which, after perform Gaussian elimination and rearranging terms, results in
+    \[
+    \begin{pmatrix}
+    1 & \frac{1}{2} & -\frac{1}{2} & \BAR & 2 \\
+    0 & 1 & 3 & \BAR & 0 \\
+    0 & 0 & 3 - 3c & \BAR & d - 2
+    \end{pmatrix}.
+    \]
+    Then: for $c = 1$ and $d \neq 2$ there is no solution; for $c = 1$ and $d = 2$ there are infinitely many solutions; and for $c\neq 1$ there is a unique solution.
+\end{solution}
+
+% Question
+\question[2]
+    For numbers $a, p \in\mathbb{R}$, define the function
+    \begin{align*}
+        f_{a,p}(x) =
+        \begin{cases}
+        ax & x\in [0, 1] \\
+        x^{-p} & x\in(1,\infty)
+        \end{cases}
+    \end{align*}
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item What is the value of $a$ for which $\int_0^\infty f_{a, 2}(x)\,\mathrm{d}x = 1$?
+
+        \item What is the value of $\int_0^\infty f_{a, 1}(x)\,\mathrm{d}x$?
+        
+    \end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item We have that
+        \begin{align*}
+            1 = \int_0^\infty f_{a, 2}(x)\,\mathrm{d}x &= \int_0^1 ax\,\mathrm{d}x + \int_1^\infty x^{-2}\,\mathrm{d}x  
+            = a/2 + \lim_{y\rightarrow\infty} \int_1^y x^{-2}\, \mathrm{d} x \\
+            &= a/2 + \lim_{y\rightarrow\infty} -x^{-1}\big|_1^y = a/2 + \lim_{y\rightarrow\infty} 1-y^{-1} = a/2 + 1,
+        \end{align*}
+        which means that $a = 0$
+
+        \item Following similar arguments as before,
+        \begin{align*}
+            \int_0^\infty f_{a, 1}(x)\,\mathrm{d}x &= \int_0^1 ax\,\mathrm{d}x + \int_1^\infty x^{-1}\,\mathrm{d}x  
+            = a/2 + \lim_{y\rightarrow\infty} \int_1^y x^{-1}\, \mathrm{d} x \\
+            &= a/2 + \lim_{y\rightarrow\infty} \ln(x)\big|_1^y = a/2 + \lim_{y\rightarrow\infty} \ln(y) - \ln(1) = \infty.
+        \end{align*}
+
+    \end{enumerate}
+\end{solution}
+
+\end{questions}	
+
+\end{document}

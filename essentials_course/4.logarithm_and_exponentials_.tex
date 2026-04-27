@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[top=1.75cm,bottom=1.5cm,right=2cm,left=2cm]{geometry}
+\setlength{\headheight}{22pt}
+\usepackage{enumitem}
+\usepackage{fancyhdr} % For customizing headers and footers
+
+%---------------- Header
+\pagestyle{fancy}
+\fancyhf{} % Clear default header and footer
+\fancyhead[L]{{\footnotesize CUNEF Universidad \\ Bachelor in Philosophy, Politics and Economics}} 
+\fancyhead[R]{{\footnotesize A. G. Azze \\ \date{2024}}} 
+\setlength{\headsep}{1.2cm}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{{\footnotesize CUNEF Universidad \\ Bachelor in Philosophy, Politics and Economics}} 
+  \fancyhead[R]{{\footnotesize A. G. Azze \\ \date{2025}}} 
+}
+
+%---------------- Title
+\title{Math Essentials \\ Unit 4 - Logarithms and Exponentials}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.6em]
+
+\item In chemistry, \(\mathrm{pH}\) is a measure of acidity and is given by \(\mathrm{pH}=-\log(H^+)\), where \(H^+\) is the hydrogen ion concentration (in moles of hydrogen per liter of solution). Determine \(H^+\) if \(\mathrm{pH}=4\).
+
+\item The decibel level to measure volume is given by
+\[
+D \;=\; 10\,\log_{10}\!\left(\frac{I}{I_0}\right), \qquad I_0 = 10^{-12}\ \mathrm{W/m^2}.
+\]
+\begin{enumerate}[label=(\alph*)]
+  \item An alarm measures \(D=120\) dB. Find its intensity \(I\).
+  \item A jet has intensity \(I=8\cdot 3\cdot 10^{2}\ \mathrm{W/m^2}\). Find its decibel level \(D\).
+\end{enumerate}
+
+\item The population \(P\) of a small town is modeled by \(P=1650e^{0.5t}\) where \(t\) is measured in years. In approximately how many years will the town’s population reach \(20{,}000\)?
+
+\item Atmospheric pressure \(P\) in pounds per square inch is represented by \(P=14.7e^{-0.21x}\), where \(x\) is the number of miles above sea level. To the nearest foot, how high is the peak of a mountain with an atmospheric pressure of \(8.369\) psi? (Hint: \(5280\) feet \(=1\) mile.)
+
+\item The magnitude \(M\) of an earthquake is represented by \(M=\dfrac{2}{3}\log\!\left(\dfrac{E}{E_0}\right)\) where \(E\) is the energy (in joules) released and \(E_0=10^{4.4}\) is the assigned minimal measure released by an earthquake. To the nearest hundredth, what is the magnitude of an earthquake releasing \(1.4\cdot 10^{13}\) joules?
+
+\item What is the value of  \(b^{\log_b x}\)?
+
+\item Solve  \(y=Ae^{kt}\) for $t$.
+
+\item Recall the compound interest formula \(A=a\big(1+\tfrac{r}{k}\big)^{kt}\). Use the definition of a logarithm along with properties of logarithms to solve the formula for time \(t\).
+
+\item Newton’s Law of Cooling states that the temperature \(T\) of an object at any time \(t\) can be described by
+\(T=T_s+(T_0-T_s)e^{-kt}\),
+where \(T_s\) is the surrounding temperature, \(T_0\) is the object’s initial temperature, and \(k\) is the cooling rate. Use logarithms to solve the formula for time \(t\) so that \(t\) is a single logarithm.
+
+\end{enumerate}
+
+\newpage
+\section*{Solutions}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.45em]
+
+\item \(\mathrm{pH}=4\Rightarrow -\log(H^+)=4\Rightarrow \log(H^+)=-4\Rightarrow H^+=10^{-4}\) mol/L.
+
+\item 
+\begin{enumerate}[label=(\alph*)]
+  \item From \(120 = 10\log_{10}\!\left(\dfrac{I}{10^{-12}}\right)\) we get
+  \[
+  \log_{10}\!\left(\frac{I}{10^{-12}}\right)=12
+  \;\Longrightarrow\;
+  \frac{I}{10^{-12}}=10^{12}
+  \;\Longrightarrow\;
+  I = 10^{-12}\cdot 10^{12}=1\ \mathrm{W/m^2}.
+  \]
+  \item Using \(D=10\log_{10}(I/I_0)\) with \(I=8\cdot 3\cdot 10^{2}\):
+  \[
+  D
+  =10\log_{10}(24\cdot 10^{14})
+  =10\big(\log_{10}(24)+\log_{10}(10^{14})\big)
+  = 10\big(\log_{10}(24) + 14\big)\ \text{dB}.
+  \]
+\end{enumerate}
+
+\item \(1650e^{0.5t}=20000\Rightarrow e^{0.5t}=\dfrac{20000}{1650}\Rightarrow
+0.5t=\ln\!\left(\dfrac{20000}{1650}\right)\Rightarrow t\approx 4.99\ \text{years}.\)
+
+\item \(8.369=14.7e^{-0.21x}\Rightarrow e^{-0.21x}=\dfrac{8.369}{14.7}\Rightarrow
+x=-\dfrac{1}{0.21}\ln\!\left(\dfrac{8.369}{14.7}\right)\approx 2.6824\ \text{miles}.\)
+Height \(\approx 2.6824\times 5280\approx 14{,}163\ \text{ft}.\)
+
+\item \(M=\dfrac{2}{3}\log\!\left(\dfrac{E}{E_0}\right)
+=\dfrac{2}{3}\log\!\left(\dfrac{1.4\cdot 10^{13}}{10^{4.4}}\right)
+=\dfrac{2}{3}\left(\log\!\left(\dfrac{1.4\cdot 10^{8.613}}{10^{4.4}}\right)\right)
+= \dfrac{2}{3}\left(\log\!\left(1.4\right) + 10^{8.6}\right)
+\approx \dfrac{2}{3}\cdot 8.7461\approx 5.83.\)
+
+\item Let \(y=\log_b x\). By definition, \(b^y=x\). Hence \(b^{\log_b x}=x\).
+
+\item From \(y=Ae^{kt}\): \(\dfrac{y}{A}=e^{kt}\Rightarrow \ln\!\left(\dfrac{y}{A}\right)=kt\Rightarrow
+t=\dfrac{1}{k}\ln\!\left(\dfrac{y}{A}\right).\)
+
+\item \(A=a\!\left(1+\dfrac{r}{k}\right)^{kt}\Rightarrow \dfrac{A}{a}=\!\left(1+\dfrac{r}{k}\right)^{kt}\Rightarrow
+\log\!\left(\dfrac{A}{a}\right)=kt\,\log\!\left(1+\dfrac{r}{k}\right)\Rightarrow
+t=\dfrac{\log(A/a)}{k\,\log(1+r/k)}\) (any log base).
+
+\item \(T=T_s+(T_0-T_s)e^{-kt}\Rightarrow \dfrac{T-T_s}{T_0-T_s}=e^{-kt}\Rightarrow
+\ln\!\left(\dfrac{T-T_s}{T_0-T_s}\right)=-kt\Rightarrow
+t=-\dfrac{1}{k}\,\ln\!\left(\dfrac{T-T_s}{T_0-T_s}\right).\)
+
+\end{enumerate}
+
+\end{document}

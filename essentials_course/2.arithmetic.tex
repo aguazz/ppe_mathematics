@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[top=1.75cm,bottom=1.5cm,right=2cm,left=2cm]{geometry}
+\setlength{\headheight}{22pt}
+\usepackage{enumitem}
+\usepackage{fancyhdr} % For customizing headers and footers
+
+%---------------- Header
+\pagestyle{fancy}
+\fancyhf{} % Clear default header and footer
+\fancyhead[L]{{\footnotesize CUNEF Universidad \\ Bachelor in Philosophy, Politics and Economics}} 
+\fancyhead[R]{{\footnotesize A. G. Azze \\ \date{2025}}} 
+\setlength{\headsep}{1.2cm}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{{\footnotesize CUNEF Universidad \\ Bachelor in Philosophy, Politics and Economics}} 
+  \fancyhead[R]{{\footnotesize A. G. Azze \\ \date{2025}}} 
+}
+
+%---------------- Title
+\title{Math Essentials \\ Unit 2 - Arithmetic}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.6em]
+
+\item A food bank is assembling care packages. Each package includes 4 cans of soup. If there are 23 cans available, what is the greatest number of full packages that can be made? Also state how many cans will be left over.
+
+\item Manuel deposits 30\% of \$140 into a savings account. How much does he deposit?
+
+\item Simplify
+\[
+\frac{\left(\frac{1}{x}\cdot \frac{y^{3}}{x}\right)}{x\,y^{2}\cdot \frac{y}{x^{2}}}.
+\]
+Then, evaluate for $x=125,\; y=36$
+
+\item Write the fraction $\dfrac{9}{25}$ as a decimal.
+
+\item Compute and simplify your answer:
+\[
+\frac{7}{10}+\frac{5}{100}.
+\]
+
+\item Express $0.08$ as an irreducible fraction.
+
+\item Order the following numbers from least to greatest:
+\[
+0.205,\qquad \frac{11}{12},\qquad \frac{7}{3},\qquad 2.4.
+\]
+
+\item Order the following from least to greatest:
+\[
+0.12,\qquad 1.2\%,\qquad \frac{5}{8}.
+\]
+
+\item \(45\%\) of what number is \(36\)? Write and solve an equation.
+
+\item A store stocked 180 cans of popcorn for a weekend sale. That weekend, 117 cans were sold. What percent of the stocked cans were sold?
+
+\item Insert the correct symbol $(>,<,=)$ between each pair:
+\[
+\text{(a)}\;\frac{5}{6}\;\square\;\frac{7}{9}
+\qquad
+\text{(b)}\;\frac{4}{7}\;\square\;\frac{3}{5}
+\qquad
+\text{(c)}\;\frac{9}{10}\;\square\;0.89
+\]
+
+\item Carole works at a bookstore and a restaurant. In a 30-day period, Carole worked $\frac{1}{5}$ of the days at the bookstore and did not work $\frac{1}{10}$ of the days. On the remaining days Carole worked at the restaurant. How many days did she work at the restaurant?
+
+\end{enumerate}
+
+\newpage
+\section*{Solutions}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=0.45em]
+
+\item $\dfrac{23}{4}$ packages, that is, $5$ full packages with $3$ tablespoons left.
+
+\item $0.30\times 140=\$42$.
+
+\item Denominator: $x y^2\cdot \dfrac{y}{x^2}=\dfrac{x y^3}{x^2}=\dfrac{y^3}{x}$. Thus the whole fraction
+\[
+\frac{\frac{y^3}{x^2}}{\frac{y^3}{x}}=\frac{x}{x^2}=\frac{1}{x}.
+\]
+For $x=125$, value $=\dfrac{1}{125}=0.008$.
+
+\item $\dfrac{9}{25}=\dfrac{9\cdot 4}{25\cdot 4}=\dfrac{36}{100}=0.36$.
+
+\item $\dfrac{7}{10}+\dfrac{5}{100}=\dfrac{70}{100}+\dfrac{5}{100}=\dfrac{75}{100}=\dfrac{3}{4}=0.75$.
+
+\item $0.08=\dfrac{8}{100}=\dfrac{2}{25}$.
+
+\item Convert to decimals: $0.205$, $\dfrac{11}{12}\approx 0.916\overline{6}$, $\dfrac{7}{3}\approx 2.333\overline{3}$, $2.4$. Order:
+\[
+0.205<\frac{11}{12}<\frac{7}{3}<2.4.
+\]
+
+\item $1.2\%=0.012$, $0.12=0.12$, $\dfrac{5}{8}=0.625$. Order:
+\[
+1.2\%<0.12<\frac{5}{8}.
+\]
+
+\item Let $N$ be the number. $0.45N=36 \Rightarrow N=\dfrac{36}{0.45}=80$.
+
+\item $\dfrac{117}{180}=\dfrac{13}{20}=0.65=65\%$.
+
+\item (a) Cross-multiply: $5\cdot 9=45$ vs.\ $6\cdot 7=42 \Rightarrow \dfrac{5}{6}>\dfrac{7}{9}$.\\
+(b) $4\cdot 5=20$ vs.\ $7\cdot 3=21 \Rightarrow \dfrac{4}{7}<\dfrac{3}{5}$.\\
+(c) $\dfrac{9}{10}=0.9>0.89$.
+
+\item Bookstore: $\dfrac{1}{5}\cdot 30=6$ days. Not working: $\dfrac{1}{10}\cdot 30=3$ days. Restaurant: $30-6-3=21$ days.
+
+\end{enumerate}
+
+\end{document}

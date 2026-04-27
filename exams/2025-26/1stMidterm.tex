@@ -1,0 +1,262 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{exam}
+%\printanswers % Uncomment to show answers
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\arabic{footnote}}} % Ensure numeric superscripts
+\renewcommand{\thefootnote}{\arabic{footnote}} % Ensure numeric labels
+\makeatother
+\setcounter{footnote}{1}
+\newcommand{\BAR}{%
+    \hspace{-\arraycolsep}%
+    \strut\vrule % the `\vrule` is as high and deep as a strut
+    \hspace{-\arraycolsep}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}{PPE}
+\newcommand{\exam}{1st Midterm}
+\newcommand{\subject}{Mathematics}
+\newcommand{\theyear}{2025/26}
+\newcommand{\ccauthor}{A. G. Azze - CUNEF Universidad}
+\newcommand{\thedate}{Oct 10, 2025}
+\newcommand{\university}{CUNEF Universidad}
+% Setting header and footer
+\pagestyle{headandfoot}
+\header{\degree \\ \subject\ - \theyear}{}{\thedate \\ \ccauthor}
+\footer{\university}{}{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 50 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+            
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Question
+\question[3]
+    Consider the demand and supply functions
+\[
+p_D(q)=21-(q+1)^2,
+\qquad
+p_S(q)=e^{\,q+\ln(12)-2}.
+\]
+
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+  \item Prove that at $q^*=2$ there is a supply--demand equilibrium. What is the equilibrium price $p^*$?
+
+  \item From the point of view of a monopoly, the revenue of selling $q$ items (each at $p_D(q)$ euros) is $R(q)=p_D(q)\,q$. What value of $q$ maximizes the revenue?
+
+  \item What is the inverse of the supply function? That is, find the function $q_S(p)$ such that $(q_S\circ p_S)(q)=q$. \\ 
+  (Recall that $q$ must be positive as it is a quantity)
+\end{enumerate}
+% Solution
+\begin{solution}[0cm]
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+  \item Equilibrium solves $p_D(q)=p_S(q)$. At $q=2$,
+  \[
+    p_D(2)=21-(2+1)^2=21-9=12,\qquad
+    p_S(2)=e^{\,2+\ln(12)-2}=e^{\ln(12)}=12.
+  \]
+  Hence $q^*=2$ and $p^*=12$.
+  \item $R(q)=q\,p_D(q)=q\bigl(21-(q+1)^2\bigr)=20q-2q^2-q^3$. Then
+  \[
+    R'(q)=20-4q-3q^2=-(3q+10)(q-2).
+  \]
+  Critical points: $q=-\tfrac{10}{3}$ (discard) and $q=2$. Since $R''(q)=-4-6q<0$ for $q>0$, $q=2$ maximizes revenue.
+  \item From $p=e^{\,q+\ln(12)-2}=12\,e^{\,q-2}$,
+  \[
+    \ln(p)=\ln(12)+q-2 \;\Longrightarrow\; q_S(p)=2+\ln\!\Big(\frac{p}{12}\Big).
+  \]
+  Since $q>0$, the relevant domain for the inverse is $p\ge 12e^{-2}$.
+\end{enumerate}
+\end{solution}
+
+
+% Question
+\question[2]
+    You have a credit card debt that increases $1\%$ every month. How long will it take for the debt to double?    
+%% Solution
+\begin{solution}[0cm]
+    Solve $(1.01)^n=2$ for months $n$:
+    \[
+        n=\frac{\ln(2)}{\ln(1.01)}\approx \frac{0.6931}{0.009950}\approx 69.7\ \text{months} \approx 5.8\ \text{years}.
+    \]
+\end{solution}
+
+% Question
+\question[2]
+    Consider the functions $f(x) = \frac{\sqrt{x+2} - 2}{\sqrt{x - 2}}$ and $g(x) = \frac{1}{(x - 2)^2} + x^{-1} + x$, as well as the piecewise defined function
+    \begin{align*}
+        h(x) =
+        \begin{cases}
+            f(x), & x > 2 \\
+            0, & x = 2 \\
+            g(x), & x < 2
+        \end{cases}
+    \end{align*}
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item What are the domains of $f(x)$ and $g(x)$?
+
+        \item Is $h(x)$ continuous from the left at $x = 2$? Is it continuous from the right?
+
+        \item Find $\lim_{x\rightarrow-\infty} h(x)$.
+        
+    \end{enumerate}
+    
+%% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item $f$: need $x-2>0$ and $x+2\ge0\Rightarrow x>2$.  
+              $g$: exclude $x=2$ and $x=0\Rightarrow(-\infty,0)\cup(0,2)\cup(2,\infty)$.
+        \item Left of $2$, $h=g$ and $g(x)\to+\infty$ as $x\to2^-$, so not left-continuous.  
+              Right of $2$, rationalize
+              \[
+              f(x)=\frac{\sqrt{x+2}-2}{\sqrt{x-2}}
+              =\frac{x-2}{(\sqrt{x+2}+2)\sqrt{x-2}}
+              =\frac{\sqrt{x-2}}{\sqrt{x+2}+2}\to 0,
+              \]
+              which equals $h(2)=0$; thus right-continuous.
+        \item For $x\to-\infty$, $h(x)=g(x)$ and
+              \[
+              \frac{1}{(x-2)^2}\to0,\quad x^{-1}\to0,\quad x\to-\infty \;\Rightarrow\; \lim_{x\to-\infty}h(x)=-\infty.
+              \]
+    \end{enumerate}
+\end{solution}
+
+% Question
+\question[3]
+Let $x(t)$ be the cumulative number of units a company has produced by month $t$, and let $C(x)$ be the total cost (in thousands of euros) of producing $x$ units.
+Define $c(t) = C(x(t))$.
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+    \item Provide an interpretation of $c(t)$.
+    \item Provide an approximation of $c(1.5)$, given that $C(100) = 5$, $x(1) = 100$, $C'(100) = 0.5$ and $x'(1) = 1$.
+    \item Let $P(t) = r(t) - c(t)$ be the profit of the company at time $t$, where $r(t)$ represents the revenue at $t$. Assume that $P(t)$ reaches a maximum at $t^*$. 
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\roman*), rightmargin = 0.2cm]
+        
+        \item What relation should $r'(t^*)$ and $c'(t^*)$ satisfy?
+
+        \item What is the sign of $P'(t)$ for values of $t$ near $t^*$?  
+        
+    \end{enumerate}
+\end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+  \item $c(t)$ is the total cost (in thousands of euros) as a function of time.
+  \item By the chain rule $c'(t)=C'(x(t))\,x'(t)$, so $c'(1)=C'(100)\,x'(1)=0.5$. A linear approximation at $t=1$ gives
+  \[
+    c(1.5)\approx c(1)+c'(1)\,(1.5-1)=5+0.5\times0.5=5.25.
+  \]
+  \item Let $P(t)=r(t)-c(t)$.
+  \begin{enumerate}[leftmargin=0.5cm,label=(\roman*),rightmargin=0.2cm]
+    \item At a maximum $t^*$, \(P'(t^*)=0\). Since \(P'(t)=r'(t)-c'(t)\), the condition is
+    \[
+      r'(t^*)=c'(t^*).
+    \]
+    This is the reason behind the economic principle
+    \begin{center}
+    ``profit maximization is achieved when marginal cost equals marginal revenue''.    
+    \end{center}
+    
+    \item Near a local maximum, \(P'(t)\) changes sign from non-negative to non-positive:
+    \[
+      P'(t)\geq 0 \text{ for } t<t^* \text{ close to } t^*,\qquad
+      P'(t)\leq 0 \text{ for } t>t^* \text{ close to } t^* .
+    \]
+  \end{enumerate}
+\end{enumerate}
+\end{solution}
+
+\end{questions}	
+
+\newpage
+\begin{center}
+You may find useful the following derivatives of basic functions and rules of derivatives
+\end{center}
+
+\begin{center}
+    \textbf{Differentiation rules}
+\end{center}
+        
+        \begin{enumerate}[leftmargin = 0.5cm, label = , rightmargin = 0.2cm]
+
+        \item \textbf{Linearity:} $h(x) = a f(x) + b g(x) \Longrightarrow h'(x) = a f'(x) + b g'(x)$, for $a, b \in\R$
+
+        \item \textbf{Product rule:} $h(x) = f(x)g(x) \Longrightarrow h'(x) = f'(x)g(x) + f(x)g'(x)$
+
+        \item \textbf{Quotient rule:} $h(x) = f(x)/g(x) \text{ and } g(x) \neq 0 \Longrightarrow h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$
+
+        \item \textbf{Chain rule:} $h(x) = g(f(x)) \Longrightarrow h'(x) = g'(f(x))f'(x)$
+
+        \item \textbf{Inverse rule:} $h(x) = f^{-1}(y) \Longrightarrow h'(y) = 1/f'(f^{-1}(y))$
+        
+        \end{enumerate}
+
+\begin{center}
+    \textbf{Derivative of usual functions}
+\end{center}
+
+        \begin{enumerate}[leftmargin = 0.5cm, label = , rightmargin = 0.2cm]
+
+        \item \textbf{Constant:} $f(x) = a,\; a \in\R \Longrightarrow f'(x) = 0$
+        
+        \item \textbf{Power:} $f(x) = x^a \Longrightarrow f'(x) = a x^{a-1}$
+        
+
+        \item \textbf{Exponential:} $f(x) = e^x \Longrightarrow f'(x) = e^x$
+
+        \item \textbf{Logarithm:} $f(x) = \ln(x) \Longrightarrow f'(x) = 1/x$
+
+        \item \textbf{Trigonometric:} $f(x) = \sin(x),\; g(x) = \cos(x) \Longrightarrow f'(x) = \cos(x),\; g'(x) = -\sin(x)$
+        
+        \end{enumerate}
+
+\end{document}

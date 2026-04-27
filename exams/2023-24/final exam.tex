@@ -1,0 +1,427 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11.0pt]{exam}
+\printanswers % Uncomment to show answers
+\include{formatAndDefs}
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{pgfplots}
+\usepackage{spalign}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{CUNEForange}{RGB}{237, 114, 1}
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}[1]{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}[1]{PPE}
+\newcommand{\exam}[1]{Final Exam}
+\newcommand{\subject}[1]{Mathematics}
+\newcommand{\theyear}[1]{2023/24}
+%\newcommand{\ccauthor}[1]{A. Azze \textcopyright\the\year}
+\newcommand{\thedate}[1]{12 11 2023}
+\newcommand{\university}[1]{CUNEF University}
+% Setting header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.1mm}
+\renewcommand{\footrulewidth}{0.1mm}
+% \renewcommand{\sectionmark}[1] % To avoid sections' titles being displayed on the header
+{\markright{\MakeUppercase{}}}
+\setlength\headsep{0.5cm}
+% Header and footer
+\fancyhead[L]{\degree{} \\ \subject{} - \theyear{}}
+\fancyhead[R]{\thedate{} \\ \ccauthor{}}
+\fancyfoot[L]{\university{}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 120 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+
+            \item You can use physical resources such as books, notes, and other printed materials to assist you during the exam.
+ 
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Solution
+%\begin{solution}[0cm]
+%    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+%\end{solution}
+
+% Question
+\question[3] Determine if the following functions have global minimum and/or maximum and compute them.
+\begin{enumerate}
+    \item $f(x)=2x^{3}+3x^2-12x$ in the interval $[-2,2]$.
+    \item $f(x)=2x^{3}+3x^2-12x$ in the interval $(-2,2)$.
+    \item $f(x,y)=x^2-2xy-y^2-12x+16y$ in $\mathbb{R}$.
+\end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+\begin{enumerate}
+    \item The function is continuous and the interval is closed, so we can assure, by the Extreme Value Theorem, that there will be minimum and maximum. The derivative of $f(x)$ is $6x^2+6x-12$ which is zero when $x=-2$ and $x=1$. We evaluate the function on these points and the extremes of the interval (the critical points), obtaining $f(-2)=20, f(1)=-7, f(2)=4$, hence the minimum is $-7$ and reached at $x=1$ and the maximum is 20 and reached at $x=-2$.
+    \item In this case, we have no guaranteed the existence of minimum and maximum since $(-2,2)$ is not closed. But, if the minimum in $[-2,2]$ was in $x=1$, the same holds for $(-2,2)$. For the maximum, as it was in the extreme $x=-2$ that now is excluded, but very close points to $-2$ will also have larger values than the rest of the points in the interval, but without a limit, so there is no maximum. We can study the growth of the function to get that it is as shown in the following figure. So, the maximum would be at $x=-2$ but we never reach it, since $x=-2$ is not included.
+\begin{center}
+ \begin{tikzpicture}
+  \begin{axis}[
+    axis lines=middle,
+    xlabel=$x$,
+    ylabel=$y$,
+    xmin=-2.5,
+    xmax=2.5,
+    ymin=-20,
+    ymax=20,
+    xtick={-2, -1, 0, 1, 2},
+    ytick={-20, -15, -10, -5, 0, 5, 10, 15, 20},
+    samples=100,
+    domain=-2:2,
+    ]
+    \addplot[blue, thick] {2*x^3 + 3*x^2 - 12*x};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+\item To get the critical points of $f(x,y)$ we compute the partial derivatives, obtaining \[
+   f_x=2x-2y-12,\enspace f_y=-2x-2y+16.
+\] The critical points, resulting from solving $f_x=f_y=0$ are just the point $(7,1)$. To determine if we have a minimum, maximum or a saddle point, we use the second derivative criterion. We compute the second order derivatives, getting \[f_{xx}=2,\enspace f_{yy}=-2,\enspace f_{xy}=-2,\] an hence $H(x,y)=2(-2)-(-2)^2=-8$ and hence the critical point is just a saddle point. The function has neither a minimum nor a maximum.
+\end{enumerate}
+\end{solution}
+
+% Question
+\question[3]
+Compute the following integrals.
+\begin{enumerate}
+    \item $\displaystyle \int (1+x^2) \sin(x)\, dx$
+    \item $\displaystyle \int \frac{x+1}{(x+3)(x-2)} \, dx$
+    \item $\displaystyle \int_1^{\infty} xe^{-5x^2} \, dx$
+\end{enumerate}
+
+\begin{solution}[0cm]
+\begin{enumerate}
+\item To solve the integral
+
+\[
+I=\int (1 + x^2) \sin(x) \, dx
+\]
+
+We apply integration by parts. Let's define \( u \) and \( dv \) as
+
+\[
+\begin{aligned}
+u &= (1 + x^2), \quad &dv &= \sin(x) \, dx \\
+du &= 2x \, dx, \quad &v &= -\cos(x)
+\end{aligned}
+\]
+
+Applying the integration by parts formula, we get
+
+\[
+\begin{aligned}
+\int (1 + x^2) \sin(x) \, dx &= uv - \int v \, du =\\
+&= -(1 + x^2)\cos(x) - \int -\cos(x) \cdot 2x \, dx=\\
+&= -(1 + x^2)\cos(x) + 2 \int x \cos(x) \, dx \\
+\end{aligned}
+\]
+
+We apply integration by parts again. Let's define \( u \) and \( dv \) as
+
+\[
+\begin{aligned}
+u &= x, \quad &dv &= \cos(x) \, dx \\
+du &= dx, \quad &v &= \sin(x)
+\end{aligned}
+\]
+We get 
+
+\[
+\begin{aligned}
+I &= -(1 + x^2)\cos(x) + 2\left(x\sin(x) - \int \sin(x) \, dx\right)=\\
+&= -(1 + x^2)\cos(x) + 2x\sin(x) - 2\cos(x) + C=\\
+&= - x^2\cos(x) + 2x\sin(x) - \cos(x) + C.
+\end{aligned}
+\]
+
+\item To solve the integral \[
+I=\int \frac{x + 1}{(x + 3)(x - 2)} \, dx
+\]
+we can use partial fraction decomposition. Write the function as
+
+\[
+\frac{x + 1}{(x + 3)(x - 2)}=\frac{A}{x + 3} + \frac{B}{x - 2}=\frac{A(x-2)+B(x+3)}{(x + 3)(x - 2)}=\frac{Ax-2A+Bx+3B}{(x + 3)(x - 2)}
+\]
+and hence we have
+\[
+\begin{aligned}
+A+B&=1\\
+-2A+3B&=1
+\end{aligned}
+\]
+which gives us $A=\frac{2}{5}, B=-\frac{2}{5}$. Hence, the integral is
+\[I=\int \frac{\frac{2}{5}}{x+3}+\frac{-\frac{3}{5}}{x-2}\, dx = \frac{2}{5}\ln(x+3)-\frac{2}{5}\ln(x-2)+C.\]
+
+\item The integral \[
+\int_1^{\infty} xe^{-5x^2} \, dx
+\]
+converges if so does the limit
+\[\lim_{b\rightarrow\infty}\int_1^b xe^{-5x^2} \,dx.\]
+We compute the integral 
+\[I=\int_1^b xe^{-5x^2}=\frac{-e^{-5b^2}}{10}\, dx= \frac{-e^{-5x^2}}{10}+\frac{e^{-5}}{10}.\]
+Finally, we compute the limit
+\[\lim_{b\rightarrow\infty} I=\frac{e^{-5}}{10}.\]
+Hence, the original integral converges to $\displaystyle \frac{1}{10e^5}$.
+\end{enumerate}
+\end{solution}
+% Question
+\question[4] Consider the matrices
+\begin{equation*}
+A=\begin{pmatrix}
+-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix},
+\enspace
+B=\begin{pmatrix}
+1 & 1 & 0\\
+2 & -1 & 3\\
+3 & 0 & 3
+\end{pmatrix},
+\enspace
+t=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix},
+\enspace
+c=\begin{pmatrix}
+1\\
+2\\
+0
+\end{pmatrix}.
+\end{equation*}
+\begin{enumerate}
+\item Compute $A^{10}$.
+\item Compute the determinant of $B$. What is the inverse of $B$?
+\item Determine the value of the matrix $C$ that satisfies $(A+B)C=I$, where $I$ is the identity matrix of size 3.
+\item Use the Gaussian elimination procedure to solve the linear system $Bt=c$
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+    \item It is very easy to see that, the powers of a diagonal matrix consist of the powers of its elements, that is 
+\[A=\begin{pmatrix}
+(-1)^{10} & 0 & 0\\
+0 & 1^{10} & 0\\
+0 & 0 & (-1)^{10}
+\end{pmatrix}=
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}.\]
+\item The determinant of $B$ is $|B|=-3+9-6=0$, hence the matrix $B$ has no inverse $B^{-1}$.
+\item To compute the matrix $C$, we have that 
+\[A+B=\begin{pmatrix}
+0 & 1 & 0\\
+2 & 0 & 3\\
+3 & 0 & 2
+\end{pmatrix},\]
+so we have to isolate $C$ from
+\[
+\begin{pmatrix}
+0 & 1 & 0\\
+2 & 0 & 3\\
+3 & 0 & 2
+\end{pmatrix}C=
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\]
+and we can do it left-multiplying by the inverse of $A+B$ in both sides,
+\[
+\begin{pmatrix}
+0 & 1 & 0\\
+2 & 0 & 3\\
+3 & 0 & 2
+\end{pmatrix}^{-1}\cdot
+\begin{pmatrix}
+0 & 1 & 0\\
+2 & 0 & 3\\
+3 & 0 & 2
+\end{pmatrix}C=
+\begin{pmatrix}
+0 & 1 & 0\\
+2 & 0 & 3\\
+3 & 0 & 2
+\end{pmatrix}^{-1}\cdot
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\]
+which gives us
+\[C=\begin{pmatrix}
+0 & 1 & 0\\
+2 & 0 & 3\\
+3 & 0 & 2
+\end{pmatrix}^{-1}.\]
+The determinant of this matrix is 5 and its cofactor matrix is 
+\[\begin{pmatrix}
+0 & 5 & 0\\
+-2 & 0 & 3\\
+3 & 0 & -2
+\end{pmatrix}.\]
+Hence, the inverse is
+\[C=\frac{1}{5}\begin{pmatrix}
+0 & -2 & 3\\
+5 & 0 & 0\\
+0 & 3 & -2
+\end{pmatrix}.\]
+\item The system $Bt=c$ is given by the equations 
+\[
+  \spalignsys{
+x+y=1 ;
+2x-y+3z=2 ;
+3x+3z=0
+}
+\]
+We apply the Gaussian elimination procedure to the matrix
+\[
+\left(\begin{array}{ccc|c}
+    1 & 1 & 0 & 1 \\
+    2 & -1 & 3 & 2 \\
+    3 & 0 & 3 & 0 \\
+\end{array}\right)
+\]
+
+The goal is to transform this matrix into the echelon form. The steps are ($R2$ means row 2):
+\[
+\begin{aligned}
+R2&\rightarrow R2-2R1\\
+R3&\rightarrow R3-3R1\\
+R3&\rightarrow R3-R2
+\end{aligned}
+\]
+This gives the following equivalences.
+\[
+\left(\begin{array}{ccc|c}
+   1 & 1 & 0 & 1 \\
+    2 & -1 & 3 & 2 \\
+    3 & 0 & 3 & 0 \\
+\end{array}\right)\sim
+\left(\begin{array}{ccc|c}
+   1 & 1 & 0 & 1 \\
+    0 & -3 & 3 & 0 \\
+    3 & 0 & 3 & 0 \\
+\end{array}\right)\sim
+\left(\begin{array}{ccc|c}
+    1 & 1 & 0 & 1 \\
+    0 & -3 & 3 & 0 \\
+    0 & -3 & 3 & -3 \\
+\end{array}\right)\sim
+\left(\begin{array}{ccc|c}
+    1 & 1 & 0 & 1 \\
+    0 & -3 & 3 & 0 \\
+    0 & 0 & 0 & -3 \\
+\end{array}\right).
+\]
+Thus, the original system is equivalent to the system
+\[
+  \spalignsys{
+x+y=1 ;
+-3y+3z=0;
+0=-3
+}
+\]
+which is clearly inconsistent, so there is no solution.
+\end{enumerate}
+\end{solution}
+% % Question
+% \question[2]
+% The tobacco market is a monopoly, with supply and demand sets
+% \begin{align*}
+%     S = \{(q, p) : 15p − 2q = 20\},\quad D = \{(q, p) : q + 5p = 40\}.
+% \end{align*}
+% Given that the government has imposed an excise tax of $T$ dollars to the tabaco market:
+
+% \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+%     \item Define the governments revenue function in terms of the excise tax and the number of units sold.
+
+%     \item Find the excise tax that maximizes the government revenue.
+        
+% \end{enumerate}
+% % Solution
+% \begin{solution}[0cm]
+%     Solution
+% \end{solution}
+
+% % Question
+% \question[2]
+%     A firm manufactures two goods, $X$ and $Y$. The market price of these goods is unaffected by the level of the firm's production. The firm's cost function is $C(x, y) = 2x^2+ xy + 2y^2$. The market prices for $X$ and $Y$ are $12$ and $18$ dollars per unit, respectively. Determine the number of units of each good that the firm should produce to maximize its profit.  
+% % Solution
+% \begin{solution}[0cm]
+%     Solution
+% \end{solution}
+
+% % Question
+% \question[2]
+%     A wine dealer has certain amount of units of barrels of wine, which he can sell today at $K$ dollars or wait for a better deal. The price of his barrels of wine increases in time according the the function $Kt^n$, for $n \in \N$. Assume that the market holds an interest rate of $r \R_+$ on continuously compounding levels, that is, $x$ today's dollars equal $xe^{-r t}$ dollars $t$ units of time ahead.
+    
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+%         \item Define the profit made by selling the barrels of wine at time $t$.
+    
+%         \item When should the dealer sell the barrels of wine to maximize his profit? Hint: you can use Problem 3 to ease the optimization.
+    
+%     \end{enumerate}
+% % Solution
+% \begin{solution}[0cm]
+%     Solution
+% \end{solution}
+
+% Question
+
+
+\end{questions}	
+
+\end{document}

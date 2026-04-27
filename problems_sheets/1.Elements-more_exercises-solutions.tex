@@ -1,0 +1,515 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[top=1.75cm,bottom=1.5cm,right=2cm,left=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr} % For customizing headers and footers
+% Customizing header
+\pagestyle{fancy}
+\fancyhf{} % Clear default header and footer
+\fancyhead[L]{{\footnotesize CUNEF Universidad \\ Bachelor in Philosophy, Politics and Economics}} 
+\fancyhead[R]{{\footnotesize A. G. Azze \\ \date{2024}}} 
+% Adjust the distance between the header and the text
+\setlength{\headsep}{1.2cm}
+% Ensure the header is applied on the first page as well
+\fancypagestyle{plain}{
+\fancyhf{} % Clear default header and footer
+\fancyhead[L]{{\footnotesize CUNEF Universidad \\ Bachelor in Philosophy, Politics and Economics}} 
+\fancyhead[R]{{\footnotesize A. G. Azze \\ \date{2024}}} 
+}
+
+\title{Elements of Mathematics \\ Exercises}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\vspace{-1.5cm}
+
+\section{Logic of Sets}
+
+Define the following sets: $A$, students who like algebra; $G$, students who enjoy geometry; $F$, students who play football. 
+
+\begin{enumerate}
+    \item Describe the following sets:
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item \( A \cap G \) \\ \textbf{Solution:} Students who like both algebra and geometry.
+        \item \( G \setminus F \) \\ \textbf{Solution:} Students who enjoy geometry but do not play football.
+        \item \( (A \cup F) \setminus G \) \\ \textbf{Solution:} Students who like algebra or play football but do not enjoy geometry.
+        \item \( A \cup (G \cap F) \) \\ \textbf{Solution:} Students who like algebra or enjoy both geometry and football.
+        \item \( (A \setminus F) \cup G \) \\ \textbf{Solution:} Students who like algebra but do not play football, or enjoy geometry.
+        \item \( (A \cup G) \cap F \) \\ \textbf{Solution:} Students who like algebra or enjoy geometry and also play football.
+    \end{enumerate}
+    \item Write the following statements in set notation:
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+    \item All students who play football enjoy geometry. \\ \textbf{Solution:} \( F \subset G \)
+    \item There are students who play football but do not enjoy geometry. \\ \textbf{Solution:} \( F \setminus G \neq \emptyset \)
+    \item Some students who like algebra also enjoy geometry. \\ \textbf{Solution:} \( A \cap G \neq \emptyset \)
+    \item No students who enjoy geometry play football. \\ \textbf{Solution:} \( G \cap F = \emptyset \)
+    \item Every student who likes algebra also plays football or enjoys geometry. \\ \textbf{Solution:} \( A \subset (F \cup G) \)
+    \end{enumerate}
+\end{enumerate}
+
+\section{Algebraic Manipulation}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item Simplify the expression:
+    \[
+    \left( -(xy^2)^{-2}(x^3y^5)^3 \right)^2
+    \]
+    \textbf{Solution:} \( x^{14} y^{22} \)
+
+    \item If \( \left( \frac{ab}{c} \right)^{-24} = 4 \), find the value of \( \left( \frac{c}{ab} \right)^{12} \). \\
+    \textbf{Solution:} \( 2 \)
+
+    \item Factor the expressions:
+    \[
+    36 - 4x^2 \quad \text{and} \quad x^3 - 3x^2y + 3xy^2 - y^3
+    \]
+    \textbf{Solution:} \( 4(3-x)(3+x) \quad \text{and} \quad (x-y)^3 \)
+
+    \item Simplify the expression:
+    \[
+    \frac{x}{5-x} - \frac{2-x}{x+5} - \frac{35}{x^2 - 25}
+    \]
+    \textbf{Solution:} \( \frac{-12x - 25}{(x - 5)(x + 5)} \)
+
+    \item Reduce the fraction:
+    \[
+    \frac{9a^2 - 24ab + 16b^2}{9a^2 - 16b^2}
+    \]
+    \textbf{Solution:} \( \frac{3a-4b}{3a+4b} \)
+
+    \item Solve the inequality:
+    \[
+    |x^2 - 9| \leq 4
+    \]
+    \textbf{Solution:} $x \in (-\sqrt{13}, -\sqrt{5}) \cup (\sqrt{5}, \sqrt{13})$
+
+    \item Simplify the expression:
+    \[
+    \left( \frac{2x^3y^{-4}}{(x^{-2}y^3)^2} \right)^{-1}
+    \]
+    \textbf{Solution:} \( 2^{-1}x^{-7}y^{10} \)
+
+    \item If \( \left( \frac{m}{np} \right)^2 = 16 \), find the value of \( \left( \frac{np}{m} \right)^3 \). \\
+    \textbf{Solution:} \( \frac{1}{64} \)
+
+    \item Factor the expressions:
+    \[
+    81 - y^4 \quad \text{and} \quad a^3 + 7a^2b + 12ab^2
+    \]
+    \textbf{Solution:} \((3 - y)(3 + y)(9 + y^2) \) and \(a(a+4b)(a+3b) \)
+
+    \item Simplify the expression:
+    \[
+    \frac{x}{4-x} - \frac{3-x}{x+4} - \frac{28}{x^2 - 16}
+    \]
+    \textbf{Solution:} \(\frac{-11x - 16}{(x - 4)(x + 4)}\)
+
+    \item Reduce the fraction:
+    \[
+    \frac{16x^2 - 40xy + 25y^2}{16x^2 - 36y^2}
+    \]
+    \textbf{Solution:} \( \frac{(4x - 5y)^2}{(4x - 6y)(4x + 6y)} \)
+
+    \item Solve the inequality:
+    \[
+    |2x^2 - 7| \geq 5
+    \]
+    \textbf{Solution:} \( x \leq (-\infty, -\sqrt{6}]\cup [\sqrt{6}, \infty) \cup [-1, 1] \)
+
+    \item Simplify the expression:
+    \[
+    \left( -(a^2b^{-3})^3(a^{-4}b^5)^2 \right)^{-1}
+    \]
+    \textbf{Solution:} \( -a^{2}b^{-1} \)
+
+    \item If \( \left( \frac{p^2}{qr} \right)^{-2} = 9 \), find the value of \( \left( \frac{qr}{p^2} \right)^3 \). \\
+    \textbf{Solution:} \( \frac{1}{27} \)
+
+    \item Solve the inequality:
+    \[
+    \frac{2x + 1}{x - 3} > 2
+    \]
+    \textbf{Solution:} \( x > 3 \)
+
+    \item Simplify the following expression:
+    \[
+    \left( \frac{a^2 b^{-3}}{(ab^4)^2} \right)^{-1}
+    \]
+    \textbf{Solution:} \( b^{11} \)
+
+\end{enumerate}
+
+\section{Manipulating Logarithms}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+    \item Prove that the logarithmic function transforms multiplications into sums and divisions into subtractions. That is, prove the following properties: 
+    \begin{enumerate}[leftmargin = 0.5cm, label = \alph*., rightmargin = 0.2cm]
+        \item $\ln(ab) = \ln(a) + \ln(b)$ \\ \textbf{Solution:} Take exponentials in both sides of the equations.
+        \item $\ln(a/b) = \ln(a) - \ln(b)$ \\ \textbf{Solution:} Take exponentials in both sides of the equations.
+    \end{enumerate}
+
+    \item Compute $65536 / 4096$, without calculator, by using the facts that $\log_2(16) = 65536$, $\log_2(12) = 4096$. \\
+    \textbf{Solution:} \( 16 \)
+
+    \item What is the smallest $n \in \mathbb{N}$ such that $\left( \frac{4}{3} \right)^n \geq 50$? \\
+    \textbf{Solution:} \( n = 14 \)
+
+    \item Solve the equations:
+    
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+    
+        \item $5^x \cdot 25^{x-1} = 125$ \\ \textbf{Solution:} \( x = 5/3 \)
+        \item $2 \ln(x) + 3 \ln(x^2) = 10$ \\ \textbf{Solution:} \( x = e^{1.25} \)
+        \item $\frac{\ln(x^2 - 5)}{x + 1} = 0$ \\ \textbf{Solution:} \( x = \pm\sqrt{6} \)
+        \item $3^{2x} - 3^{x} = 18$ \\ \textbf{Solution:} \( x = \ln(6)/\ln(3) \)
+    
+    \end{enumerate}
+
+    \item Prove that $\log_a(ab) = 1 + \log_a(b)$ for any $a > 0$ and $b > 0$. \\
+    \textbf{Solution:} Apply the properties of logarithms.
+
+    \item Solve for $x$: $\ln(3x + 5) - \ln(x) = 2$. \\
+    \textbf{Solution:} \( x = \frac{-5}{3 - e^2} \)
+
+    \item What is the smallest $n \in \mathbb{N}$ such that $\left( \frac{5}{6} \right)^n \leq 0.01$? \\
+    \textbf{Solution:} \( n = 26 \)
+
+    \item Solve the equations:
+    
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+    
+        \item $4^x \cdot 2^{x-1} = 32$ \\ \textbf{Solution:} \( x = 2 \)
+        \item $\ln(x^3) + 4 \ln(x) = 7$ \\ \textbf{Solution:} \( x = e \)
+        \item $\frac{x \ln(x + 4)}{x^2 + 2x + 1} = 0$ \\ \textbf{Solution:} \( x = 0, x = -3 \)
+        \item $5^x - 5^{x-1} = 2^{x+2} - 2^{x}$ \\ \textbf{Solution:} \( x = \ln(15/4)/(\ln(5)-\ln(2))\)
+    
+    \end{enumerate}
+
+    \item If $f(x) = \ln(x)$ and $g(x) = x^2$, show that the composition $f(g(x))$ simplifies to $2 \ln(x)$. \\
+    \textbf{Solution:} Compute the composition and apply properties of logarithms.
+
+    \item Solve for $x$: $3^{2x} + 3^x = 90$. \\
+    \textbf{Solution:} \( x = 2 \)
+
+\end{enumerate}
+
+\section{\textit{n}-Folding Times}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+    \item The population of a city grows at an annual rate of $2.8\%$. How many years will it take for the population to increase by $75\%$? \\
+    \textbf{Solution:} $\frac{\ln(1.75)}{\ln\left(1.028\right)}$  years.
+
+    \item A certain investment grows at a monthly rate of $p\%$. How long will it take for the initial investment to quadruple in value? \\
+    \textbf{Solution:} $\frac{\ln(4)}{\ln\left(1 + \frac{p}{100}\right)}$ months.
+
+    \item Deforestation in a certain forest removes $1.2\%$ of trees each year. If the initial population is $100,000$, how many years will it take for the population to decrease to $20,000$ trees? \\
+    \textbf{Solution:} $\frac{\ln(0.2)}{\ln\left(0.998\right)}$ years.
+
+    \item If there are $100$ million different species on earth and the extinction rate of species is estimated to be $0.05\%$ per year, how many species will remain ten years from now? \\
+    \textbf{Solution:} $0.95^10 100$ millions species
+    
+\end{enumerate}
+
+\section{Mathematical Induction}
+
+Prove, using mathematical induction, the following statements for all integers \( n \geq 1 \):
+
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item $1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}$
+
+    \item $2^n > n$
+
+    \item $5^n - 1 \text{ is divisible by } 4$
+
+    \item $3^n > 2n + 1$
+
+\end{enumerate}
+
+\textbf{Hint:} approach the problems as follows:
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+    \item prove it for $n = 1$
+    \item prove that if it holds for an arbitrary natural number $n$, then it also holds for $n+1$
+    \item conclude that the inequality holds true for all natural numbers
+\end{enumerate}
+
+\section{Interpretation, Reasoning, and Modeling}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+    \item A bakery sells muffins for \$2 each. Every week, the bakery discounts the price by $p\%$ to attract more customers. If the bakery initially sold 100 muffins, how many muffins would they need to sell after 2 weeks of discounts for the revenue to remain the same? \\
+    \textbf{Solution:} Depends on $p$, solve using revenue equations.
+
+    \item A cyclist rides at a speed of $v_1$ km/h on flat terrain and $v_2$ km/h uphill, with $v_2 < v_1$. The total distance traveled on flat terrain is $d_1$ kilometers, and the total distance uphill is $d_2$ kilometers. How long does the trip take in total? \\
+    \textbf{Solution:} \( \frac{d_1}{v_1} + \frac{d_2}{v_2} \) hours.
+
+    \item A video streaming service charges a flat fee of \$12 per month, plus \$0.50 for every movie streamed.
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Write an expression for the total cost if you stream $m$ movies in a month. \\
+        \textbf{Solution:} \( C(m) = 12 + 0.50m \)
+        
+        \item If you have a budget of \$20 to \$35 for streaming services per month, how many movies can you watch while staying within your budget? \\
+        \textbf{Solution:} $16 \leq m \leq 46$ movies.
+    \end{enumerate}
+
+    \item A company's profits increase by $4\%$ each quarter. If the current quarterly profit is \$50,000, what will the profit be after 5 years? \\
+    \textbf{Solution:} Approximately \$109,555 after $5$ years.
+
+    \item A car travels the first half of a journey at an average speed of $60$ km/h and the second half at an average speed of $90$ km/h. If the entire journey is $d$ kilometers, what is the car’s average speed for the entire trip? \\
+    \textbf{Solution:} \( 72 \text{ km/h} \)
+
+    \item A software company charges \$500 for the initial purchase of a product, followed by a maintenance fee of \$50 every $6$ months.
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Write an expression for the total cost of the product over $t$ years. \\
+        \textbf{Solution:} \( C(t) = 500 + 100t \)
+        
+        \item If your budget for this software over the next $3$ years is less than \$800, how long can you continue paying for maintenance without exceeding the budget? \\
+        \textbf{Solution:} $3$ years.
+    \end{enumerate}
+
+\end{enumerate}
+
+\section{Solving Equations}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+    
+    \item Solve the following equations:
+    
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item $\frac{3}{x+2} + \frac{2}{x-1} = 0$ \\
+    \textbf{Solution:} \( x = -1/5 \)
+
+    \item $\frac{1}{2}t^2 + t = 0$, solve for $t$. \\
+    \textbf{Solution:} \( t = 0 \text{ or } t = -2 \)
+
+    \item $5x - 3 = \frac{1}{x}$ (Hint: multiply by $x$ both sides of the equation) \\
+    \textbf{Solution:} \( x = \frac{3\pm\sqrt{29}}{10} \)
+
+    \item $x(x-3)(x+2) = 0$ \\
+    \textbf{Solution:} \( x = 0, 3, -2 \)
+
+    \item $e^{2x} + 5e^{x} = 24$ (Hint: try the change of variable $y = e^x$) \\
+    \textbf{Solution:} \( x = \ln(3) \)
+
+    \item $c + \frac{1}{2}t^2 = b$, solve for $t$. \\
+    \textbf{Solution:} \( t = \pm \sqrt{2(b-c)} \)
+
+    \item $\sqrt{x + 5} = x - 1$ \\
+    \textbf{Solution:} \( x = 4, -1 \)
+
+    \item $P^2 + 2b^2 = b^2 - 2P$, solve for $P$. \\
+    \textbf{Solution:} \( P = b \text{ or } P = -b \)
+    
+    \end{enumerate}
+    
+    \item Find the values of $\alpha$ for which the following equations have: (\textit{i}) No solutions, (\textit{ii}) Exactly one solution, (\textit{iii}) Two solutions. 
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item $x^2 - 2x + \alpha = 0$ \\
+    \textbf{Solution:} Discriminant condition: (\textit{i}) $\alpha > 1$, (\textit{ii}) $\alpha = 1$, (\textit{iii}) $\alpha < 1$
+
+    \item $x^4 + ax^2 + 4 = 0$ (Hint: try the change of variable $y = x^2$) \\
+    \textbf{Solution:} Discriminant condition: (\textit{i}) $|a| < 4$, (\textit{ii}) $a = \pm4$, (\textit{iii}) $|a| > 4$
+        
+    \end{enumerate}
+    
+    \end{enumerate}
+
+\section{Functions}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+    \item A country's tax revenue \(T\) as a function of tax rate \(r\) is modeled linearly. When the tax rate is $5\%$, the government collects \$100 million, and when the tax rate is $10\%$, the government collects \$150 million. Find the equation that expresses tax revenue \(T\) as a function of tax rate \(r\). \\
+    \textbf{Solution:} \( T(r) = 10r + 50 \) (in million dollars).
+
+    \item The demand for a product is modeled by a quadratic equation. If the price per unit is \(p\), the demand \(D(p)\) passes through the points $(2, 400)$, $(4, 340)$, and $(6, 220)$. Find the equation for the demand curve. \\
+    \textbf{Solution:} \( D(p) = -7.5p^2 +15p + 400 \)
+
+    \item The functions \( C(x) \), \( G(x) \), and \( P(x) \) are given by:
+    \[
+    C(x) = 50x + 300 \quad \text{(Cost of producing $x$ units)}
+    \]
+    \[
+    G(x) = 25x \quad \text{(Government subsidy per $x$ units produced)}
+    \]
+    \[
+    P(x) = 200x \quad \text{(Price per $x$ units sold)}
+    \]
+    Find the formula for the profit \( \Pi(x) \) when the company produces and sells \( x \) units. \\
+    \textbf{Solution:} \( \Pi(x) = 175x - 300 \)
+
+    \item A politician’s approval rating is tracked over time using a quadratic model. The rating \( R(t) \) passes through the points \( (1, 55) \), \( (3, 65) \), and \( (5, 60) \), where \(t\) is measured in months. Find the quadratic equation that models the approval rating \( R(t) \) over time. \\
+    \textbf{Solution:} \( R(t) = -\frac{15}{8}t^2 + \frac{25}{2}t + \frac{355}{8} \)
+
+    \item A country’s gross domestic product (GDP) \(G\) grows at a rate modeled by the function \( G(t) = G_0 e^{kt} \), where \( G_0 \) is the initial GDP, \( k \) is the growth rate, and \( t \) is the time in years. If the GDP doubles after 5 years, determine the value of \(k\). \\
+    \textbf{Solution:} \( k = \frac{\ln(2)}{5} \)
+
+\end{enumerate}
+
+\section{Supply-Demand Equilibrium}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+    \item Given the supply set $S = \{(q,p) : 3p - 2q = 12\}$ and the demand set $D = \{(q,p) : 4p + q^2 - 3q = 20\}$, determine the equilibrium price and quantity. \\
+    \textbf{Solution:} Equilibrium price: \( p \approx 5.23 \), quantity: \( q \approx  1.84 \).
+
+    \item The supply and demand for a particular product are modeled by the following equations: 
+    \[
+    S = \{(q,p) : 5p - q = 10\}
+    \]
+    \[
+    D = \{(q,p) : 2p + 4q = 18\}
+    \]
+    Find the equilibrium price and quantity. \\
+    \textbf{Solution:} Equilibrium price: \( p = 29/11 \), quantity: \( q = 35/11 \).
+
+\end{enumerate}
+
+\section{Sequences and Limits}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+    \item A government wants to reduce the unemployment rate from $12\%$ to $5\%$ over the next $10$ years through various economic policies. What is the average annual rate of reduction required to achieve this goal? \\
+    \textbf{Solution:} $(1 - e^{\ln(5) - \ln(12) / 10})100\%$ annual reduction.
+
+    \item Determine the $n^{\text{th}}$ term and the limit (if it exists) of the sequence:
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item $3, -6, 9, -12, 15, \dots$ \\
+        \textbf{Solution:} $a_n = (-1)^{n+1} \cdot 3n$, no limit.
+        
+        \item $1, 2, 5, 10, 17, 26, 37, \dots$ \\
+        \textbf{Solution:} $a_n = n^2 + 1$, limit = $\infty$.
+
+        \item $2, 1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \dots$ \\
+        \textbf{Solution:} $a_n = 2 \cdot \left( \frac{1}{2} \right)^n$, limit = 0.
+
+        \item $0, 1/2, 0, 1/2, 0, 1/2, \dots$ \\
+        \textbf{Solution:} $a_n = 0$ if $n$ is odd and $a_n = 1/2$ if $n$ is even, no limit.
+
+        \item $7, 5, 3, 1, -1, \dots$ \\
+        \textbf{Solution:} $a_n = 7 - 2n$, limit = $-\infty$.
+
+        \item $1, 3, 9, 27, 81, \dots$ \\
+        \textbf{Solution:} $a_n = 3^{n-1}$, limit = $\infty$.
+
+        \item $\frac{1}{3}, \frac{1}{9}, \frac{1}{27}, \frac{1}{81}, \dots$ \\
+        \textbf{Solution:} $a_n = \frac{1}{3^n}$, limit = 0.
+
+        \item $8, 16, 26, 38, 52, \dots$ \\
+        \textbf{Solution:} $a_n = 6n + 2$, limit = $\infty$.
+
+        \item $1, -1, 1, -1, 1, \dots$ \\
+        \textbf{Solution:} $a_n = (-1)^(n+1)$, no limit.
+    \end{enumerate}
+
+    \item A new government policy aims to increase GDP by $25\%$ over the next $8$ years. Assuming constant growth, what is the required annual growth rate? \\
+    \textbf{Solution:} $(e^{\ln(1.25)/8} - 1)100\%$ per year.
+
+\end{enumerate}
+
+\section{Limits}
+
+Find the following limits (if they exist).
+
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item $\lim_{n\rightarrow\infty} \frac{2n^3 + 5n}{n^4 + 10n^2 + 1}$ \\
+    \textbf{Solution:} 0.
+
+    \item $\lim_{n\rightarrow\infty} (1+r)^n$, for the cases $r \in (-1, 0)$, $r > 0$, and $r = 0$ \\
+    \textbf{Solution:} For $r \in (-1, 0)$: 0, for $r > 0$: $\infty$, for $r = 0$: 1.
+
+    \item $\lim_{n\rightarrow\infty} \frac{n^3 + 3n + 5}{n^2 - 7n + 2}$ \\
+    \textbf{Solution:} $\infty$.
+
+    \item $\lim_{n \to \infty} 1 + e^{-n}$ \\
+    \textbf{Solution:} 1.
+
+    \item $\lim_{n \to \infty} \sin(n\pi/2)$ \\
+    \textbf{Solution:} Does not exist.
+
+\end{enumerate}
+
+\section{First-order recurrence equations}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+    \item A government implements a policy where the budget \( B_n \) in year \(n\) is divided between social welfare spending \(S_n\) and infrastructure investment \(I_n\), such that:
+    \[
+    B_n = S_n + I_n
+    \]
+    It is believed that the government allocates $60\%$ of the budget to social welfare each year. It is also believed that next year's budget is proportional to the current year's infrastructure investment. Show that investment \(I_n\) satisfies a first-order recurrence equation, and determine the condition (about the proportion) under which the budget will grow each year. \\
+    \textbf{Solution:} The recurrence relation is \( I_{n+1} = 0.4kI_n \), and the budget will grow if $k > 2.5$.
+
+    \item In a political campaign, the amount of funding \( F_n \) raised in year \(n\) is split between advertising expenses \(A_n\) and grassroots organization expenses \(G_n\), such that:
+    \[
+    F_n = A_n + G_n
+    \]
+    It is estimated that $70\%$ of the funds raised each year are allocated to advertising. Additionally, next year's fundraising total is $110\%$ this year's grassroots organization expenses. Write and solve a first-order recurrence equation for \(G_n\). \\
+    \textbf{Solution:} The recurrence relation is \( G_{n+1} = 3^{-1}G_n \), and the solution is \( G_n = 0.3^{-n}G_0 \).
+
+    \item A company's revenue \(R_n\) in year \(n\) is split between operating expenses \(O_n\) and reinvestment \(I_n\), such that:
+    \[
+    R_n = O_n + I_n
+    \]
+    The company allocates $65\%$ of its revenue to operating expenses. Next year's revenue is expected to be proportional to this year's reinvestment. Write a recurrence relation for \(I_n\) and determine the condition for the company’s revenue to grow annually. \\
+    \textbf{Solution:} The recurrence relation is \( I_{n+1} = 0.35kI_n \), and revenue will grow if $k > 1/0.35$.
+
+\end{enumerate}
+
+\section{The Cobweb Model}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+    \item Suppose that the supply and demand sets for a certain good are
+    \[
+    S = \{(q, p)\ |\ q = 2p - 4\}, \quad D = \{(q, p)\ |\ q = 10 - 3p\}
+    \]
+    with $b = 2$, $d = 3$, $a = -4$, $c = 10$. Assume that the suppliers operate according to the cobweb model, that is, if $p_t$ and $q_t$ are (respectively) the price and quantity in year $t$, then $p_t = p_D(q_t)$ and $q_t = q_S(p_{t-1})$.
+    
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Find the equilibrium set \(E = S \cap D\) \\
+        \textbf{Solution:} \( p^* = 2.8, q^* = 1.6 \)
+        
+        \item Write down the first-order recurrence equations for \(p_t\) and \(q_t\) \\
+        \textbf{Solution:} \( p_t = \frac{14 - 2p_{t-1}}{3}, q_t = \frac{8 - 2q_{t-1}}{3} \)
+
+        \item Express \(p_t\) and \(q_t\) in terms of \(t\) \\
+        \textbf{Solution:} $p_t = 2.8 + p_0(-2/3)^t$, $p_t = 1.6 + p_0(-2/3)^t$
+
+        \item How do \(p_t\) and \(q_t\) behave as \(t\) tends to infinity? \\
+        \textbf{Solution:} They tend to equilibrium values.
+    \end{enumerate}
+    
+    \item Consider the general linear Cobweb model, that is, assuming that the supply and demand sets of a certain good are
+    $$
+    S = \{(q, p)\ |\ q = bp - a\}, \quad D = \{(q, p)\ |\ q = c - dp\}.
+    $$
+    Impose the restrictions 
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\roman*), rightmargin = 0.2cm]
+        \item $b > 0, d > 0$
+        \item $a < 0$, $c > 0$, $c > -a$
+        \item $q_0 < q^*$, that is, the initial supplied quantity is lower than the equilibrium quantity
+    \end{enumerate}
+    Answer the following questions:
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Why restriction (i) makes sense from an economical point \\
+        \textbf{Solution:} They guarantee that the supply increases and the demand decreases as price rises.
+
+        \item Prove that, under the above restrictions, $\lim_{t\rightarrow\infty}q_t = q^*$ and $\lim_{t\rightarrow\infty}p_t = p^*$ \\
+        \textbf{Solution:} Find $p_t$ and $q_t$ and conclude that the mentioned limits hold.
+    \end{enumerate}
+    
+\end{enumerate}
+
+\end{document}

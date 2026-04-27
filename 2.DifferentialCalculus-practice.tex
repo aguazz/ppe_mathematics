@@ -1,0 +1,1453 @@
+\documentclass[9pt]{beamer}
+\usepackage{silence}
+\WarningFilter{beamerthememetropolis}{You need to compile with XeLaTeX or LuaLaTeX to use the Fira fonts}
+\usetheme[titleformat = smallcaps, block = fill, progressbar = frametitle]{metropolis}
+\title{\huge \mbox{Differential Calculus - Exercises}}
+\input{preamble}
+
+%----------------------------- -------------- -----------------------------%
+%----------------------------- BEGIN DOCUMENT -----------------------------%
+%----------------------------- -------------- -----------------------------%
+\begin{document}
+%----------------------- TITLE -----------------------%
+\maketitle
+%----------------------- TITLE -----------------------%
+
+%----------------------- INTRODUCTION -----------------------%
+\begin{frame}{Determinate forms of limits and the rule of limits}
+
+    Find the limits:
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item $\lim_{x\rightarrow \infty}\frac{1}{x^2 + 3x}$
+
+        \item $\lim_{x\rightarrow 0}\frac{x^2 - 1}{x^2}$
+
+        \item $\lim_{x\rightarrow 2}\frac{\sin(x - 2) + \cos(x - 2)}{x - 2}$
+
+        \item $\lim_{x\rightarrow \infty} \ln(x^x)$
+
+        \item $\lim_{x\rightarrow 0} xe^x$
+
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Determinate forms of limits — Solutions}
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item $\displaystyle \lim_{x\to\infty}\frac{1}{x^2+3x}=0$
+\quad (denominator growths indefinitely).
+
+\item $\displaystyle \lim_{x\to 0}\frac{x^2-1}{x^2}=-\infty$
+\quad (numerator $\to -1$, denominator $\to 0^+$).
+
+\item $\displaystyle \lim_{x\to 2}\frac{\sin(x-2)+\cos(x-2)}{x-2}$ \\
+(numerator $\to \sin(0)+\cos(0) = 0 + 1 = 1$, denominator $\to \pm\infty$) \\
+% set $h=x-2\to0$,
+% \[
+% \frac{\sin h+\cos h}{h}=\frac{\sin h}{h}+\frac{\cos h}{h}
+% \to 1+\text{(diverges)}.
+% \]
+No limit: $+\infty$ from the right and $-\infty$ from the left.
+
+\item $\displaystyle \lim_{x\to\infty}\ln(x^x)
+=\lim_{x\to\infty}x\ln x=+\infty$.
+
+\item $\displaystyle \lim_{x\to 0} x e^x
+= \big(\lim_{x\to0}x\big)\big(\lim_{x\to0}e^x\big)=0\cdot 1=0$.
+
+\end{enumerate}
+
+\end{frame}
+
+%------------------ FRAME: EXERCISES ------------------
+\begin{frame}{Limits at $\pm\infty$ of ratios of polynomials}
+
+Compute the following limits:
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+\item $\displaystyle \lim_{x\to\infty}\frac{3x^2+3x-2}{9x-5}$
+\item $\displaystyle \lim_{x\to-\infty}\frac{2x^3-x}{x^2+4}$
+\item $\displaystyle \lim_{x\to-\infty}\frac{-7x^3+5}{2x^2-1}$
+\item $\displaystyle \lim_{x\to\infty}\frac{4x-3}{5x^2+1}$
+\item $\displaystyle \lim_{x\to-\infty}\frac{5x^4-x}{-10x^4+7}$
+\end{enumerate}
+
+\end{frame}
+
+%==================== SOLUTIONS ====================
+\begin{frame}{Limits at $\pm\infty$ — Solutions (leading-term rule)}
+
+\small
+% \textbf{Rule of thumb:}
+% If $\deg N<\deg D\Rightarrow 0$;\;
+% $\deg N=\deg D\Rightarrow$ ratio of leading coeffs;\;
+% $\deg N>\deg D\Rightarrow \pm\infty$ with sign from leading terms.
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item Divide by $x^2$:
+\[
+\frac{3x^2+3x-2}{9x-5}
+=\frac{3+\frac{3}{x}-\frac{2}{x^2}}{\frac{9}{x}-\frac{5}{x^2}}
+\;\xrightarrow[x\to\infty]{}\; \frac{3}{0^+}= \boxed{+\infty}.
+\]
+
+\item Divide by $x^3$:
+\[
+\frac{2x^3-x}{x^2+4}
+=\frac{2-\frac{1}{x^2}}{\frac{1}{x}+\frac{4}{x^3}}
+\;\xrightarrow[x\to-\infty]{}\; \frac{2}{0^-}= \boxed{-\infty}.
+\]
+
+\item Divide by $x^3$:
+\[
+\frac{-7x^3+5}{2x^2-1}
+=\frac{-7+\frac{5}{x^3}}{\frac{2}{x}-\frac{1}{x^3}}
+\;\xrightarrow[x\to-\infty]{}\; \frac{-7}{0^-}= \boxed{+\infty}.
+\]
+
+\item Divide by $x^2$:
+\[
+\frac{4x-3}{5x^2+1}
+=\frac{\frac{4}{x}-\frac{3}{x^2}}{5+\frac{1}{x^2}}
+\;\xrightarrow[x\to\infty]{}\; \frac{0}{5}= \boxed{0}.
+\]
+
+\item Divide by $x^4$:
+\[
+\frac{5x^4-x}{-10x^4+7}
+=\frac{5-\frac{1}{x^3}}{-10+\frac{7}{x^4}}
+\;\xrightarrow[x\to-\infty]{}\; \frac{5}{-10}= \boxed{-\tfrac12}.
+\]
+
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Indeterminate forms of limits: the factorization trick}
+
+    Compute the limits:
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+        \item $\lim_{x\rightarrow 0} \frac{x^3 - 5x^2 + 3x}{2x}$
+
+        \item $\lim_{x\to 1}\frac{x^2+7x-8}{x-1}$
+
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Indeterminate forms of limits: the factorization trick — Solution}
+
+% \small
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item $\displaystyle \lim_{x\to 0}\frac{x^3-5x^2+3x}{2x}$ \\
+Factor out $x$:
+\[
+\frac{x(x^2-5x+3)}{2x}=\frac{x^2-5x+3}{2}\xrightarrow[x\to 0]{} \boxed{\tfrac{3}{2}}.
+\]
+
+\item $\displaystyle \lim_{x\to 1}\frac{x^2+7x-8}{x-1}$ \\
+$ x^2+7x-8=(x-1)(x+8)$.
+\[
+\frac{(x-1)(x+8)}{x-1}=x+8\xrightarrow[x\to 1]{}\boxed{9}.
+\]
+
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{\orange{Indeterminate forms of limits: the ratio of polynomials at infinite} (+0.2)}
+
+    Given the real numbers $a_0, a_1, \dots, a_n$ and $b_0, b_1, \dots, b_m$ for $n, m\in\N$ and such that $a_n \neq 0$ and $b_m \neq 0$, define the polynomials
+    \begin{align*}
+        p(x) &= a_0 + a_1x + a_2x^2 + \dots + a_n x^n, \\ 
+        q(x) &= b_0 + b_1x + b_2x^2 + \dots + b_m x^m.
+    \end{align*}
+    Proof that
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+        \item $\lim_{x\rightarrow \infty} \frac{p(x)}{q(x)} = 0$ if $n < m$
+        
+        \item $\lim_{x\rightarrow \infty} \frac{p(x)}{q(x)} = \infty$ if $n > m$
+        
+        \item $\lim_{x\rightarrow \infty} \frac{p(x)}{q(x)} = \frac{a_n}{b_m}$ if $n = m$
+        
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Indeterminate forms of limits: the conjugation trick}
+
+    Compute the limits:
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item $\lim_{x\rightarrow 4}\frac{2 - \sqrt{x}}{4 - x}$
+
+        \item $\lim_{x\rightarrow 0}\frac{\sqrt{x^2 - x + 4} - 2}{x^2 - 3x}$
+
+        \item $\lim_{x\rightarrow 0}\frac{\sqrt{x^2 + 9x + 9} - 3}{x}$
+
+        \item $\lim_{x\rightarrow 0}\frac{t}{\sqrt{4 - t} -2}$
+
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Indeterminate forms — conjugation trick: solutions}
+
+\small
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+\setlength\itemsep{0.3cm}
+\item $\displaystyle \lim_{x\to 4}\frac{2-\sqrt{x}}{4-x}
+=\frac{2-\sqrt{x}}{4-x}\cdot\frac{2+\sqrt{x}}{2+\sqrt{x}}
+=\frac{4-x}{(4-x)(2+\sqrt{x})}
+=\frac{1}{2+\sqrt{x}}\;\xrightarrow[x\to4]{}\;\boxed{\tfrac14}.$
+
+\item $\displaystyle \lim_{x\to 0}\frac{\sqrt{x^2-x+4}-2}{x^2-3x}
+=\frac{x^2-x}{(x^2-3x)(\sqrt{x^2-x+4}+2)}$ \\
+\hspace{2.76cm} 
+$=\frac{x(x-1)}{x(x-3)(\sqrt{x^2-x+4}+2)}
+\;\xrightarrow[x\to0]{}\;\boxed{\tfrac{1}{12}}.$
+
+\item $\displaystyle \lim_{x\to 0}\frac{\sqrt{x^2+9x+9}-3}{x}
+=\frac{x^2+9x}{x(\sqrt{x^2+9x+9}+3)}
+=\frac{x+9}{\sqrt{x^2+9x+9}+3}
+\;\xrightarrow[x\to0]{}\;\boxed{\tfrac{3}{2}}.$
+
+\item $\displaystyle \lim_{t\to 0}\frac{t}{\sqrt{4-t}-2}
+=\frac{t(\sqrt{4-t}+2)}{(4-t)-4}
+=-(\sqrt{4-t}+2)\;\xrightarrow[t\to0]{}\;\boxed{-4}.$
+
+\end{enumerate}
+
+\end{frame}
+
+
+% \begin{frame}{Indeterminate forms of limits}
+
+%     Compute the following limits:
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+%         \item $\lim_{x\rightarrow 1}\frac{x^2 + 7x - 8}{x-1}$
+        
+%         \item $\lim_{x\rightarrow \infty}\frac{x^3 - 10x^2 + 500x -2}{x^3}$
+        
+%     \end{enumerate}
+    
+% \end{frame}
+
+\begin{frame}{The sandwich technique (a.k.a squeeze theorem)}
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+        \item Suppose $y = f(x)$ is the equation of a curve that always lies between the parabola $x^2 = y - 1$ and the hyperbola $yx + y - 1 = 0$. What is the limit of $f(x)$ as $x\rightarrow 0$?
+
+        \item Suppose $f(x)$ is a function lower than $g(x) = 1/2 + e^{-x^2}$ and greater than $h(x) = \frac{5x^2}{10(1+x^2) + 3x}$ for all $x \geq 0$. What is the limit of $f(x)$ as $x\rightarrow \infty$?
+    \end{enumerate}
+     
+\end{frame}
+
+\begin{frame}{The sandwich technique (a.k.a squeeze theorem) — Solution}
+
+\small
+\begin{enumerate}[leftmargin=0.5cm, label=\arabic*., rightmargin=0.2cm]
+
+\item Parabola: $x^2=y-1 \Rightarrow y_1(x)=x^2+1$.
+\quad Hyperbola: $yx+y-1=0 \Rightarrow y_2(x)=\dfrac{1}{1+x}$ (for $x\neq-1$).\\
+“Between the curves” means $\min\{y_1(x),y_2(x)\}\le f(x)\le \max\{y_1(x),y_2(x)\}$.\\
+$\displaystyle \lim_{x\to0}y_1(x)=1,\quad \lim_{x\to0}y_2(x)=1
+\;\Rightarrow\; \boxed{\lim_{x\to0}f(x)=1}$. \\
+
+\begin{center}
+    \href{https://www.desmos.com/calculator/kwd4npf7tn}{Visualize here!}
+\end{center}
+
+\vspace{0.3cm}
+\item For $x\ge 0$: $\displaystyle \frac{5x^2}{10(1+x^2)+3x}\ \le\ f(x)\ \le\ \frac12+e^{-x^2}$.\\
+Right bound: $\displaystyle \lim_{x\to\infty}\Big(\tfrac12+e^{-x^2}\Big)=\tfrac12$.\\
+Left bound:
+\[
+\lim_{x\to\infty}\frac{5x^2}{10(1+x^2)+3x}
+=\lim_{x\to\infty}\frac{5}{10+\frac{3}{x}+\frac{10}{x^2}}=\tfrac12.
+\]
+Thus $\boxed{\lim_{x\to\infty}f(x)=\tfrac12}$. \\
+
+\begin{center}
+    \href{https://www.desmos.com/calculator/u9pxu613n6}{Visualize here!}
+\end{center}
+
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Intuition of continuity}
+
+    Which of the following functions are likely to be continuous functions of time? What about their monotonicity?
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Price of an ounce of gold
+        \item Height of a growing child
+        \item Height of an airplane above sea level
+        \item Distance traveled by a car
+        \item Number of votes supporting a party counted during election night
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Intuition of continuity — Solutions}
+
+\small
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item \textbf{Price of gold:} \emph{Not continuous.}\\
+Market prices change in discrete ticks; modeled as a piecewise constant function, which may increase or decrease at every jump.
+
+\item \textbf{Height of a growing child:} \emph{Continuous.} \\
+No instantaneous jumps in physical height; derivative (growth speed) may vary, but the function is continuous. It is increasing.
+
+\item \textbf{Height of an airplane:} \emph{Continuous.}\\
+Altitude cannot jump provided finite vertical speed; may increase or decrease.
+
+\item \textbf{Distance traveled by a car:} \emph{Continuous and nondecreasing.}\\
+It accumulates in a continuous fashion over time; it can only increase or stay constant.
+
+\item \textbf{Votes counted share:} \emph{Not continuous.} \\
+Increasing or constant, but updates arrive in batches (jumps).
+
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Find the region of continuity}
+
+    For what values of $x$ the following functions are continuous
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item $f(x) = \frac{x^5 + 4x^4 - 2}{(x - 3)(x + 7)}$
+        
+        \item $f(x) = (x^2 + 2)\left(x^4 + \frac{1}{x^3}\right) + \frac{1}{\sqrt{x + 1}}$
+
+        \item $f(x) = 
+        \begin{cases}
+            x^2 - 1 & \text{ if } x \leq 0 \\
+            -x^2 & \text{ if } x > 0
+        \end{cases}$
+
+        \item $f(x) = 
+        \begin{cases}
+            3x - 2 & \text{ if } x \leq 2 \\
+            -x + 6 & \text{ if } x > 2
+        \end{cases}$
+
+        \item $f(x) = \frac{x}{x^2 + 1}$
+
+        \item $f(x) = \frac{x^7}{(x+2)^{3/2}}$
+
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Region of continuity — Solutions}
+
+\small
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item %$\displaystyle f(x)=\frac{x^5+4x^4-2}{(x-3)(x+7)}$ \\
+Continuous where denominator $\neq0$. \hfill \href{https://www.desmos.com/calculator/kuxfe3qfwg}{Visualize here!} \\
+\textbf{Continuous on } $\mathbb{R}\setminus\{-7,\,3\}$.
+
+\item %$\displaystyle f(x)=(x^2+2)\Big(x^4+\frac{1}{x^3}\Big)+\frac{1}{\sqrt{x+1}}$ \\
+Require $x\neq0$ (from $1/x^3$) and $x>-1$ (from $1/\sqrt{x+1}$). \hfill \href{https://www.desmos.com/calculator/vv2ydbpybh}{Visualize here!} \\
+\textbf{Continuous on } $(-1,0)\cup(0,\infty)$.
+
+\item %$\displaystyle
+% f(x)=\begin{cases}
+% x^2-1 & (x\le 0)\\
+% -x^2  & (x>0)
+% \end{cases}$ \\
+At $x=0$: $f(0^-)= -1$, $f(0^+)=0\Rightarrow$ jump. \hfill \href{https://www.desmos.com/calculator/zyrujcbb61}{Visualize here!} \\
+\textbf{Continuous on } $(-\infty,0)\cup(0,\infty)$ (not at $0$).
+
+\item 
+% $\displaystyle
+% f(x)=\begin{cases}
+% 3x-2 & (x\le 2)\\
+% -x+6 & (x>2)
+% \end{cases}$ \\
+At $x=2$: $3\cdot2-2=4$ and $-2+6=4$ $\Rightarrow$ matches. \hfill \href{https://www.desmos.com/calculator/edauinwxhx}{Visualize here!} \\
+\textbf{Continuous on } $\mathbb{R}$.
+
+\item 
+%$\displaystyle f(x)=\frac{x}{x^2+1}$ \\
+Denominator $x^2+1>0$ for all $x$. \hfill \href{https://www.desmos.com/calculator/fnajeqhjkq}{Visualize here!} \\
+\textbf{Continuous on } $\mathbb{R}$.
+
+\item %$\displaystyle f(x)=\frac{x^7}{(x+2)^{3/2}}$ \\
+Real domain needs $x+2>0$ and denominator $\neq0$ $\Rightarrow x>-2$. \hfill \href{https://www.desmos.com/calculator/kvz86ysozz}{Visualize here!} \\
+\textbf{Continuous on } $(-2,\infty)$.
+
+\end{enumerate}
+
+\end{frame}
+
+% \begin{frame}{Monotonicity and continuity}
+%     Sketch the graph of a function $f$ that is one-to-one on an interval, but neither strictly increasing nor strictly decreasing
+% \end{frame}
+
+% \begin{frame}{Monotonicity and continuity - Solution}
+
+% \textbf{Example (domain $[0,2]$):}
+% \[
+% f(x)=
+% \begin{cases}
+% x, & x\neq 1,\\
+% -1, & x=1.
+% \end{cases}
+% \]
+
+% \begin{itemize}[leftmargin=0.6cm]
+% \item \textbf{Injective:} If $x\neq y$ and both $\neq1$, then $f(x)=x\neq y=f(y)$.  
+% If one of them is $1$, then $f(1)=-1$ while $f(\text{other})\in[0,2]$, so no clashes.
+% \item \textbf{Not strictly increasing:} $0.9<1$ but $f(0.9)=0.9>f(1)=-1$.
+% \item \textbf{Not strictly decreasing:} $1<1.1$ but $f(1)=-1<f(1.1)=1.1$.
+% \item \textit{Note:} It is discontinuous at $x=1$. If you \emph{also} require continuity on an interval, one-to-one $\Rightarrow$ strictly monotone.
+% \end{itemize}
+
+% \medskip
+% \begin{center}
+% \begin{tikzpicture}
+% \begin{axis}[
+%     width=0.78\textwidth, height=5cm,
+%     axis lines=middle,
+%     xmin=-0.2, xmax=2.2,
+%     ymin=-1.5, ymax=2.2,
+%     xtick={0,1,2}, ytick={-1,0,1,2},
+%     xlabel={$x$}, ylabel={$y$},
+%     ticklabel style={font=\scriptsize}
+% ]
+%   % y=x except at x=1
+%   \addplot[domain=0:1, samples=2, thick] {x};
+%   \addplot[domain=1:2, samples=2, thick] {x};
+%   % open circle at (1,1)
+%   \addplot[only marks, mark=o, mark size=2.5pt] coordinates {(1,1)};
+%   % filled dot at (1,-1)
+%   \addplot[only marks, mark=*, mark size=2.5pt] coordinates {(1,-1)};
+% \end{axis}
+% \end{tikzpicture}
+% \end{center}
+
+% \end{frame}
+
+
+\begin{frame}{\orange{Monotonicity} (+0.2)}
+
+        Let $f$ and $g$ be an increasing and decreasing functions, respectively. What can you say about the monotonicity of
+            
+        \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+            \item $f\circ g$ and $g\circ f$ (assuming that the composition can be made) 
+
+            \item $f + g$
+
+            \item $-f$
+
+            \item $f/g$ and $g/f$ (assuming that the denominator does not vanish)
+
+            \item $h(x) = f(-x)$
+        \end{enumerate}
+    
+\end{frame}
+
+% \begin{frame}{Monotonicity — Solution}
+
+% \small
+% % Assume $f$ is increasing and $g$ is decreasing on an interval (compositions defined; denominators nonzero).
+
+% \begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+% \item \textbf{$f\circ g$ and $g\circ f$:} \emph{Decreasing.}
+% If $x<y$, then $g(x)\ge g(y)$, and since $f$ is increasing,
+% $f(g(x))\ge f(g(y))$; similarly $g(f(x))\ge g(f(y))$.
+
+% \item \textbf{$f+g$:} \emph{No definite monotonicity.}
+% Can be increasing, decreasing, or constant:
+% \[
+% \begin{array}{l}
+% f(x)=x,\ g(x)=-\tfrac12 x \Rightarrow f+g=\tfrac12 x \ \text{(increasing)}\\
+% f(x)=x,\ g(x)=-2x \Rightarrow f+g=-x \ \text{(decreasing)}\\
+% f(x)=x,\ g(x)=-x \Rightarrow f+g\equiv 0 \ \text{(constant)}.
+% \end{array}
+% \]
+
+% \item \textbf{$-f$:} \emph{Decreasing.} %Negation reverses order.
+
+% \item \textbf{$f/g$ and $g/f$:} \emph{No general conclusion} (depends on signs/sizes).
+% Examples (on $x>-1$):
+% \[
+% \frac{f}{g}=\frac{x+2}{3-x}\ \text{(increasing)},\quad
+% \frac{f}{g}=\frac{x}{-x-1}\ \text{(decreasing)},\quad
+% \frac{f}{g}=\frac{x}{-x}\equiv -1\ \text{(constant)}.
+% \]
+
+% \item \textbf{$h(x)=f(-x)$:} \emph{Decreasing.}
+% Composition of increasing $f$ with the decreasing map $x\mapsto -x$.
+
+% \end{enumerate}
+
+% \begin{scriptsize}
+% If $f,g$ are \emph{strictly} monotone, then the “decreasing” conclusions above are \emph{strictly decreasing}.
+% \end{scriptsize}
+
+% \end{frame}
+
+
+% \begin{frame}{Non-existing derivative}
+
+%     Proof that the derivative of $f(x) = x^y$, with $y \in (-\infty, 0)\cup (0, 1)$, does not exist at $x = 0$. What is the value of the derivative of $f(x)$ for $ y = 0$?
+    
+% \end{frame}
+
+% \begin{frame}{Inverse rule}
+
+%     Proof the inverse and quotient rules of differentiation by using the other rules.
+    
+% \end{frame}
+
+% \begin{frame}{Average productivity}
+
+%     Let $f(l)$ be the production when $l$ units of labour are used. Assume that $f(0) = 0$ and tat $f'(l) > 0$, $f''(l) < 0$ for all $l > 0$. Define the average productivity as $g(l) = f(l)/l$.
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+%         \item Let $L^* > 0$
+%     \end{enumerate}
+    
+% \end{frame}
+
+\begin{frame}{Tangents}
+
+    In each case, find the equation of the tangent at the specified point
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+        \item $f(x) = 3x + 2$, at $x = 0$
+
+        \item $f(x) = x^2 - 1$, at $x= 1$
+
+        \item $f(x) = 2 + 3/x^{-3}$, at $x = 3$
+
+        \item $f(x) = \ln(x)$, at $x = e$
+
+        \item $f(x) = e^{-x} + x$, at $x = 0$
+        
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Tangents — Solutions}
+
+\small
+For $y=f(x)$ at $x=a$: \quad $\displaystyle y = f(a) + f'(a)\,(x-a)$.
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item $f(x)=3x+2$, $a=0$.\quad $f'(x)=3$; $f(0)=2$.
+\[
+\boxed{\,y=3x+2\,}
+\]
+
+\item $f(x)=x^2-1$, $a=1$.\quad $f'(x)=2x$; $f'(1)=2$, $f(1)=0$.
+\[
+\boxed{\,y=0+2(x-1)=2x-2\,}
+\]
+
+\item $f(x)=2+\dfrac{3}{x^{-3}}=2+3x^{3}$, $a=3$.\quad $f'(x)=9x^{2}$; $f'(3)=81$, $f(3)=83$.
+\[
+\boxed{\,y=83+81(x-3)=81x-160\,}
+\]
+
+\item $f(x)=\ln x$, $a=e$.\quad $f'(x)=\dfrac{1}{x}$; $f'(e)=\dfrac{1}{e}$, $f(e)=1$.
+\[
+\boxed{\,y=1+\tfrac{1}{e}(x-e)=\tfrac{1}{e}x\,}
+\]
+
+\item $f(x)=e^{-x}+x$, $a=0$.\quad $f'(x)=-e^{-x}+1$; $f'(0)=0$, $f(0)=1$.
+\[
+\boxed{\,y=1+0\cdot(x-0)=1\,}
+\]
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Linear approximations}
+
+    For $f(x) = x^n$, find an approximation of $f(x + 1)$ using the tangent line of $f$ at $x$, for $n\geq 1/2$. Proof that this approximation
+    
+    \begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+    
+        \item gets better as $x$ increases for $n = 1/2$; 
+        
+        \item is constant for $n = 2$;
+        
+        \item is zero when $n = 1$;
+
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Linear approximations — Solution}
+
+\small
+
+\textbf{Linear (first–order) approximation}. \\
+Since $f'(x) = nx^{n-1}$ and $\Delta x = (x+1) - x = 1$,
+\[
+\boxed{\,f(x+1)\;\approx\; f(x) + f'(x)\Delta x = f(x)+n x^{n-1}
+=\Big(1+\frac{n}{x}\Big)f(x)\,}.
+\]
+
+\textbf{Accuracy} \\
+Error: \;\;$E_n(x)=f(x+1) - f(x)-n x^{n-1} = (x+1)^n - x^n - nx^{n-1}$.
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\setlength\itemsep{1em}
+
+\item $n=\tfrac12$ (concave):\hfill \href{https://www.desmos.com/calculator/axrcmgyl4q}{Visualize here!}
+\begin{align*}
+    E_{1/2}(x) 
+    &= \sqrt{x+1} - \sqrt{x} - \frac{1}{2\sqrt{x}} 
+    = (\sqrt{x+1} - \sqrt{x})\frac{\sqrt{x+1} + \sqrt{x}}{\sqrt{x+1} + \sqrt{x}} - \frac{1}{2\sqrt{x}} \\
+    &= \frac{x+1 - x}{\sqrt{x+1} + \sqrt{x}} - \frac{1}{2\sqrt{x}} 
+    = \frac{1}{\sqrt{x+1} + \sqrt{x}} - \frac{1}{2\sqrt{x}} 
+    \longrightarrow 0, \quad \text{as } x\to \infty
+\end{align*}
+
+\item $n=2$ (convex): \hfill \href{https://www.desmos.com/calculator/isechopx1v}{Visualize here!} 
+\begin{align*}
+    E_{2}(x) 
+    &= (x+1)^2 - x^2 - 2x 
+    = x^2+2x+1 - x^2 - 2x
+    = 1
+\end{align*}
+
+\item $n=1$ (linear): $E_1(x)=0$ and the approximation is exact
+
+\end{enumerate}
+
+
+\end{frame}
+
+
+\begin{frame}{Derivative interpretation}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+    \item Let $x(t)$ denote the number of barrels of oil left in a well at time $t$, where time is measured in minutes. What is the interpretation of the equation $x'(0) = -3$?
+
+    \item Let $C(x)$ denote the cost in millions of dollars for removing $x\%$ of the pollution in a lake. Give an economic interpretation of the equality $C'(50) = 3$.
+
+\end{enumerate}
+    
+\end{frame}
+
+
+\begin{frame}{Derivative interpretation — Solutions}
+
+\small
+\begin{enumerate}[leftmargin=0.5cm, label=\arabic*., rightmargin=0.2cm]
+
+\item $x'(0)=-3$ (units: barrels/min). \\
+\textbf{Interpretation:} At the initial moment, the oil in the well is decreasing at a rate of \textbf{3 barrels per minute}. \\
+\textbf{Linear approximation:} For small $t$ (in minutes),
+\[
+x(t)\approx x(0) - 3\,t .
+\]
+
+\item $C'(50)=3$ (units: million \$ per percentage point). \\
+\textbf{Interpretation:} When 50\% of pollution has been removed, the \textbf{marginal cost} of removing one additional percentage point is about \textbf{\$3 million}. \\
+\textbf{Linear approximation:} For a small change $\Delta x$ (in percentage points),
+\[
+C(50+\Delta x)\approx C(50) + 3\,\Delta x .
+\]
+
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Computing derivatives}
+
+    Calculate the derivative of 
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+        \item $f(x) = \frac{x^3 + 1}{x^2 + 1}$
+
+        \item $f(x) = x^2 - 1$, at $x= 1$
+
+        \item $f(x) = 2 + 3/x^{-3}$, at $x = 3$
+
+        \item $f(x) = \ln(x)$, at $x = e$
+
+        \item $f(x) = e^{-x} + x$, at $x = 0$
+
+        \item $h(x) = (f\circ g)(x)$, where $f(x) = \ln(x)$ and $g(x) = x^2 + 3x$
+
+        \item The inverse of the function $f(x) = x^5 + 3x^2 + \sqrt{x}$
+
+        \item $f(y) = (2y^3 - 5y)(y^2 - 9)$
+
+        \item $f(t) = 1/\sqrt{t^3 - t}$
+
+        \item $f(z) = \frac{az + b}{cz + d}$
+
+        \item $f(x) = x^n(a\sqrt{x} + b)$
+
+        \item $f(x) = \sqrt{x + \sqrt{x + \sqrt{x}}}$
+
+        \item $f(x) = \ln(x + \sqrt{x^2 + 1})$
+
+        \item $f(x) = \tan(x)$
+        
+    \end{enumerate}
+    
+\end{frame}
+
+%==================== SOLUTIONS (1/2) ====================
+\begin{frame}{Computing derivatives — Solution (1/3)}
+
+\small
+\begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+
+\item $f(x)=\dfrac{x^3+1}{x^2+1}$.
+\[
+f'(x)=\frac{(3x^2)(x^2+1)-(x^3+1)(2x)}{(x^2+1)^2}
+=\boxed{\frac{x^4+3x^2-2x}{(x^2+1)^2}}.
+\]
+
+\item $f(x)=x^2-1$ at $x=1$.\; $f'(x)=2x\Rightarrow \boxed{f'(1)=2}$.
+
+\item $f(x)=2+\dfrac{3}{x^{-3}}=2+3x^3$ at $x=3$.\;
+$f'(x)=9x^2\Rightarrow \boxed{f'(3)=81}$.
+
+\item $f(x)=\ln x$ at $x=e$.\; $f'(x)=\dfrac1x\Rightarrow \boxed{f'(e)=\tfrac1e}$.
+
+\item $f(x)=e^{-x}+x$ at $x=0$.\; $f'(x)=-e^{-x}+1\Rightarrow \boxed{f'(0)=0}$.
+
+\item $h(x)=(f\circ g)(x)$ with $f(x)=\ln x$, $g(x)=x^2+3x$.
+\[
+\boxed{h'(x)=\frac{2x+3}{x^2+3x}}
+\quad (x(x+3)\neq 0).
+\]
+
+\end{enumerate}
+
+\end{frame}
+
+%==================== SOLUTIONS (2/2) ====================
+\begin{frame}{Computing derivatives — Solution (2/3)}
+
+\small
+\begin{enumerate}[leftmargin=0.55cm, label=(\alph*), start=7, rightmargin=0.2cm]
+
+\item \textbf{Inverse of }$f(x)=x^5+3x^2+\sqrt{x}$ (domain $x\ge 0$). \\
+$f'(x)=5x^4+6x+\dfrac{1}{2\sqrt{x}}\, (>0 \text{ for }x>0)$, so $f$ is strictly increasing $\Rightarrow$ invertible on $[0,\infty)$. \\
+For $y=f(x)$,
+\[
+\boxed{(f^{-1})'(y)=\frac{1}{\,5x^4+6x+\tfrac{1}{2\sqrt{x}}\,}}\quad\text{with }x=f^{-1}(y).
+\]
+
+\item $f(y)=(2y^3-5y)(y^2-9)$.
+\[
+\boxed{f'(y)=(6y^2-5)(y^2-9)+(2y^3-5y)(2y)=10y^4-69y^2+45}.
+\]
+
+\item $f(t)=\dfrac{1}{\sqrt{t^3-t}}=(t^3-t)^{-1/2}$.
+\[
+\boxed{f'(t)=-\dfrac{3t^2-1}{2\,(t^3-t)^{3/2}}}
+\quad (t^3-t>0).
+\]
+
+\item $f(z)=\dfrac{az+b}{cz+d}$.
+\[
+\boxed{f'(z)=\dfrac{ad-bc}{(cz+d)^2}}.
+\]
+
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Computing derivatives — Solution (3/3)}
+
+\small
+\begin{enumerate}[leftmargin=0.55cm, label=(\alph*), start=11, rightmargin=0.2cm]
+
+\item $f(x)=x^{n}\big(a\sqrt{x}+b\big)$ \ (assume $x>0$).
+\[
+\boxed{f'(x)=(an+\tfrac{a}{2})\,x^{\,n-\tfrac12}+nb\,x^{\,n-1}}.
+\]
+
+\item $f(x)=\sqrt{x+\sqrt{x+\sqrt{x}}}$ \ ($x>0$).
+\[
+\boxed{f'(x)=\frac{1}{2\sqrt{x+\sqrt{x+\sqrt{x}}}}
+\left(1+\frac{1}{2\sqrt{x+\sqrt{x}}}\Big(1+\frac{1}{2\sqrt{x}}\Big)\right)}.
+\]
+
+\item $f(x)=\ln\!\big(x+\sqrt{x^2+1}\big)$.
+\[
+\boxed{f'(x)=\frac{1}{\sqrt{x^2+1}}}\quad(\text{since }f(x)=\operatorname{arsinh}x).
+\]
+
+\item $f(x)=\tan x$.
+\[
+\boxed{f'(x)=\sec^2 x}\quad (x\neq \tfrac{\pi}{2}+k\pi).
+\]
+
+\end{enumerate}
+
+\end{frame}
+
+
+
+% \begin{frame}{\orange{Derivative of the exponential and logarithmic functions for any base}}
+
+%     Obtain the rule for computing the derivative of $f(x) = a^x$ and $g(x) = \log_b(x)$, using those of $e^x$ and $\ln(x)$
+
+%     Do it in the following two ways:
+%     \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+%     \item using the fact that $\exp(x\ln(a)) = a^x$ to compute $f'(x)$ and the inverse rule to then obtain $g'(x)$
+%     \item using the fact that $\log_b(x) = \ln(x)/\ln(b)$ to compute $g'(x)$ and the inverse rule to then obtain $f'(x)$
+%     \end{enumerate}
+    
+% \end{frame}
+
+% \begin{frame}{Different methods to compute the same derivative}
+
+%     Obtain the derivative of the function:
+    
+%     \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+%         \item $f(x) = x^3(x^5 - 1)$ by using the product rule and the quotient rule
+
+%         \item $f(x) = x$ by using the product rule and the derivative of the function $g(x) = \sqrt{x}$
+
+%         \item $f(x) = x^5 + 5$ by using the inverse rule and explicit form of $f^{-1}$ the derivative of the function $g(x) = \sqrt{x}$
+%     \end{enumerate}
+    
+% \end{frame}
+
+% \begin{frame}{\red{The derivative of the product of $\pmb{n}$ functions}}
+
+%     Given the functions $f_1(x), f_2(x), \dots, f_n(x)$ with $n \in \N$, $n> 2$, define the (product) function $g(x) = f_1(x)f_2(x)\cdots f_n(x)$. Proof the formulas
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+%         \item $g'(x) = f_1'(x)f_2(x)\cdots f_n(x) + f_1(x)f_2'(x)\cdots f_n(x) + \cdots + f_1(x)f_2(x)\cdots f_n'(x)$
+
+%         \item $\frac{g'(x)}{g(x)} = \frac{f_1'(x)}{f_1(x)} + \frac{f_2'(x)}{f_2(x)} + \cdots + \frac{f_n'(x)}{f_n(x)}$
+%     \end{enumerate}
+
+%     \textbf{Hint:} Use the mathematical induction technique to obtain (a) and the derivative of the logarithmic function to obtain (b)
+
+% \end{frame}
+
+\begin{frame}{The chain rule}
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+        \item Find a formula for $h'(x)$ when:
+        \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+            \item $h(x) = f(x^2)$
+            \item $h(x) = f(x^ng(x))$
+        \end{enumerate}
+
+        \item Let $s(t)$ be the distance in km a car goes in $t$ hours, and $B(s)$ the liters of fuel the car uses to go $s$ km. Provide an interpretation of the function $b(t) = B(s(t))$ and compute $b'(t)$
+
+        \item Suppose that the two functions $U$ and $g$ are twice differentiable, increasing, and concave. Prove that the composite function $f(x) = g(U(x))$ is also increasing and concave
+    \end{enumerate}
+    
+\end{frame}
+
+%==================== SOLUTIONS (1/2) ====================
+\begin{frame}{The chain rule — Solution (1/2)}
+
+\small
+Assume differentiability where needed.
+
+\begin{enumerate}[leftmargin=0.55cm, label=\arabic*., rightmargin=0.2cm]
+
+\item Find a formula for $h'(x)$:
+  \begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+    \item $h(x)=f(x^2)$:
+    \[
+      \boxed{\,h'(x)=f'(x^2)\cdot 2x\,}
+    \]
+    \item $h(x)=f\!\big(x^n g(x)\big)$:
+    \[
+      u(x)=x^n g(x)\quad\Rightarrow\quad
+      u'(x)=n x^{n-1} g(x)+x^n g'(x)
+    \]
+    \[
+      \boxed{\,h'(x)=f'\!\big(x^n g(x)\big)\,\big[n x^{n-1} g(x)+x^n g'(x)\big]\,}
+    \]
+  \end{enumerate}
+
+\item $s(t)$ = km traveled in $t$ hours; $B(s)$ = liters used to go $s$ km.  
+Let $b(t)=B(s(t))$.
+\[
+\textbf{Meaning: } b(t)\ \text{is total fuel (L) consumed by time }t.
+\]
+Units: $B'(s)$ = L/km (marginal liters per km), \ $s'(t)$ = km/h (speed).  
+By chain rule,
+\[
+\boxed{\,b'(t)=B'(s(t))\,s'(t)\,} \quad \text{(instantaneous fuel burn in L/h).}
+\]
+
+\end{enumerate}
+
+\end{frame}
+
+%==================== SOLUTIONS (2/2) ====================
+\begin{frame}{The chain rule — Solution (2/2)}
+
+\small
+\begin{enumerate}[leftmargin=0.55cm, label=\arabic*., start=3, rightmargin=0.2cm]
+
+\item Suppose $U$ and $g$ are twice differentiable, increasing, and concave.  
+Show $f(x)=g(U(x))$ is increasing and concave.
+
+\textbf{Increasing:}
+\[
+f'(x)=g'(U(x))\,U'(x).
+\]
+Since $g'$ and $U'$ are $\ge 0$, we have $f'(x)\ge 0$ $\Rightarrow$ $f$ increasing.
+
+\textbf{Concave:}
+\[
+f''(x)=g''(U(x))\,(U'(x))^2 + g'(U(x))\,U''(x).
+\]
+Concavity gives $g''\le 0$, $U''\le 0$; increasing gives $g'\ge 0$.  
+Thus both terms are $\le 0$ $\Rightarrow$ $f''(x)\le 0$ $\Rightarrow$ $f$ concave.
+
+\end{enumerate}
+
+\end{frame}
+
+
+% \begin{frame}{\red{Convex function and its second derivative}}
+
+%     Proof that a function is convex in an interval iff its second derivative is positive in the same interval.
+    
+% \end{frame}
+
+% \begin{frame}{L'Hôspital's rule}
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+%         \item Create a limit that has the form $1^\infty$. Evaluate the limit using L'Hôspital's rule.
+
+%         \item Propose a function $f(x)$ such that $\lim_{x\rightarrow 1}f(x)$ has the form $0^0$. Evaluate the limit using L'Hôspital's rule.
+%     \end{enumerate}
+    
+% \end{frame}
+
+% \begin{frame}{L'Hôspital's rule and indeterminate forms}
+
+% Use a calculator to estimate the following limits, and then use L'Hôspital's rule to find the exact limit and compare it with the approximation.
+
+% \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+%     \item $\lim_{x\rightarrow 0} (e^x - 1)/x$
+
+%     \item $\lim_{x\rightarrow \infty} \ln(x)/x^n$, for $n\in\N$
+
+%     \item $\lim_{x\rightarrow a} \frac{x - a}{x^n - a^n}$, for $n\in\N$
+
+%     \item $\lim_{x\rightarrow \pi} \frac{x - \pi}{\sin(x)}$
+
+%     \item $\lim_{x\rightarrow 0} \frac{e^x - x - 1}{x^2}$
+
+% \end{enumerate}
+   
+% \end{frame}
+
+
+% %==================== NUMERICAL ESTIMATES ====================
+% \begin{frame}{L’Hôpital’s rule and indeterminate forms — Numerical estimates}
+
+% \small
+
+% \begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+% \item $\displaystyle \frac{e^x-1}{x}$ near $x=0$:
+% $\;x=0.1\Rightarrow 1.0517,\; x=0.01\Rightarrow 1.0050$.
+
+% \item $\displaystyle \frac{\ln x}{x^n}$ as $x\to\infty$:
+% \[
+% \begin{array}{l}
+% n=1:\ x=10\Rightarrow 0.2303,\ x=100\Rightarrow 0.0461\\
+% n=2:\ x=10\Rightarrow 0.0230,\ x=100\Rightarrow 0.0004605
+% \end{array}
+% \]
+
+% \item $\displaystyle \frac{x-a}{x^n-a^n}$ (example $a=2,n=3$):
+% \[
+% x=2.001\Rightarrow 0.08326,\quad x=1.999\Rightarrow 0.08342
+% \quad(\text{target } \approx 0.08333)
+% \]
+
+% \item $\displaystyle \frac{x-\pi}{\sin(x)}$ near $x=\pi$:
+% \[
+% x=\pi+0.001\Rightarrow -1.000,\quad x=\pi-0.001\Rightarrow -1.000
+% \]
+
+% \item $\displaystyle \frac{e^x-x-1}{x^2}$ near $x=0$:
+% $\;x=0.1\Rightarrow 0.5170,\; x=0.01\Rightarrow 0.5017$.
+% \end{enumerate}
+
+% \end{frame}
+
+% %==================== EXACT LIMITS VIA L'HÔPITAL ====================
+% \begin{frame}{L’Hôpital’s rule — Exact limits and comparison}
+
+% \small
+% \begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+
+% \item $\displaystyle \lim_{x\to 0}\frac{e^x-1}{x}
+% \;\xrightarrow{\text{L’H}}\; \lim_{x\to0}\frac{e^x}{1}=1.$
+% (Agrees with $\approx 1.0517,\,1.0050\to 1$.)
+
+% \item $\displaystyle \lim_{x\to\infty}\frac{\ln x}{x^n}
+% \;\xrightarrow{\text{L’H}}\; \lim_{x\to\infty}\frac{1/x}{n x^{n-1}}
+% =\lim_{x\to\infty}\frac{1}{n x^{n}}=0.$
+% (Numerics $\downarrow 0$ for $n=1,2$.)
+
+% \item $\displaystyle \lim_{x\to a}\frac{x-a}{x^n-a^n}
+% \;\xrightarrow{\text{L’H}}\; \lim_{x\to a}\frac{1}{n x^{n-1}}
+% =\boxed{\frac{1}{n a^{n-1}}}\ \ (a\ne 0).$
+% \newline
+% \quad{\scriptsize Note: if $a=0$, then $\frac{x}{x^n}=x^{1-n}$, so the limit is $1$ for $n=1$ and diverges for $n>1$.}
+
+% \item $\displaystyle \lim_{x\to\pi}\frac{x-\pi}{\sin(x)}
+% \;\xrightarrow{\text{L’H}}\; \lim_{x\to\pi}\frac{1}{\cos(x)}
+% =\frac{1}{-1}=\boxed{-1}.$
+% (Consistent with the near-$\pi$ values.)
+
+% \item $\displaystyle \lim_{x\to0}\frac{e^x-x-1}{x^2}
+% \;\xrightarrow{\text{L’H}}\; \lim_{x\to0}\frac{e^x-1}{2x}
+% \;\xrightarrow{\text{L’H}}\; \lim_{x\to0}\frac{e^x}{2}
+% =\boxed{\tfrac12}.$
+% (Numerics $0.5170,\ 0.5017\to 0.5$.)
+
+% \end{enumerate}
+
+% \end{frame}
+
+
+
+
+\begin{frame}{Elasticity of demand}
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+        \item Determine the elasticity of demand, in terms of the price $p$, for the demand set
+        $$
+        D = \{(q, p)\ :\ q(1+p^2) = 100\}.
+        $$
+        For what values of $p$ is the demand inelastic?
+
+        \item Proof that, for the demand function $q_D(p) = a - bp$, the demand is inelastic whenever $0 < p < a/(2b)$
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Elasticity of demand — Solution}
+\footnotesize
+\emph{Price elasticity of demand} at price $p$ is defined as
+\[
+\varepsilon(p)=q'(p)\cdot\frac{p}{q}\qquad
+\text{(inelastic if }|\varepsilon(p)|<1\text{)}.
+\]
+
+\begin{enumerate}[leftmargin=0.5cm, label=\arabic*., rightmargin=0.2cm]
+  \item \textbf{Demand: } $q(1+p^2)=100\ \Rightarrow\ q(p)=\dfrac{100}{1+p^2}$.
+  \[
+    q'(p)=-\frac{200p}{(1+p^2)^2},
+    \qquad
+    \varepsilon(p)=q'(p)\frac{p}{q}
+      =\left(-\frac{200p}{(1+p^2)^2}\right)\!\left(\frac{p}{100/(1+p^2)}\right)
+      =-\frac{2p^2}{1+p^2}.
+  \]
+  Hence $|\varepsilon(p)|=\dfrac{2p^2}{1+p^2}$, so demand is
+  \[
+    \text{inelastic when }|p|<1,\ \text{unit elastic at }|p|=1,\ \text{elastic when }|p|>1.
+  \]
+  Since $p\ge0$, this means for $0\le p<1$ the demand is inelastic.)
+
+  \item \textbf{Linear demand: } $q_D(p)=a-bp$ with $a,b>0$.
+  \[
+    q'(p)=-b,\qquad
+    \varepsilon(p)=q'(p)\frac{p}{q}
+      =-b\,\frac{p}{a-bp},\qquad
+    |\varepsilon(p)|=\frac{bp}{a-bp}.
+  \]
+  Then $|\varepsilon(p)|<1\iff bp<a-bp\iff 2bp<a\iff \boxed{\,0<p<\frac{a}{2b}\,}$
+  %(also requiring $p<a/b$ so $q>0$).
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Optimization of functions}
+
+For each function, determine if the extreme values exist, and if they do, find them
+
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item $f(x) = 2x^3 - 9x^2 + 12x$ in $[0, 2]$
+
+    \item $f(x) = 2x^3 - 9x^2 + 12x$ in $\R$
+
+    \item $f(x) = x\sin(x) + \cos(x)$ in $[0, 2]$
+
+    \item $f(x) = x^2e^{-x}$ in $[0, 5)$
+    
+\end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Optimization of functions — Solution (1/2)}
+% \small
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item By the extreme value theorem (continuous on a closed interval), absolute extrema exist. \\
+Since $f'(x)=6x^2-18x+12=6(x-1)(x-2)$ the critical points are $x=1$, and $x=2$. \\
+Evaluate at the critical values and the boundary points:
+\[
+f(0)=0,\quad f(1)=5,\quad f(2)=4.
+\]
+Hence:
+\[
+\boxed{\text{max }=5 \text{ at } x=1},\qquad \boxed{\text{min }=0 \text{ at } x=0}.
+\]
+
+\item Same $f(x)$ as previous part, but now on $\mathbb{R}$. \\
+Since $\lim_{x\to-\infty}f(x)= \infty$ and $\lim_{x\to\infty}f(x)= \infty$, the function is unbounded from above, so
+\[
+\boxed{\text{no global extrema on }\mathbb{R}}.
+\]
+\end{enumerate}
+\vspace{0.3cm}
+
+\begin{center}
+\href{https://www.desmos.com/calculator/3icl7slxkk}{Visualize here!}    
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Optimization of functions — Solution (2/2)}
+% \footnotesize
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), start=3, rightmargin=0.2cm]
+
+\item By the EVT, absolute extrema exist. 
+\hfill \href{https://www.desmos.com/calculator/iwqvlmefkv}{Visualize here!} \\
+$f'(x)=\sin(x)+x\cos(x)-\sin(x)=\;x\cos(x)$.  \\
+Critical points in $[0,2]$: $x=0$ (boundary point) and $x=\tfrac{\pi}{2}$. \\
+Values at critical points and boundary points:
+\[
+f(0)=1,\quad f\!\Big(\tfrac{\pi}{2}\Big)=\tfrac{\pi}{2},\quad
+f(2)=2\sin(2)+\cos(2)\approx 1.402.
+\]
+Thus
+\[
+\boxed{\text{max }=\tfrac{\pi}{2}\ \text{at }x=\tfrac{\pi}{2}},\qquad
+\boxed{\text{min }=1\ \text{at }x=0}.
+\]
+
+\item By the EVT, global extrema exist on $[0, 5]$, but may not on $[0, 5)$. 
+\hfill \href{https://www.desmos.com/calculator/oh28jgcz3c}{Visualize here!} \\
+$f'(x)=e^{-x}(2x-x^2)=e^{-x}x(2-x)$; critical points $x=0$ and $x = 2$. \\
+Values at boundary points and critical points:
+\[
+f(0)=0,\quad f(2)=4e^{-2}\approx 0.541,\quad \lim_{x\to 5^-}f(x)=25e^{-5}\approx 0.168.
+\]
+Hence
+\[
+\boxed{\text{max }=4e^{-2}\ \text{at }x=2},\qquad
+\boxed{\text{min }=0\ \text{at }x=0}.
+\]
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Excise tax}
+
+    The whiskey market is given by the supply and demand sets
+    $$
+    S = \{(q, p)\ :\ 15p - 2q = 20\}, \quad D = \{(q, p)\ :\ q + 5p = 40\}.
+    $$
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Find the equilibrium price $p^*$ and quantity $q^*$
+    \end{enumerate}
+    The government wants to apply a tax of $T$ dollars per unit of whiskey produced to lower its consumption and raise money. Taking into account that this changes the supply function from $q_S(p)$ to $q_{S_T}(p) = q_S(p - T)$
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item[(b)] Find the new equilibrium price $p^T$ and quantity $q^T$. Interpret impact of the taxes on the consumer expending and the producer profit.
+        \item[(c)] Find the tax value that maximizes the government's revenue
+    \end{enumerate}
+
+    
+    \Corange{Repeat the exercise for the more general supply and demand sets} (+ 0.2)
+    \Corange{
+    $$
+    S = \{(q, p)\ :\ q = bp - a\}, \quad D = \{(q, p)\ :\ q = c - dp\}
+    $$ 
+    where $a, b, c$, and $d$ are positive
+    }
+    
+\end{frame}
+
+\begin{frame}{Excise tax — Solution}
+\footnotesize
+Supply: $15p-2q=20 \ \Rightarrow\ q_S(p)=7.5\,p-10$. \quad
+Demand: $q+5p=40 \ \Rightarrow\ q_D(p)=40-5p$.
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+  \item \textbf{Equilibrium without tax.}
+  \[
+    7.5p-10=40-5p \ \Rightarrow\ 12.5p=50 \Rightarrow
+    \boxed{p^*=4},\qquad \boxed{q^*=20}.
+  \]
+
+  \item \textbf{Per–unit tax $T$ on producers.}
+  New supply: $q_{S_T}(p)=q_S(p-T)=7.5(p-T)-10=7.5p-7.5T-10$.
+  \[
+    7.5p-7.5T-10=40-5p \Rightarrow 12.5p=50+7.5T
+    \Rightarrow \boxed{p^T=4+0.6T},\quad
+    \boxed{q^T=40-5p^T=20-3T}.
+  \]
+  (Consumer price rises by $0.6$ per \$1 of tax; producers receive $p^T-T=4-0.4T$.)
+
+  \item \textbf{Revenue maximization.}
+  Government revenue: $R(T)=T\,q^T=T(20-3T)=20T-3T^2$ (concave).
+  \[
+    R'(T)=20-6T=0 \Rightarrow \boxed{T^{*}=\tfrac{10}{3}},\quad
+    q^{T^*}=20-3\cdot\tfrac{10}{3}=10,\quad
+    R(T^*)=\boxed{\tfrac{100}{3}}.
+  \]
+  Feasible taxes require $q^T\ge0 \Rightarrow T\le \tfrac{20}{3}$.
+\end{enumerate}
+\end{frame}
+
+% \begin{frame}{Excise tax — General case - Solution}
+% \footnotesize
+% Supply: $q=bp-a$;\quad Demand: $q=c-dp$;\quad $a,b,c,d>0$.
+
+% \medskip
+% \textbf{No tax.} Solve $bp-a=c-dp$:
+% \[
+% \boxed{p^*=\frac{a+c}{b+d}},\qquad
+% \boxed{q^*=\frac{bc-ad}{\,b+d\,}}\quad(\text{economically feasible if }bc>ad).
+% \]
+
+% \textbf{Per–unit tax $T$ on producers.} New supply $q=b(p-T)-a=bp-bT-a$. Equate with demand:
+% \[
+% bp-bT-a=c-dp\ \Rightarrow\ (b+d)p=a+c+bT.
+% \]
+% Hence
+% \[
+% \boxed{p^T=\frac{a+c+bT}{b+d}},\qquad
+% \boxed{q^T=c-dp^T=\frac{bc-ad-bd\,T}{\,b+d\,}
+%       =q^*-\frac{bd}{b+d}\,T }.
+% \]
+% Consumer price increases by $\dfrac{b}{b+d}$ per \$1 of tax;
+% producer net price decreases by $\dfrac{d}{b+d}$ (tax incidence).
+
+% \medskip
+% \textbf{Revenue and its maximizer.} $R(T)=T\,q^T=\dfrac{T\,(bc-ad-bdT)}{b+d}$ (concave in $T$).
+% \[
+% R'(T)=\frac{bc-ad-2bdT}{b+d}=0
+% \ \Rightarrow\ 
+% \boxed{T^*=\frac{bc-ad}{2bd}} \quad (\text{feasible if }bc>ad).
+% \]
+% At $T^*$,
+% \[
+% \boxed{q^{T^*}=\frac{q^*}{2}},\qquad
+% \boxed{R(T^*)=\frac{(bc-ad)^2}{4bd\,(b+d)}}.
+% \]
+% Consumer price at $T^*$:
+% \(
+% p^{T^*}=p^*+\dfrac{b}{b+d}\,T^*
+%        =p^*+\dfrac{bc-ad}{\,2d(b+d)}.
+% \)
+% \end{frame}
+
+
+\begin{frame}{Optimal time to sell}
+
+    You own a piece of land whose value $V(t)$ after $t$ years is $V(t)$ = $e^{\sqrt{t}}$. Assuming that interest on a bank deposit will be continuously compounded at the equivalent annual rate of $12.5\%$, write an expression for the present value of the amount realized by selling the land after $t$ years, and determine the optimum time to sell.
+    
+\end{frame}
+
+\begin{frame}{Optimal time to sell — Solution}
+% \footnotesize
+Value at time $t$ (years): $V(t)=e^{\sqrt{t}}$. Continuous discount at rate $r=0.125$ per year gives the \emph{present value}
+\[
+\boxed{\;PV(t)=V(t)e^{-rt}=e^{\,\sqrt{t}-0.125\,t}\;},\qquad t\ge 0.
+\]
+
+To maximize, it suffices to maximize the exponent $\phi(t)=\sqrt{t}-0.125\,t$.
+\[
+\phi'(t)=\frac{1}{2\sqrt{t}}-0.125=0 \ \Longrightarrow\ \sqrt{t}=\frac{1}{2r}=\frac{1}{2\cdot0.125}=4
+\ \Longrightarrow\ \boxed{t^*=16}.
+\]
+Since $\phi''(t)=-\dfrac{1}{4t^{3/2}}<0$, this is a (unique) maximum.  
+Thus the optimal selling time is \(\boxed{t^*=16\text{ years}}\).
+
+At $t^*$:
+\[
+PV(t^*)=e^{\,\sqrt{16}-0.125\cdot 16}=e^{\,4-2}=\boxed{e^{2}\approx 7.389}.%,\qquad
+%V(16)=e^{4}\approx 54.598.
+\]
+\vspace{-0.1cm}
+
+\begin{center}
+\href{https://www.desmos.com/calculator/p10x6agsjc}{Visualize here!}    
+\end{center}
+
+
+% \emph{Generalization (rate $r>0$):}\; $t^*=\dfrac{1}{4r^2}$ and $PV(t^*)=e^{\,1/(4r)}$.
+\end{frame}
+
+
+% \begin{frame}{Competence vs Monopoly}
+
+%     The Calculus Corporation has a cost function 
+%     $$
+%     C(q) = q + 0.03q^2
+%     $$
+%     and a demand set
+%     $$
+%     D = \{(q, p)\ |\ q + 20p = 500\}
+%     $$
+%     \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+%     \item Assuming that the corporation operates in a market with perfect competition, obtain 
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+%         \item the inverse demand function $p_D(q)$;
+%         \item the profit function $\Pi_p(q)$ as a function of $q$ provided a market price $p$; 
+%         \item the quantity that maximizes profit, provided a market price $p$ and given that the upper limit on the production is $200$.
+%     \end{enumerate}
+%     \item Obtain again (a)-(c) assuming now that the corporation is a monopoly \\
+%     {\footnotesize (note that, in this case, parts (b) and (c) are depend only on $q$)}
+%     \end{enumerate}
+
+% \end{frame}
+
+% \begin{frame}{Competence vs Monopoly — Solution (perfect competition)}
+% \footnotesize
+
+% \medskip
+% \textbf{(a) Inverse demand} Demand set: $q+20p=500 \;\Rightarrow\;$ \textbf{inverse demand} \(\boxed{\,p_D(q)=25-0.05q\,}\).
+
+% \textbf{(b) Profit function in terms of price and quantity:}
+% \[
+% \boxed{\,\Pi(q,p)=pq-\bigl(q+0.03q^2\bigr)=(p-1)q-0.03q^2\,,\qquad q\ge0.}
+% \]
+% %For a given $p$, $\partial\pi/\partial q=p-1-0.06q$ (strictly concave in $q$).
+
+% \textbf{(c)  
+% Competitive equilibrium with capacity $q\le 200$.} \\
+% Industry supply (single firm) is given by $p=MC(q)$, i.e.
+% \[
+% p=1+0.06q\quad\Longleftrightarrow\quad q_S(p)=\frac{p-1}{0.06}.
+% \]
+% Market clears where $p_D(q)=MC(q)$: \(25-0.05q=1+0.06q\Rightarrow q= \frac{24}{0.11}\approx 218.18\).  
+% Capacity binds ($218.18>200$), so the feasible competitive outcome is
+% \[
+% \boxed{\,q_m=200,\qquad p_m=p_D(200)=25-0.05\cdot200=15.}
+% \]
+% Profit at this outcome: \(\pi=15\cdot200-\bigl(200+0.03\cdot200^2\bigr)=3000-1400=\boxed{1600}.\)
+
+% \textbf{(d) Nature of the optimum.}  
+% At $q=200$ we have $p_m=15>MC(200)=13$, so profit is increasing in $q$ up to the constraint; therefore
+% \(\boxed{\text{$q_m=200$ is a (constrained) maximum.}}\)
+% \end{frame}
+
+% \begin{frame}{Competence vs Monopoly — Solutions (monopoly)}
+% \footnotesize
+% Demand: \(p_D(q)=25-0.05q\), \quad Revenue: \(R(q)=p(q)\,q=25q-0.05q^2\).\\
+% Cost: \(C(q)=q+0.03q^2\), \quad Profit:
+% \[
+% \boxed{\,\pi(q)=R(q)-C(q)=24q-0.08q^2\,}.
+% \]
+
+% \textbf{FOC (capacity $q\le200$):}  
+% \(MR(q)=\frac{dR}{dq}=25-0.1q,\; MC(q)=1+0.06q\).  
+% Set \(MR=MC\): \(25-0.1q=1+0.06q \Rightarrow 24=0.16q \Rightarrow \boxed{q^*=150}\) (capacity not binding).  
+% Price: \(\boxed{p^*=p_D(150)=25-0.05\cdot150=17.5}\).
+
+% \textbf{Second-order condition:} \(\pi''(q)=-0.16<0\Rightarrow\) strict maximum.
+
+% \textbf{Profits:} 
+% \[
+% \pi(150)=17.5\cdot150-\bigl(150+0.03\cdot150^2\bigr)=2625-(150+675)=\boxed{1800}.
+% \]
+
+% \textbf{Summary.}  
+% Competitive (with capacity): \((q,p)=(200,15),\ \pi=1600\).  
+% Monopoly: \((q,p)=(150,17.5),\ \pi=1800\).
+% \end{frame}
+
+
+% \begin{frame}{Two-dimensional critical points}
+
+%     Find and classify the critical points of the function 
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+%         \item $f(x, y) = x^4 + 2x^2y + 2y^2 + y$
+
+%         \item $f(x, y) = x^3 - y^3 - 2xy + 1$
+
+%         \item $f(x, y) = 3x^2 + 2xy + 2y^2 - 160x - 120y + 18$
+
+%         \item $f(x, y) = y^3 + 3xy - x^3$
+
+%         \item $f(x, y) = x^3 - 3xy^2 + y^4$
+        
+%     \end{enumerate}
+    
+% \end{frame}
+
+% \begin{frame}{Two-dimensional optimization}
+
+%     Find the extreme points of the function $f(x, y) = 6 + 4x - 3x^2 + 4y + 2xy - 3y^2$
+    
+% \end{frame}
+
+% \begin{frame}{bi-dimensional Chain rule}
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+%         \item Let $f(x, y) = x^2y + y^2$, $x(t) = 3t^2 + 3$, and $y(t) = t^3 - 7$. Define $F(t) = f(x(t), y (t))$. Use the chain rule to compute $F'(2)$.
+
+%         \item Suppose that a firm's capital and labour are given by the time-dependent functions 
+%         $$
+%         k(t) = 2t^2, l(t) = 2t + 5.
+%         $$
+%         Determine the rate at which production changes over time for provided the firm's production function $q(k, l) = kl^2$.
+%     \end{enumerate}
+    
+    
+% \end{frame}
+
+% \begin{frame}{Two-goods profit optimization}
+
+%     A monopoly manufactures two goods, X and Y, with demand functions 
+%     $$
+%     x = 12 - p_X, \quad y = 18 - p_Y
+%     $$
+%     The firm's cost function is $C(x,y) = x^2 + y^2 + 2xy$. Find the maximum profit achievable, and the quantities that the firm must produce, of each good, to achieve this maximum.
+    
+% \end{frame}
+
+\end{document}

@@ -1,0 +1,424 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[top=1.75cm,bottom=1.5cm,right=2cm,left=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr} % For customizing headers and footers
+% Customizing header
+\pagestyle{fancy}
+\fancyhf{} % Clear default header and footer
+\fancyhead[L]{{\footnotesize CUNEF Universidad \\ Bachelor in Philosophy, Politics and Economics}} 
+\fancyhead[R]{{\footnotesize A. G. Azze \\ \date{2024}}} 
+% Adjust the distance between the header and the text
+\setlength{\headsep}{1.2cm}
+% Ensure the header is applied on the first page as well
+\fancypagestyle{plain}{
+\fancyhf{} % Clear default header and footer
+\fancyhead[L]{{\footnotesize CUNEF Universidad \\ Bachelor in Philosophy, Politics and Economics}} 
+\fancyhead[R]{{\footnotesize A. G. Azze \\ \date{2024}}} 
+}
+
+\title{Integral Calculus \\ Exercises and Solutions}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\vspace{-1.5cm}
+
+\section*{Indefinite Integrals}
+
+Find the following indefinite integrals.
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+    \item $\int (5x^3 + 8x^2 - 5) \, dx$.\quad
+    \(
+    \textbf{Solution: } \frac{5x^4}{4} + \frac{8x^3}{3} - 5x + C
+    \)
+
+    \item $\int (6x^3 - 9x^2 + 4x + 3) \, dx$.\quad
+    \(
+    \textbf{Solution: } \frac{6x^4}{4} - \frac{9x^3}{3} + \frac{4x^2}{2} + 3x + C
+    \)
+
+    \item $\int (2x^3 + 3x^2) \, dx$.\quad
+    \(
+    \textbf{Solution: } \frac{x^4}{2} + x^3 + C
+    \)
+
+    \item $\int \frac{8x^5 + 5x^4 - 6}{x^6} \, dx$.\quad
+    \(
+    \textbf{Solution: } 8\ln|x| - \frac{5}{x} + \frac{6}{5x^5} + C
+    \)
+
+    \item $\int \frac{x}{x^3} \, dx$.\quad
+    \(
+    \textbf{Solution: } -\frac{1}{x} + C
+    \)
+
+    \item $\int (12x^3 + 9x^2) \, dx$.\quad
+    \(
+    \textbf{Solution: } 3x^4 + 3x^3 + C
+    \)
+
+    \item $\int \frac{1}{x^4} \, dx$.\quad
+    \(
+    \textbf{Solution: } -\frac{1}{3x^3} + C
+    \)
+
+    \item $\int (1 + 3t^2) \, dt$.\quad
+    \(
+    \textbf{Solution: } t + t^3 + C
+    \)
+
+    \item $\int (2t^3 + t^2) \, dt$.\quad
+    \(
+    \textbf{Solution: } \frac{t^4}{2} + \frac{t^3}{3} + C
+    \)
+
+    \item $\int y^2 \, dy$.\quad
+    \(
+    \textbf{Solution: } \frac{y^3}{3} + C
+    \)
+
+    \item $\int d\theta$.\quad
+    \(
+    \textbf{Solution: } \theta + C
+    \)
+
+    \item $\int 7\sin(x) \, dx$.\quad
+    \(
+    \textbf{Solution: } -7\cos(x) + C
+    \)
+
+    \item $\int 5\cos(\theta) \, d\theta$.\quad
+    \(
+    \textbf{Solution: } 5\sin(\theta) + C
+    \)
+
+    \item $\int 9\sin(3x) \, dx$.\quad
+    \(
+    \textbf{Solution: } -3\cos(3x) + C
+    \)
+
+    \item $\int 12\cos(4\theta) \, d\theta$.\quad
+    \(
+    \textbf{Solution: } 3\sin(4\theta) + C
+    \)
+
+    \item $\int 7\cos(5x) \, dx$.\quad
+    \(
+    \textbf{Solution: } \frac{7}{5}\sin(5x) + C
+    \)
+
+    \item $\int 9e^{4x} \, dx$.\quad
+    \(
+    \textbf{Solution: } \frac{9}{4}e^{4x} + C
+    \)
+
+    \item $\int 5\cos(x) \, dx$.\quad
+    \(
+    \textbf{Solution: } 5\sin(x) + C
+    \)
+
+    \item $\int (e^{4x} - e^{-x}) \, dx$.\quad
+    \(
+    \textbf{Solution: } \frac{1}{4}e^{4x} + e^{-x} + C
+    \)
+\end{enumerate}
+
+\section*{Definite Integrals}
+
+Evaluate the following definite integrals.
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+    \item $\int_0^4 (5x^3 + 8x^2 + 5) \, dx$.\quad
+    \(
+    \textbf{Solution: } \frac{5x^4}{4} + \frac{8x^3}{3} + 5x\Big|_0^4 = \frac{1}{12}(15 \cdot 4^4 + 32\cdot 4^3 + 60\cdot 4) = \frac{1532}{3}.
+    \)
+
+    \item $\int_1^2 (2x^3 + 3x^2) \, dx$.\quad
+    \(
+    \textbf{Solution: } \frac{x^4}{2} + x^3\Big|_1^2 = \frac{1}{2}(16 + 16 - 1 - 2) = \frac{29}{2}.
+    \)
+
+    \item $\int_1^9 \frac{x}{x^3} \, dx$.\quad
+    \(
+    \textbf{Solution: } -\frac{1}{x}\Big|_1^9 = 1 - \frac{1}{9} = \frac{8}{9}.
+    \)
+
+    \item $\int_3^4 \frac{1}{x} \, dx$.\quad
+    \(
+    \textbf{Solution: } \ln(4) - \ln(3).
+    \)
+
+    \item $\int_1^3 (1 + 3t^2) \, dt$.\quad
+    \(
+    \textbf{Solution: } t + t^3\Big|_1^3 = 28.
+    \)
+
+    \item $\int_1^2 (2t^2 + t) \, dt$.\quad
+    \(
+    \textbf{Solution: } \frac{2t^3}{3} + \frac{t^2}{2}\Big|_1^2 = \frac{1}{6}(32 + 12 - 4 - 3) = \frac{37}{6}.
+    \)
+
+\end{enumerate}
+
+
+\section*{Areas Under Positive Functions}
+
+Compute the area under the following functions over the indicated interval. Note that all the functions all positive in the prescribed intervals.
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+    \item $f(x) = x^2$ in $[-1, 1]$. \quad 
+    \(
+    \textbf{Solution: } \int_{-1}^{1} x^2 \, dx = \frac{x^3}{3}\Big|_{-1}^{1} = \frac{1}{3} - \left(-\frac{1}{3}\right) = \frac{2}{3}.
+    \)
+
+    \item $f(x) = \sin(x)$ in $[0, \pi]$. \quad 
+    \(
+    \textbf{Solution: } \int_{0}^{\pi} \sin(x) \, dx = -\cos(x)\Big|_{0}^{\pi} = -\cos(\pi) + \cos(0) = 2.
+    \)
+
+    \item $f(x) = |x|$ in $[-3, 3]$. \quad 
+    \(
+    \textbf{Solution: } \int_{-3}^{3} |x| \, dx = 2 \int_{0}^{3} x \, dx = x^2\Big|_0^3 = 9.
+    \)
+
+    \item $f(x) = e^x$ in $[0, 1]$. \quad 
+    \(
+    \textbf{Solution: } \int_{0}^{1} e^x \, dx = e^x\Big|_0^1 = e - 1.
+    \)
+
+    \item $f(x) = \frac{1}{x}$ in $[1, 4]$. \quad 
+    \(
+    \textbf{Solution: } \int_{1}^{4} \frac{1}{x} \, dx = \ln(x)\Big|_{1}^{4} = \ln(4) - \ln(1) = \ln(4).
+    \)
+
+    \item $f(x) = 1 - x^2$ in $[-1, 1]$. \quad 
+    \(
+    \textbf{Solution: } \int_{-1}^{1} (1 - x^2) \, dx = \left(x - \frac{x^3}{3}\right)\Big|_{-1}^{1} = 2 - \frac{2}{3} = \frac{4}{3}.
+    \)
+
+\end{enumerate}
+
+\section*{Areas Bounded by Functions}
+
+Compute the area bounded by the graph of the function over the indicated interval. Be mindful of the sign of each function within the prescribed intervals.
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+    \item $f(x) = x^2 - 4$ over $[-3, 3]$.
+
+    \textbf{Solution:} 
+    The function changes sign at \(x = -2\) and \(x = 2\), and it is positive at $[-3, -2)\cup(2, 3]$ and negative at $(-2, 2)$. Split the integral to compute the area $A$:
+    \[
+    A = \int_{-3}^{3} |x^2 - 4| \, dx = \int_{-3}^{-2} (x^2 - 4) \, dx - \int_{-2}^{2} (x^2 - 4) \, dx + \int_{2}^{3} (x^2 - 4) \, dx.
+    \]
+    Compute each integral:
+    \[
+    \int_{-3}^{-2} -(x^2 - 4) \, dx = \int_{-3}^{-2} (-x^2 + 4) \, dx = \left[-\frac{x^3}{3} + 4x\right]_{-3}^{-2} = \frac{49}{3}.
+    \]
+    \[
+    \int_{-2}^{2} (x^2 - 4) \, dx = \left[\frac{x^3}{3} - 4x\right]_{-2}^{2} = -\frac{64}{3}.
+    \]
+    \[
+    \int_{2}^{3} -(x^2 - 4) \, dx = \left[-\frac{x^3}{3} + 4x\right]_{2}^{3} = \frac{49}{3}.
+    \]
+    Total area:
+    \[
+    A = \frac{49}{3} + \frac{64}{3} + \frac{49}{3} = \frac{162}{3} = 54.
+    \]
+
+    \item $f(x) = \sin(x)$ over $[0, 2\pi]$.
+
+    \textbf{Solution:} 
+    The function changes sign at \(x = \pi\), and it is positive in $(0, \pi)$ and negative in $(\pi,2\pi)$. Split the integral to compute the area $A$:
+    \[
+    A = \int_{0}^{2\pi} |\sin(x)| \, dx = \int_{0}^{\pi} \sin(x) \, dx - \int_{\pi}^{2\pi} \sin(x) \, dx.
+    \]
+    Compute each integral:
+    \[
+    \int_{0}^{\pi} \sin(x) \, dx = \left[-\cos(x)\right]_{0}^{\pi} = 2, \quad \int_{\pi}^{2\pi} \sin(x) \, dx = \left[-\cos(x)\right]_{\pi}^{2\pi} = -2.
+    \]
+    Total area:
+    \[
+    A = 2 + 2 = 4.
+    \]
+
+    \item $f(x) = e^x - 2$ over $[0, \ln(3)]$.
+
+    \textbf{Solution:} 
+    The function changes sign at \(x = \ln(2)\), and it is negative in $[0, \ln(2))$ and positive in $(\ln(2), \ln(3)]$. Split the integral to compute the area $A$:
+    \[
+    A = \int_{0}^{\ln(3)} |e^x - 2| \, dx = -\int_{0}^{\ln(2)} (e^x - 2) \, dx + \int_{\ln(2)}^{\ln(3)} (e^x - 2) \, dx.
+    \]
+    After computing each integral, we get $A = 1$.
+
+\end{enumerate}
+
+\section*{Lorenz curve and Gini index}
+
+\begin{enumerate}[leftmargin=0.5cm, label=\arabic*., rightmargin=0.2cm]
+
+    \item The Lorenz curve for the United States in 1990 can be modeled by:
+    \[
+    L(x) = 2.03x^4 - 3.15x^3 + 2.22x^2 - 0.1x.
+    \]
+    Compute the Gini Index for this curve.
+
+    \textbf{Solution:}
+    The Gini Index ($GI$) is:
+    \[
+    GI = 2 \int_0^1 (x - L(x)) \, dx = 2 \left(-\frac{2.03}{5} + \frac{3.15}{4} - \frac{2.22}{3} + \frac{1.1}{2}\right) = 0.383.
+    \]
+
+    \item In 1988, the Lorenz curve for the United States was:
+    \[
+    L(x) = 1.93x^4 - 2.96x^3 + 2.12x^2 - 0.09x.
+    \]
+    Calculate the Gini Index for this curve.
+
+    \textbf{Solution:}
+
+    The Gini Index ($GI$) is:
+    \[
+    GI = 2 \int_0^1 (x - L(x)) \, dx = 2 \left(-\frac{1.93}{5} + \frac{2.96}{4} - \frac{2.12}{3} + \frac{0.09}{2}\right) = 0.341.
+    \]
+
+    \item Suppose a study indicates the distribution of income for professional athletes in three different sports is given by the following Lorenz curves:
+    \begin{align*}
+        L_1(x) &= \frac{2}{3}x^3 + \frac{1}{3}x, & \text{(Baseball)} \\
+        L_2(x) &= \frac{5}{6}x^2 + \frac{1}{6}x, & \text{(Football)} \\
+        L_3(x) &= \frac{3}{5}x^4 + \frac{2}{5}x, & \text{(Basketball)}
+    \end{align*}
+    Compute the Gini index for each sport. Determine which sport has the most equitable income distribution and which has the least equitable.
+
+    \textbf{Solution:}
+
+    \textbf{1. Baseball (\(L_1(x)\))}:
+    \begin{align*}
+        G_1 &= 2 \int_0^1 \left(-\frac{2}{3}x^3 + \frac{2}{3}x\right) \, dx = 2 \left[-\frac{2}{3} \cdot \frac{x^4}{4} + \frac{2}{3} \cdot \frac{x^2}{2}\right]_0^1 \\
+        &= 2 \left[-\frac{2}{12} + \frac{2}{6}\right] = 2 \left[-\frac{1}{6} + \frac{1}{3}\right] = 2 \cdot \frac{1}{6} = \frac{1}{3}.
+    \end{align*}
+
+    \textbf{2. Football (\(L_2(x)\))}:
+    \begin{align}
+        G_2 &= 2 \int_0^1 \left(-\frac{5}{6}x^2 + \frac{5}{6}x\right) \, dx = 2 \left[-\frac{5}{6} \cdot \frac{x^3}{3} + \frac{5}{6} \cdot \frac{x^2}{2}\right]_0^1, \\
+        &= 2 \left[-\frac{5}{18} + \frac{5}{12}\right] = 2 \cdot \frac{10}{36} = \frac{10}{18} = \frac{5}{9}.
+    \end{align}
+
+    \textbf{3. Basketball (\(L_3(x)\))}:
+    \begin{align*}
+        G_3 &= 2 \int_0^1 \left(-\frac{3}{5}x^4 + \frac{3}{5}x\right) \, dx = 2 \left[-\frac{3}{5} \cdot \frac{x^5}{5} + \frac{3}{5} \cdot \frac{x^2}{2}\right]_0^1 \\
+        &= 2 \left[-\frac{3}{25} + \frac{3}{10}\right] = 2 \cdot \frac{15}{50} = \frac{3}{5}.
+    \end{align*}
+    \textbf{Comparison:} \\
+    - \textit{Most equitable distribution:} Baseball (\(G = \frac{1}{3}\)). \\
+    - \textit{Least equitable distribution:} Basketball (\(G = \frac{3}{5}\)).
+    
+\end{enumerate}
+
+\section*{Consumer Surplus}
+
+\begin{enumerate}[leftmargin=0.5cm, label=\arabic*., rightmargin=0.2cm]
+
+    \item The demand and supply functions for a product are:
+    $$
+    q_d = 100 - 5p, \quad q_s = 5p - 20,
+    $$
+    where $q_d$ and $q_s$ are the quantity demanded and supplied, respectively, and $p$ is the price. Find the equilibrium price and quantity, and compute the consumer surplus.
+
+    \textbf{Solution:}
+    \begin{align*}
+        &\text{Equilibrium price: } q_d = q_s \implies 100 - 5p = 5p - 20
+        \implies 120 = 10p \implies p = 12. \\
+        & \text{Equilibrium quantity: } q = q_d = 100 - 5(12) = 40. \\
+        & \text{Consumer surplus: } \int_0^{40} \left(\frac{100 - q}{5}\right) \, dq - 12 \cdot 40 
+        = \int_0^{40} \left(20 - \frac{q}{5}\right) \, dq - 480. \\
+        &\hspace{3cm} = \left(20q - \frac{q^2}{10}\right)\Big|_0^{40} - 480 = (800 - 160) - 480 = 160.
+    \end{align*}
+
+    \item The demand and supply functions for a good are:
+    $$
+    q_d = 50 - 2p^2, \quad q_s = p^2 - 10.
+    $$
+    Find the equilibrium price and quantity, and compute the consumer surplus.
+
+    \textbf{Solution:}
+    \begin{align*}
+        &\text{Equilibrium price: } q_d = q_s \implies 50 - 2p^2 = p^2 - 10
+        \implies 60 = 3p^2 \implies p^2 = 20 \implies p = \sqrt{20}. \\
+        & \text{Equilibrium quantity: } q = q_d = 50 - 2(4.47)^2 = 20. \\
+        & \text{Consumer surplus: } \int_0^{20} \left(\frac{50 - q}{2}\right) \, dq - 20\sqrt{20}
+        = \int_0^{20} \left(25 - \frac{q}{2}\right) \, dq - 20\sqrt{20}. \\
+        &\hspace{3cm} = \left(25q - \frac{q^2}{4}\right)\Big|_0^{20} - 20\sqrt{20} = (500 - 100) - 20\sqrt{20} = 400 - 20\sqrt{20}.
+    \end{align*}
+
+    \item The demand and supply functions for a good are:
+    $$
+    q_d = 80 - 4p^2, \quad q_s = 2p^2 - 10.
+    $$
+    Find the equilibrium price and quantity, and compute the consumer surplus.
+
+    \textbf{Solution:}
+    \begin{align*}
+        &\text{Equilibrium price: } q_d = q_s \implies 80 - 4p^2 = 2p^2 - 10
+        \implies 90 = 6p^2 \implies p^2 = 15 \implies p = \sqrt{15}. \\
+        & \text{Equilibrium quantity: } q = q_d = 80 - 4(3.87)^2 = 20. \\
+        & \text{Consumer surplus: } \int_0^{20} \left(\frac{80 - q}{4}\right) \, dq - 20\sqrt{15}
+        = \int_0^{20} \left(20 - \frac{q}{4}\right) \, dq - 20\sqrt{15}. \\
+        &\hspace{3cm} = \left(20q - \frac{q^2}{8}\right)\Big|_0^{20} - 20\sqrt{15} = (400 - 50) - 20\sqrt{15} = 350 - 20\sqrt{15}.
+    \end{align*}
+
+\end{enumerate}
+
+\section*{Improper Integrals}
+
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item $\int_2^\infty \frac{1}{x^2}\,\mathrm{d}x$
+
+    \textbf{Solution:}
+    Define the integral with a cutoff at \(b > 2\):
+    \[
+    \int_2^\infty \frac{1}{x^2}\,\mathrm{d}x = \lim_{b \to \infty} \int_2^b \frac{1}{x^2}\,\mathrm{d}x = \lim_{b \to \infty} \left[-\frac{1}{x}\right]_2^b = \lim_{b \to \infty} \left(-\frac{1}{b} + \frac{1}{2}\right) = 0 + \frac{1}{2} = \frac{1}{2}.
+    \]
+    \textbf{Convergent.}
+
+    \item $\int_0^\infty e^{-x}\,\mathrm{d}x$
+
+    \textbf{Solution:}
+    Define the integral with a cutoff at \(b > 0\):
+    \[
+    \int_0^\infty e^{-x}\,\mathrm{d}x = \lim_{b \to \infty} \int_0^b e^{-x}\,\mathrm{d}x = \lim_{b \to \infty} \left[-e^{-x}\right]_0^b = \lim_{b \to \infty} \left(-e^{-b} + e^0\right) = 0 + 1 = 1.
+    \]
+    Evaluate:
+    \textbf{Convergent.}
+
+    \item $\int_0^b \frac{1}{\sqrt{x}}\,\mathrm{d}x$
+
+    \textbf{Solution:}
+    Near \(x = 0\), the integrand diverges:
+    \[
+    \int_0^\infty \frac{1}{\sqrt{x}}\,\mathrm{d}x = \lim_{a \to 0^+} \int_a^b \frac{1}{\sqrt{x}}\,\mathrm{d}x = \lim_{a \to 0^+} \left[2\sqrt{x}\right]_a^b = 
+    \lim_{a \to 0^+} 2\sqrt{b} - 2\sqrt{a} = \infty.
+    \]
+    \textbf{Divergent.}
+
+    \item $\int_1^\infty \frac{1}{x^3} \, \mathrm{d}x$
+    
+    \textbf{Solution:}
+    \[
+    \int_1^\infty \frac{1}{x^3} \, \mathrm{d}x = \lim_{b \to \infty} \int_1^b \frac{1}{x^3} \, \mathrm{d}x = \lim_{b \to \infty} \left[-\frac{1}{2x^2}\right]_1^b = 0 - \left(-\frac{1}{2}\right) = \frac{1}{2}.
+    \]
+    \textbf{Convergent.}
+
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,1160 @@
+\documentclass[9pt]{beamer}
+\usepackage{silence}
+\WarningFilter{beamerthememetropolis}{You need to compile with XeLaTeX or LuaLaTeX to use the Fira fonts}
+\usetheme[titleformat = smallcaps, block = fill, progressbar = frametitle]{metropolis}
+\title{\huge \mbox{Methods of Linear Algebra - Exercises}}
+\input{preamble}
+
+%----------------------------- -------------- -----------------------------%
+%----------------------------- BEGIN DOCUMENT -----------------------------%
+%----------------------------- -------------- -----------------------------%
+\begin{document}
+%----------------------- TITLE -----------------------%
+\maketitle
+%----------------------- TITLE -----------------------%
+
+%----------------------- INTRODUCTION -----------------------%
+\begin{frame}{Matrix algebra}
+
+    \begin{enumerate}[leftmargin = 0.35cm, label = \arabic*., rightmargin = 0.2cm]
+        
+        \item Compute $A +B$ and $A + 3B$, for $A = 
+        \begin{pmatrix}
+        0 & 1 \\
+        2 & 3 
+        \end{pmatrix}$ and $B = 
+        \begin{pmatrix}
+        1 & -1 \\
+        5 & 2
+        \end{pmatrix}$
+
+        \item Calculate $A + B$, $A - B$, and $5A - 3B$, for 
+        $A =
+        \begin{pmatrix}
+        0 & 1 & -1 \\
+        2 & 3 & 7
+        \end{pmatrix}$ and $B =
+        \begin{pmatrix}
+        1 & -1 & 5 \\
+        0 & 1 & 9
+        \end{pmatrix}$.
+        \medskip
+        
+        \item Obtain $3A + 2B - 2C + D$, $AB$, and $C(AB)$, for
+        $$
+        A = 
+        \begin{pmatrix}
+        2 & 4 \\
+        1 & 2
+        \end{pmatrix},\quad 
+        B = 
+        \begin{pmatrix}
+        -2 & 4 \\
+        1 & -2
+        \end{pmatrix},\quad
+        C = 
+        \begin{pmatrix}
+        2 & 3 \\
+        6 & 9
+        \end{pmatrix},\quad 
+        D = 
+        \begin{pmatrix}
+        1 & 1 \\
+        1 & 3
+        \end{pmatrix}.
+        $$
+        \medskip
+        
+        \item Find the matrices $A + B$, $A - B$, $AB$, $BA$, $A(BC)$, and $(AB)C$, for
+        $$
+        A = 
+        \begin{pmatrix}
+        1 & 2  & -3 \\
+        5 & 0  & 2 \\
+        1 & -1 & 1
+        \end{pmatrix},\quad 
+        B = 
+        \begin{pmatrix}
+        3 & -1 & 2 \\
+        4 & 2  & 5 \\
+        2 & 0  & 3
+        \end{pmatrix},\quad
+        C = 
+        \begin{pmatrix}
+        4 & 1  & 2 \\
+        0 & 3  & 2 \\
+        1 & -2 & 3
+        \end{pmatrix}
+        $$
+        
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Matrix algebra — Solution}
+\small
+\begin{enumerate}[leftmargin = 0.35cm, label = \arabic*., rightmargin = 0.2cm]
+
+\item 
+$
+A+B=\begin{pmatrix}1&0\\7&5\end{pmatrix},\qquad
+A+3B=\begin{pmatrix}3&-2\\17&9\end{pmatrix}.
+$
+\medskip
+
+\item 
+$
+A+B=\begin{pmatrix}1&0&4\\2&4&16\end{pmatrix},\quad
+A-B=\begin{pmatrix}-1&2&-6\\2&2&-2\end{pmatrix},\quad
+5A-3B=\begin{pmatrix}-3&8&-20\\10&12&8\end{pmatrix}.
+$
+\medskip
+
+\item 
+$
+3A+2B-2C+D=\begin{pmatrix}-1&15\\-6&-13\end{pmatrix},\quad
+AB=\begin{pmatrix}0&0\\0&0\end{pmatrix},\quad
+C(AB)=\begin{pmatrix}0&0\\0&0\end{pmatrix}.
+$
+\medskip
+
+\item 
+$
+\begin{aligned}
+A+B&=\begin{pmatrix}4&1&-1\\9&2&7\\3&-1&4\end{pmatrix},\quad
+A-B=\begin{pmatrix}-2&3&-5\\1&-2&-3\\-1&-1&-2\end{pmatrix},\quad
+AB=\begin{pmatrix}5&3&3\\19&-5&16\\1&-3&0\end{pmatrix}, \\
+BA&=\begin{pmatrix}0&4&-9\\19&3&-3\\5&1&-3\end{pmatrix},\quad
+A(BC)=\begin{pmatrix}23&8&25\\92&-28&76\\4&-8&-4\end{pmatrix},\quad
+(AB)C=\begin{pmatrix}23&8&25\\92&-28&76\\4&-8&-4\end{pmatrix}.
+\end{aligned}
+$
+\vspace{0.3cm}
+
+\textit{(Checks associative rule: $A(BC)=(AB)C$.)}
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Matrix multiplication}
+
+        
+        Compute the products $AB$ and $BA$, if possible, for
+        \vspace{0.2cm}
+        
+        \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+            \item 
+            $
+            A = 
+            \begin{pmatrix}
+            0 & -2 \\
+            3 & 1
+            \end{pmatrix},\quad 
+            B = 
+            \begin{pmatrix}
+            -1 & 4 \\
+            1  & 5  
+            \end{pmatrix}
+            $
+            \vspace{0.2cm}
+            
+            \item 
+            $
+            A = 
+            \begin{pmatrix}
+            8 & 3 & -2 \\
+            1 & 0 & 4 
+            \end{pmatrix},\quad 
+            B = 
+            \begin{pmatrix}
+            -2 & -2 \\
+            4  & 3 \\
+            1  & -5
+            \end{pmatrix}
+            $
+            \vspace{0.2cm}
+
+            \item 
+            $
+            A = 
+            \begin{pmatrix}
+            -1 & 0 \\
+             2 & 4
+            \end{pmatrix},\quad 
+            B = 
+            \begin{pmatrix}
+            3  & 1 \\
+            -1 & 1 \\
+            0  & 2
+            \end{pmatrix}
+            $
+            \vspace{0.2cm}
+
+            \item 
+            $
+            A = 
+            \begin{pmatrix}
+            0  \\
+            -2 \\
+            4
+            \end{pmatrix},\quad 
+            B = 
+            \begin{pmatrix}
+            0 & 2 & 3
+            \end{pmatrix}
+            $
+            
+        \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Matrix multiplication — solutions}
+\footnotesize
+
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item $A\in\mathbb{R}^{2\times 2}$, $B\in\mathbb{R}^{2\times 2}$ (both products defined):
+\[
+AB=
+\begin{pmatrix}
+0&-2\\[2pt]3&1
+\end{pmatrix}
+\!\!
+\begin{pmatrix}
+-1&4\\[2pt]1&5
+\end{pmatrix}
+=
+\begin{pmatrix}
+-2&-10\\[2pt]-2&17
+\end{pmatrix},\qquad
+BA=
+\begin{pmatrix}
+-1&4\\[2pt]1&5
+\end{pmatrix}
+\!\!
+\begin{pmatrix}
+0&-2\\[2pt]3&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+12&6\\[2pt]15&3
+\end{pmatrix}.
+\]
+\medskip
+
+\item $A\in\mathbb{R}^{2\times 3}$, $B\in\mathbb{R}^{3\times 2}$ (both products defined):
+\[
+AB=
+\begin{pmatrix}
+8&3&-2\\[2pt]1&0&4
+\end{pmatrix}
+\!\!
+\begin{pmatrix}
+-2&-2\\[2pt]4&3\\[2pt]1&-5
+\end{pmatrix}
+=
+\begin{pmatrix}
+-6&3\\[2pt]2&-22
+\end{pmatrix},
+\]
+\[
+BA=
+\begin{pmatrix}
+-2&-2\\[2pt]4&3\\[2pt]1&-5
+\end{pmatrix}
+\!\!
+\begin{pmatrix}
+8&3&-2\\[2pt]1&0&4
+\end{pmatrix}
+=
+\begin{pmatrix}
+-18&-6&-4\\[2pt]35&12&4\\[2pt]3&3&-22
+\end{pmatrix}.
+\]
+\medskip
+
+\item $A\in\mathbb{R}^{2\times 2}$, $B\in\mathbb{R}^{3\times 2}$:
+\[
+AB \text{ is not defined (inner dims $2\neq 3$).}\qquad
+BA=
+\begin{pmatrix}
+3&1\\[2pt]-1&1\\[2pt]0&2
+\end{pmatrix}
+\!\!
+\begin{pmatrix}
+-1&0\\[2pt]2&4
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1&4\\[2pt]3&4\\[2pt]4&8
+\end{pmatrix}.
+\]
+\medskip
+
+\item $A\in\mathbb{R}^{3\times 1}$, $B\in\mathbb{R}^{1\times 3}$ (both products defined):
+\[
+AB=
+\begin{pmatrix}
+0\\[2pt]-2\\[2pt]4
+\end{pmatrix}
+\!\!
+\begin{pmatrix}
+0&2&3
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&0&0\\[2pt]
+0&-4&-6\\[2pt]
+0&8&12
+\end{pmatrix},\qquad
+BA=
+\begin{pmatrix}
+0&2&3
+\end{pmatrix}
+\!\!
+\begin{pmatrix}
+0\\[2pt]-2\\[2pt]4
+\end{pmatrix}
+=
+\begin{pmatrix}
+8
+\end{pmatrix}.
+\]
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Matrix equality}
+
+Determine the values of $u$ and $v$ such that 
+        $$
+        \begin{pmatrix}
+            (1 - u)^2 & v^2 & 3 \\
+            v & 2u & 5 \\
+            6 & u & -1
+        \end{pmatrix} = 
+        \begin{pmatrix}
+        4 & 4 & u \\
+        v & -3v & u-v \\
+        6 & v + 5 & -1
+        \end{pmatrix}.
+        $$
+    
+\end{frame}
+
+\begin{frame}{Matrix equality — Solution}
+
+Equate corresponding entries:
+\[
+\begin{aligned}
+&(1,3):\quad 3=u \;\Rightarrow\; u=3.\\
+&(1,1):\quad (1-u)^2=4 \;\Rightarrow\; (1-3)^2=4 \;\checkmark\\
+&(1,2):\quad v^2=4 \;\Rightarrow\; v=\pm2.\\
+&(2,2):\quad 2u=-3v \;\Rightarrow\; 6=-3v \;\Rightarrow\; v=-2.\\
+&(2,3):\quad 5=u-v \;\Rightarrow\; 5=3-(-2) \;\checkmark\\
+&(3,2):\quad u=v+5 \;\Rightarrow\; 3=(-2)+5 \;\checkmark
+\end{aligned}
+\]
+
+\end{frame}
+
+
+% \begin{frame}{Power of matrices}
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+%     \item Let $A = \begin{pmatrix}
+%             2 & 1 \\
+%             0 & 1 
+%             \end{pmatrix}$ and denote $A^n = \begin{pmatrix}
+%             a_n & b_n \\
+%             c_n & d_n 
+%             \end{pmatrix}$.
+%         Find recurrence equations for $a_n$, $b_n$, $c_n$, and $d_n$, and solve them to obtain $A^n$.
+
+%     \item Show that, if $P$ and $Q$ are $n\times n$ matrices such that $P^3Q = PQ$, then $P^5Q = PQ$.
+
+%     \item Suppose that $A$ and $B$ are square matrices of the same order
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+%         \item Prove that, in general,
+%         $$
+%         (i)\; (A + B)(A - B) \neq A^2 -B^2,\quad\quad (ii)\; (A-B)^2\neq A^2 -2AB + B^2.
+%         $$
+%         \item Find necessary and sufficient conditions for equality to hold in each case.
+        
+%     \end{enumerate}
+%     \end{enumerate}
+    
+% \end{frame}
+
+% \begin{frame}{Matrix multiplication}
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+
+%     \item Compute the following matrix products:
+
+%     $$
+%         (a) 
+%         \begin{pmatrix}
+%             1 & 2 & 0  \\
+%             0 & 1 & -1 \\
+%             0 & 2 & 1
+%         \end{pmatrix}
+%         \begin{pmatrix}
+%             5 & 3 & 1  \\
+%             2 & 0 & 9 \\
+%             1 & 3 & 3
+%         \end{pmatrix}\quad
+%         (b)
+%         \begin{pmatrix}
+%             1 & 2 & -3
+%         \end{pmatrix}
+%         \begin{pmatrix}
+%             1 & 2 & 0  \\
+%             0 & 1 & -1 \\
+%             0 & 2 & 1
+%         \end{pmatrix}
+%         $$
+
+%         \item Verify the distributive law $A(B+C) = AB +AC$ for
+%         $$
+%         A = 
+%         \begin{pmatrix}
+%             1 & 2 \\
+%             3 & 4
+%         \end{pmatrix},\quad
+%         B =
+%         \begin{pmatrix}
+%             2 & -1 & 1 & 0  \\
+%             3 & -1 & 2 & 1
+%         \end{pmatrix},\quad
+%         C =
+%         \begin{pmatrix}
+%             -1 & 1 & 1 & 2  \\
+%             -2 & 2 & 0 & -1
+%         \end{pmatrix}.
+%         $$
+    
+%     \end{enumerate}
+    
+% \end{frame}
+
+\begin{frame}{Gaussian elimination}
+
+    Solve the following systems by Gaussian elimination
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item 
+    \begin{equation*}
+        \left.
+        \begin{alignedat}{4}
+             x_1 & {}+{} &  x_2 & = 3 \\
+            3x_1 & {}+{} & 5x_2 & = 5
+        \end{alignedat}
+        \right\}
+    \end{equation*}
+
+    \item 
+    \begin{equation*}
+        \left.
+        \begin{alignedat}{4}
+             x_1 & {}+{} & 2x_2 & {}+{} &  x_3 & = 4 \\
+             x_1 & {}-{} &  x_2 & {}+{} &  x_3 & = 5 \\
+            2x_1 & {}+{} & 3x_2 & {}-{} &  x_3 & = 1
+        \end{alignedat}
+        \right\}
+    \end{equation*}
+
+    \item 
+    \begin{equation*}
+        \left.
+        \begin{alignedat}{4}
+            2x_1 & {}-{} & 3x_2 & {}+{} &  x_3 & = 0 \\
+             x_1 & {}+{} &  x_2 & {}-{} &  x_3 & = 0
+        \end{alignedat}
+        \right\}
+    \end{equation*}
+    
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Gaussian elimination — Solution}
+\small
+\begin{enumerate}[leftmargin=0.5cm, label=(\alph*), rightmargin=0.2cm]
+
+\item
+\[
+\left[
+\begin{array}{cc|c}
+1&1&3\\
+3&5&5
+\end{array}\right]
+\ \xrightarrow{R_2\leftarrow R_2-3R_1}\
+\left[
+\begin{array}{cc|c}
+1&1&3\\
+0&2&-4
+\end{array}\right]
+\Rightarrow x_2=-2,\quad x_1=3-(-2)=5.
+\]
+\[
+\boxed{(x_1,x_2)=(5,-2)}
+\]
+
+\item
+\[
+\hspace{-0.6cm}
+\left[
+\begin{array}{ccc|c}
+1&2&1&4\\
+1&-1&1&5\\
+2&3&-1&1
+\end{array}\right]
+\ \xrightarrow{\substack{R_2\leftarrow R_2-R_1\\ R_3\leftarrow R_3-2R_1}}\
+\left[
+\begin{array}{ccc|c}
+1&2&1&4\\
+0&-3&0&1\\
+0&-1&-3&-7
+\end{array}\right]
+\ \xrightarrow{\substack{R_2\leftarrow -\tfrac{1}{3}R_2\\ 
+R_1\leftarrow R_1-2R_2\\
+R_3\leftarrow R_3+R_2
+}}\
+\left[
+\begin{array}{ccc|c}
+1&0&1&\tfrac{14}{3}\\
+0&1&0&-\tfrac{1}{3}\\
+0&0&-3&-\tfrac{22}{3}
+\end{array}\right]
+\]
+\[
+-3x_3=-\tfrac{22}{3}\Rightarrow x_3=\tfrac{22}{9},\quad
+x_2=-\tfrac{1}{3},\quad
+x_1=\tfrac{14}{3}-x_3=\tfrac{20}{9}.
+\]
+\[
+\boxed{\left(x_1,x_2,x_3\right)=\left(\tfrac{20}{9},-\tfrac{1}{3},\tfrac{22}{9}\right)}
+\]
+
+\item
+\[
+\left[
+\begin{array}{ccc|c}
+2&-3&1&0\\
+1&\ \ 1&-1&0
+\end{array}\right]
+\ \xrightarrow{R_2\leftrightarrow R_1}\
+\left[
+\begin{array}{ccc|c}
+1&1&-1&0\\
+2&-3&1&0
+\end{array}\right]
+\ \xrightarrow{R_2\leftarrow R_2-2R_1}\
+\left[
+\begin{array}{ccc|c}
+1&1&-1&0\\
+0&-5&3&0
+\end{array}\right]
+\]
+From $-5x_2+3x_3=0$ let $t=x_3$ (free). Then $x_2=\tfrac{3}{5}t$ and $x_1=-x_2+x_3=\tfrac{2}{5}t$.
+A cleaner parametrization: set $t=5s$ to avoid fractions,
+\[
+\boxed{(x_1,x_2,x_3)=s\,(2,3,5),\quad s\in\mathbb{R}.}
+\]
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Gaussian elimination and existence of solution}
+
+    Use Gaussian elimination to discuss what are the possible solutions of the following system for different values of $a$ and $b$:
+    \begin{equation*}
+        \left.
+        \begin{alignedat}{4}
+             x & {}+{} &  y & {}-{} &  z & = 1 \\
+             x & {}-{} &  y & {}+{} & 2z & = 2 \\
+             x & {}+{} & 2y & {}+{} & az & = b
+        \end{alignedat}
+        \right\}
+    \end{equation*}
+    
+\end{frame}
+
+\begin{frame}{Gaussian elimination and existence of solution — Solution}
+\tiny
+\textbf{System:}
+\[
+\begin{cases}
+x+y-z=1\\
+x-y+2z=2\\
+x+2y+az=b
+\end{cases}
+\qquad\Longleftrightarrow\qquad
+\left[\begin{array}{ccc|c}
+1&1&-1&1\\
+1&-1&2&2\\
+1&2&a&b
+\end{array}\right]
+\]
+
+\textbf{Eliminate $x$ from $R_2$ and $R_3$:} $R_2\leftarrow R_2-R_1$, $R_3\leftarrow R_3-R_1$
+\[
+\left[\begin{array}{ccc|c}
+1&1&-1&1\\
+0&-2&3&1\\
+0&1&a+1&b-1
+\end{array}\right]
+\overset{R_2\leftrightarrow R_3}{\Longrightarrow}
+\left[\begin{array}{ccc|c}
+1&1&-1&1\\
+0&1&a+1&b-1\\
+0&-2&3&1
+\end{array}\right]
+\]
+
+\textbf{Eliminate $y$ from $R_3$:} $R_3\leftarrow R_3+2R_2$
+\[
+\left[\begin{array}{ccc|c}
+1&1&-1&1\\
+0&1&a+1&b-1\\
+0&0&\;2a+5\;&\;2b-1\;
+\end{array}\right]
+\]
+
+\textbf{Case analysis.}
+\begin{itemize}
+\item If $2a+5\neq 0$ ($a\neq -\tfrac{5}{2}$): unique solution by back-substitution:
+\[
+\boxed{%
+z=\frac{2b-1}{2a+5},\quad
+y=\frac{-a+3b-4}{2a+5},\quad
+x=\frac{3a-b+8}{2a+5}}
+\]
+\item If $2a+5=0$ ($a=-\tfrac{5}{2}$):
+\[
+\left[\begin{array}{ccc|c}
+1&1&-1&1\\
+0&1&-\tfrac{3}{2}&b-1\\
+0&0&0&2b-1
+\end{array}\right]
+\]
+\begin{itemize}
+\item If $2b-1\neq 0$ ($b\neq \tfrac{1}{2}$): \textbf{no solution} (inconsistent row $[0\ 0\ 0\mid 2b-1]$).
+\item If $2b-1=0$ ($b=\tfrac{1}{2}$): \textbf{infinitely many solutions}. Let $t=z$ be free. From
+$
+y-\tfrac{3}{2}z=-\tfrac{1}{2},\, x+y-z=1,
+$
+one gets
+\[
+\boxed{%
+x=\tfrac{3}{2}-\tfrac{1}{2}t,\quad
+y=-\tfrac{1}{2}+\tfrac{3}{2}t,\quad
+z=t \quad (t\in\mathbb{R}).}
+\]
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+% \begin{frame}{Determinants}
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+%         \item Solve the following equation for $x$
+%         $$
+%         \begin{vmatrix}
+%             2-x & 0   & 0   & 0   \\
+%             0   & 2-x & 0   & 0   \\
+%             0   & 0   & 2-x & 0   \\
+%             0   & 0   & 0   & 2-x 
+%         \end{vmatrix} = 0
+%         $$
+
+%         \item Evaluate the following determinants as simply as possible:
+%         $$
+%         (a) 
+%         \begin{vmatrix}
+%             3 & 0 & 1  \\
+%             1 & 0 & -1 \\
+%             2 & 0 & 5
+%         \end{vmatrix}\quad
+%         (b)
+%         \begin{vmatrix}
+%             1  & 2  & 3  & 4   \\
+%             0  & -1 & 2  & 4   \\
+%             0  & 0  & 3  & -1  \\
+%             -3 & -6 & -9 & -12 
+%         \end{vmatrix}\quad
+%         (c)
+%         \begin{vmatrix}
+%             a_1-x & a_2 & a_3 & a_4 \\
+%             0     & -x  & 0   & 0   \\
+%             0     & 1   & -x  & 0   \\
+%             0     & 0   & 1   & -x 
+%         \end{vmatrix}
+%         $$
+
+%         \item For the matrices $A$ and $B$, such that $|A| = 3$ and $|B| = -4$, find, whenever possible, the value of $|AB|$, $3|A|$, $|-2B|$, $|4A|$, $|A + B|$, $|A| + |B|$.
+        
+%     \end{enumerate}
+    
+% \end{frame}
+
+% \begin{frame}{Sufficient condition for invertibility}
+
+%     Prove that, if $|A|\neq 0$, then $A$ is invertible and $A^{-1} = \text{adj}(A)/|A|$.
+
+%     % Hint: Evaluate the product
+%     % $$
+%     % \begin{pmatrix}
+%     %     a_{11} & a_{12} & \cdots & a_{1n}  \\
+%     %     a_{21} & a_{22} & \cdots & a_{2n}  \\
+%     %     \vdots & \vdots &        & \vdots  \\
+%     %     a_{n1} & a_{n2} & \cdots & a_{nn}  
+%     % \end{pmatrix}
+%     % \begin{pmatrix}
+%     %     C_{11} & C_{12} & \cdots & C_{1n}  \\
+%     %     C_{21} & C_{22} & \cdots & C_{2n}  \\
+%     %     \vdots & \vdots &        & \vdots  \\
+%     %     C_{n1} & C_{n2} & \cdots & C_{nn}  
+%     % \end{pmatrix}, %=
+%     % %\begin{pmatrix}
+%     % %     |A|    & 0      & \cdots & 0      \\
+%     % %     0      & |A|    & \cdots & 0      \\
+%     % %     \vdots & \vdots & \ddots & \vdots \\
+%     % %     0      & 0      & \cdots & |A|  
+%     % % \end{pmatrix},
+%     % $$
+%     % where $C_{ij}$ are the cofactors of $A$.
+    
+% \end{frame}
+
+\begin{frame}{Inverse of an $2\times 2$ matrix}
+
+    Prove that, for $A = \begin{pmatrix}
+            a & b \\
+            c & d 
+        \end{pmatrix}$, the inverse $A^{-1}$ takes the form
+    $$
+    A = \frac{1}{ad-bc}
+    \begin{pmatrix}
+        d & -b \\
+        -c & a 
+    \end{pmatrix}.
+    $$
+    
+\end{frame}
+
+\begin{frame}{Inverse of a $2\times 2$ matrix}
+\small
+Let 
+\[
+A=\begin{pmatrix}a&b\\ c&d\end{pmatrix},\qquad \Delta=\det(A)=ad-bc.
+\]
+If $\Delta\neq 0$, define
+\[
+B:=\frac{1}{\Delta}\begin{pmatrix}d&-b\\ -c&a\end{pmatrix}.
+\]
+Then
+\[
+AB=\frac{1}{\Delta}
+\begin{pmatrix}
+a&b\\ c&d
+\end{pmatrix}
+\begin{pmatrix}
+d&-b\\ -c&a
+\end{pmatrix}
+=
+\frac{1}{\Delta}
+\begin{pmatrix}
+ad-bc&-ab+ab\\ cd-dc&-cb+ad
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0\\ 0&1
+\end{pmatrix}=I.
+\]
+Similarly,
+\[
+BA=\frac{1}{\Delta}
+\begin{pmatrix}
+d&-b\\ -c&a
+\end{pmatrix}
+\begin{pmatrix}
+a&b\\ c&d
+\end{pmatrix}
+=
+\frac{1}{\Delta}
+\begin{pmatrix}
+ad-bc&db-bd\\ -ca+ac&-cb+ad
+\end{pmatrix}
+=I.
+\]
+Hence $B=A^{-1}$, i.e.
+\[
+\boxed{
+A^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\ -c&a\end{pmatrix}
+}\quad\text{provided }ad-bc\neq 0.
+\]
+
+\end{frame}
+
+% \begin{frame}{Inverse of a matrix}
+
+%     \begin{enumerate}[leftmargin = 0.5cm, label = \arabic*., rightmargin = 0.2cm]
+        
+%         \item Find the inverse of $A$ given that $A -A^2 = I$
+        
+%         \item Let $B$ be a $n \times n$ matrix such that $B^2 = 3B$. Prove that there exists a number $s$ such that $I + sB$ is the inverse of $I + B$.
+        
+%         \item Prove the following properties of invertibility
+
+%         \begin{enumerate}[leftmargin = 0.5cm, label = (\roman*), rightmargin = 0.2cm]
+
+%         \item $(A^{-1})^{-1} = A$
+%         \item $(AB)^{-1} = B^{-1}A^{-1}$
+%         \item $(A')^{-1} = (A^{-1})'$
+%         \item $(cA)^{-1} = c^{-1}A^{-1}$, for $c\neq 0$.
+        
+%         \end{enumerate}
+        
+%     \end{enumerate}
+% \end{frame}
+
+% \begin{frame}{Inverse of a matrix — solutions}
+% \small
+% \begin{enumerate}[leftmargin=0.5cm, label=\arabic*., rightmargin=0.2cm]
+
+% \item \textbf{Find $A^{-1}$ if $A-A^2=I$.}
+% \[
+% I = A-A^2 = A(I - A) = (I - A)A \;\Longrightarrow\; A \text{ is invertible and } A^{-1}=I-A.
+% \]
+
+% \item \textbf{If $B^2=3B$, find $s$ with $(I+B)^{-1}=I+sB$.}
+% \[
+% (I+B)(I+sB)=I+(1+s)B+sB^2=I+\bigl(1+s+3s\bigr)B=I+(1+4s)B.
+% \]
+% Choose $s=-\tfrac{1}{4}$ so that $1+4s=0$. Then $(I+B)(I-\tfrac14 B)=I=(I-\tfrac14 B)(I+B)$, hence
+% \[
+% \boxed{(I+B)^{-1}=I-\tfrac14 B.}
+% \]
+
+% \item \textbf{Basic properties of inverses.} Let $A,B$ be invertible and $c\neq 0$.
+% \begin{enumerate}[leftmargin=0.5cm, label=(\roman*), rightmargin=0.2cm]
+% \item $(A^{-1})^{-1}=A$ since $AA^{-1}=I=A^{-1}A$ and inverses are unique.
+% \item $(AB)^{-1}=B^{-1}A^{-1}$ because
+% \[
+% (AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=AA^{-1}=I
+% \]
+% and similarly $(B^{-1}A^{-1})(AB)=I$.
+% \item $(A')^{-1}=(A^{-1})'$ since
+% \[
+% A'(A^{-1})'=(A^{-1}A)'=I'=I=(AA^{-1})'=(A^{-1})'A'.
+% \]
+% \item $(cA)^{-1}=c^{-1}A^{-1}$ because
+% \[
+% (cA)\bigl(c^{-1}A^{-1}\bigr)= (cc^{-1})AA^{-1}=I=\bigl(c^{-1}A^{-1}\bigr)(cA).
+% \]
+% \end{enumerate}
+
+% \end{enumerate}
+% \end{frame}
+
+
+\begin{frame}{The Leontief model. Two industries}
+
+Consider an economy with an agricultural sector, A, and an industrial sector, I. 
+To produce one unit in sector A requires $\tfrac{1}{4}$ unit from A and $\tfrac{1}{4}$ unit from I. 
+Producing one unit in sector I requires $\tfrac{1}{4}$ unit from A and $\tfrac{1}{2}$ unit from I. 
+Suppose final demands are $60$ and $120$ units for A and I, respectively.
+
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+    \item What is the input matrix?
+    \item Write down the Leontief system for this economy.
+    \item Find the number of units that must be produced in each sector to meet the final demands.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Leontief model. Two industries - Solution}
+\small
+\textbf{Technical coefficients (inputs per unit of output).}
+To make one unit in A needs $\tfrac14$ from A and $\tfrac14$ from I; to make one unit in I needs $\tfrac14$ from A and $\tfrac12$ from I. Thus
+\[
+A=\begin{pmatrix}
+\frac14 & \frac14\\[4pt]
+\frac14 & \frac12
+\end{pmatrix},\qquad
+d=\begin{pmatrix}60\\[2pt]120\end{pmatrix}.
+\]
+
+\textbf{(a)-(b) Leontief system (equations and matrix form).}
+Let $x=\begin{pmatrix}x_A\\ x_I\end{pmatrix}$. Then
+\[
+x=Ax+d
+\ \Longleftrightarrow\
+(I-A)x=d,
+\]
+i.e.
+\[
+\begin{cases}
+x_A=\tfrac14 x_A+\tfrac14 x_I+60,\\[2pt]
+x_I=\tfrac14 x_A+\tfrac12 x_I+120.
+\end{cases}
+\]
+
+\textbf{(c) Required gross outputs.}
+\[
+I-A=\begin{pmatrix}\tfrac34&-\tfrac14\\[2pt]-\tfrac14&\tfrac12\end{pmatrix},
+\quad
+\det(I-A)=\tfrac{5}{16}\neq0,
+\]
+\[
+(I-A)^{-1}
+=\frac{1}{\det}\begin{pmatrix}\tfrac12&\tfrac14\\[2pt]\tfrac14&\tfrac34\end{pmatrix}
+=\begin{pmatrix}\tfrac{8}{5}&\tfrac{4}{5}\\[2pt]\tfrac{4}{5}&\tfrac{12}{5}\end{pmatrix}.
+\]
+Hence
+\[
+x=(I-A)^{-1}d
+=\begin{pmatrix}\tfrac{8}{5}&\tfrac{4}{5}\\[2pt]\tfrac{4}{5}&\tfrac{12}{5}\end{pmatrix}
+\begin{pmatrix}60\\[2pt]120\end{pmatrix}
+=\begin{pmatrix}192\\[2pt]336\end{pmatrix}.
+\]
+\end{frame}
+
+
+
+
+\begin{frame}{Bar owner problem}
+    As a bar owner, you plan to stock $x$ $4$-servings bottles of whiskey, $y$ $6$-servings bottles of wine, and $z$ $8$-servings bottles of rum, for a total of $20$ bottles. When fully stocked, you want to the bottles to hold a total of $108$ servings. In the quite season you want to be able to provide a total of $46$ servings with a stock of only half of the whiskey bottles, half of the wine bottles, and one-fourth of the rum bottles. 
+
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+    \item Write the system of equations necessary to find $x$, $y$, and $z$.
+    \item Express the system in matrix form, that is, find a matrix $A$ and a vector $\pmb{b}$ such that $A{\bf w} = {\bf b}$, for ${\bf w} = (x, y, z)$ 
+    \item Assume that 
+    $A^{-1} =
+    \begin{pmatrix}
+        3 & -0.25 & -0.5 \\
+        -2 & 0 & 1 \\
+        0 & 0.25 & -0.5
+    \end{pmatrix}$. 
+    Find the value of $x$, $y$, and $z$. 
+    \item What would be the answer if you knew that the determinant of $A$ is zero?
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Bar owner - Solution}
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item The system of linear equations is
+        \begin{align*}
+            x + y + z &= 20  && \text{(Total number of bottles)} \\
+            4x + 6y + 8z &= 108 && \text{(Total number of servings)} \\
+            2x + 3y + 2z &= 46 && \text{(Servings during the quiet season)}
+        \end{align*}
+
+        \item The matrix $A$ and vector $\pmb{b}$ are
+        \begin{align*}
+            A = 
+            \begin{pmatrix}
+                1 & 1 & 1 \\
+                4 &  6 &  8 \\
+                2 &  3 & 2
+            \end{pmatrix}, \quad
+            \pmb{b} = 
+            \begin{pmatrix}
+                20 \\
+                108 \\
+                46
+            \end{pmatrix}
+        \end{align*}
+
+        \item The solution can be obtained by performing the matrix multiplication $A^{-1}\pmb{b}$, which yields $x = 10$, $y = 6$, $z = 4$.
+
+        \item In such a case $A$ would have no inverse and the system would have either no solution or infinitely many solutions.
+        
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{The Leontief model. Three industries}
+
+Consider an input--output model with three sectors: 
+sector 1 = heavy industry, sector 2 = light industry, sector 3 = agriculture. 
+The input requirements are:
+
+\medskip
+{
+\centering
+\begin{tabular}{l|ccc}
+ & Heavy industry & Light industry & Agriculture\\ \hline
+Units of heavy industry goods & $a_{11}=\tfrac{1}{10}$ & $a_{12}=\tfrac{1}{5}$ & $a_{13}=\tfrac{1}{10}$\\
+Units of light industry goods  & $a_{21}=\tfrac{3}{10}$ & $a_{22}=\tfrac{1}{5}$ & $a_{23}=\tfrac{1}{5}$\\
+Units of agricultural goods    & $a_{31}=\tfrac{1}{5}$ & $a_{32}=\tfrac{1}{5}$ & $a_{33}=\tfrac{1}{10}$\\
+\end{tabular}
+}
+
+\medskip
+Suppose final demands are $85$, $95$, and $20$ units for the three goods, respectively.
+If $x_1,x_2,x_3$ denote the gross outputs, write the Leontief system for the problem and
+verify that $x_1=150$, $x_2=200$, $x_3=100$ is a solution.
+\end{frame}
+
+\begin{frame}{Leontief model — solution}
+\small
+Let 
+\[
+A=\begin{pmatrix}
+\tfrac{1}{10} & \tfrac{1}{5} & \tfrac{1}{10}\\[2pt]
+\tfrac{3}{10} & \tfrac{1}{5} & \tfrac{1}{5}\\[2pt]
+\tfrac{1}{5}  & \tfrac{1}{5} & \tfrac{1}{10}
+\end{pmatrix},\qquad
+d=\begin{pmatrix}85\\95\\20\end{pmatrix},\qquad
+x=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}.
+\]
+
+\textbf{Leontief system:}\quad $x=Ax+d\ \Longleftrightarrow\ (I-A)x=d$, i.e.
+\[
+\begin{cases}
+x_1=\tfrac{1}{10}x_1+\tfrac{1}{5}x_2+\tfrac{1}{10}x_3+85,\\
+x_2=\tfrac{3}{10}x_1+\tfrac{1}{5}x_2+\tfrac{1}{5}x_3+95,\\
+x_3=\tfrac{1}{5}x_1+\tfrac{1}{5}x_2+\tfrac{1}{10}x_3+20.
+\end{cases}
+\]
+
+\textbf{Verification for } $x=(150,200,100)^\top$:
+\[
+Ax=
+\begin{pmatrix}
+\frac{1}{10}\cdot150+\frac{1}{5}\cdot200+\frac{1}{10}\cdot100\\[2pt]
+\frac{3}{10}\cdot150+\frac{1}{5}\cdot200+\frac{1}{5}\cdot100\\[2pt]
+\frac{1}{5}\cdot150+\frac{1}{5}\cdot200+\frac{1}{10}\cdot100
+\end{pmatrix}
+=
+\begin{pmatrix}
+65\\105\\80
+\end{pmatrix}.
+\]
+Then
+\[
+Ax+d=
+\begin{pmatrix}65\\105\\80\end{pmatrix}
++
+\begin{pmatrix}85\\95\\20\end{pmatrix}
+=
+\begin{pmatrix}150\\200\\100\end{pmatrix}=x.
+\]
+Hence $x_1=150$, $x_2=200$, $x_3=100$ solves the Leontief system.
+\end{frame}
+
+\begin{frame}{Wind farm problem}
+    You own a wind farm that produces \(240\) kW of energy each day. Of this:
+\[
+x = \text{kW injected into the grid},\quad
+y = \text{kW stored in a battery},\quad
+z = \text{kW consumed on‑site}.
+\]
+Each kW injected into the grid earns \$5, each kW stored costs \$1 in rental fees, and each kW consumed on‑site “earns” \$0.50 by avoiding purchases.  Your daily net‑revenue goal is \$420.  On stormy days, only half of the grid injection and battery storage and one‑quarter of the on‑site consumption can operate, yet you still need \$195 net revenue.
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*)]
+  \item Write the system of equations necessary to find $x$, $y$, and $z$.
+  \item Express the system in matrix form, that is, find a matrix $A$ and a vector $\pmb{b}$ such that $A\pmb{w} = \pmb{b}$, for $\pmb{w} = (x, y, z)'$.
+  \item Find the values of $x$, $y$, and $z$ that satisfies the system of equations.
+  \item What should be the value of $A^{-1}\pmb{b}$? Provide the solution without computing the actual inverse $A^{-1}$.
+  \item Imagine now that on stormy days the on‑site consumption operated at half capacity instead of one‑quarter, and that you keep the same net-revenue goal of \$195. Does there exist a solution now?
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Wind farm problem - Solution}
+\small
+    \begin{enumerate}[label=(\alph*)]
+  \item The system of equations is
+  $$
+    \begin{cases}
+      x + y + z = 240,\\
+      5x - y + 0.5\,z = 420,\\
+      2.5\,x - 0.5\,y + 0.125\,z = 195.
+    \end{cases}
+  $$
+  \item In matrix form \(A\mathbf w=\mathbf b\) with
+  \[
+    A=\begin{pmatrix}
+      1   & 1      & 1     \\[3pt]
+      5   & -1     & 0.5   \\[3pt]
+      2.5 & -0.5   & 0.125
+    \end{pmatrix},\quad
+    \mathbf w=\begin{pmatrix}x\\y\\z\end{pmatrix},\quad
+    \mathbf b=\begin{pmatrix}240\\420\\195\end{pmatrix}.
+  \]
+  \item Solving (for example by Gaussian elimination) gives
+  \[
+    x = 80,\quad
+    y = 40,\quad
+    z = 120.
+  \]
+  \item Without computing \(A^{-1}\) explicitly, $A^{-1}\,\mathbf b = \begin{pmatrix}80\\40\\120\end{pmatrix}$.
+  \item If on stormy days the on‑site consumption ran at half capacity, the third equation would be
+  \[
+    2.5\,x - 0.5\,y + 0.25\,z = 195,
+  \]
+  which is exactly half of the second equation \(5x - y + 0.5z = 420\). Then \(\det A=0\) and the system is inconsistent (because \(2\times195=390\neq420\)), so there is no solution.
+\end{enumerate}
+\end{frame}
+
+% \begin{frame}{IS--LM}
+
+% \small
+% \begin{itemize}[leftmargin=0.6cm, label=$\bullet$]
+
+% \item \textbf{Goal:} Find equilibrium income/output $Y$ and interest rate $r$.
+
+% \item \textbf{Variables \& parameters}
+% \begin{itemize}[leftmargin=0.6cm, label=--]
+%   \item \emph{Endogenous:} $Y$ (income), $r$ (interest rate).
+%   \item \emph{Goods block:} $C$ (consumption), $I$ (investment), $G$ (gov. spending, policy).
+%   \item \emph{Money block:} $M_s$ (money supply, policy), $M_d$ (money demand).
+%   \item \emph{Intercepts:} $C_0,I_0,M_0$ (autonomous parts).
+%   \item \emph{Slopes:} $0<b<1$ (MPC), $a>0$ (interest sensitivity of $I$), $f>0$ (income sensitivity of $M_d$), $g>0$ (interest sensitivity of $M_d$).
+% \end{itemize}
+
+% \item \textbf{Equilibrium conditions (why?)}
+% \[
+% \text{Goods: } Y=C+I+G \quad \text{\footnotesize(output equals planned expenditure)}
+% \qquad
+% \text{Money: } M_s=M_d \quad \text{\footnotesize(supply = demand for money)}
+% \]
+
+% \item \textbf{Behavioral relationships (intuition)}
+% \[
+% C=C_0+bY \ \ \text{\footnotesize(MPC $b$)},\qquad
+% I=I_0-ar \ \ \text{\footnotesize(higher $r$ lowers $I$)},\qquad
+% M_d=M_0+fY-gr \ \ \text{\footnotesize(transactions $\uparrow$ with $Y$, opportunity cost $\uparrow$ with $r$)}.
+% \]
+
+% \item \textbf{Substitute $\Rightarrow$ two linear equations in $(Y,r)$}
+% \[
+% \begin{aligned}
+% \text{IS: }&(1-b)Y + a r = C_0 + I_0 + G \quad \text{\footnotesize(downward in $(Y,r)$: higher $r$ $\Rightarrow$ lower $Y$)}\\
+% \text{LM: }&fY - g r = M_s - M_0 \quad \text{\footnotesize(upward: higher $Y$ $\Rightarrow$ higher $r$ for given $M_s$)}
+% \end{aligned}
+% \]
+
+% \item \textbf{Matrix form (solve as $2\times2$)}
+% \[
+% \underbrace{\begin{pmatrix} f & -g \\[2pt] 1-b & a \end{pmatrix}}_{A}
+% \begin{pmatrix} Y \\ r \end{pmatrix}
+% =
+% \begin{pmatrix} M_s - M_0 \\ C_0 + I_0 + G \end{pmatrix},
+% \qquad
+% \det A = fa + g(1-b)\neq 0 \Rightarrow \text{unique equilibrium.}
+% \]
+% \textit{\footnotesize In practice: solve the system (row reduction); don’t compute $A^{-1}$ by hand.}
+
+% \end{itemize}
+% \end{frame}
+
+
+
+\end{document}

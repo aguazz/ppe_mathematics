@@ -1,0 +1,388 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{exam}
+\printanswers % Uncomment to show answers
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\arabic{footnote}}} % Ensure numeric superscripts
+\renewcommand{\thefootnote}{\arabic{footnote}} % Ensure numeric labels
+\makeatother
+\setcounter{footnote}{1}
+\newcommand{\BAR}{%
+    \hspace{-\arraycolsep}%
+    \strut\vrule % the `\vrule` is as high and deep as a strut
+    \hspace{-\arraycolsep}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}{PPE}
+\newcommand{\exam}{2nd Midterm - Retake}
+\newcommand{\subject}{Mathematics}
+\newcommand{\theyear}{2025/26}
+\newcommand{\ccauthor}{A. G. Azze}
+\newcommand{\thedate}{Nov 24, 2025}
+\newcommand{\university}{CUNEF Universidad}
+% Setting header and footer
+\pagestyle{headandfoot}
+\header{\degree \\ \subject\ - \theyear}{}{\thedate \\ \ccauthor}
+\footer{\university}{}{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 50 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+            
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Question
+\question[3]
+    Suppose the distribution of wealth of a given region is determined by the Lorenz curve:  
+    \begin{align*}
+        L(x) &= 
+        \frac{2^{x} - b}{a}
+    \end{align*}
+    \vspace{-0.1cm}
+    
+    \begin{minipage}{0.6\textwidth}
+        \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+            \item What values of $b$ and $a$ make $L(x)$ a Lorenz curve? \\
+            {\footnotesize Hint: recall that $L(x)$ is the percentage of wealth held by the poorest $100x\%$ of the population, so $L(0) = 0$ and $L(1) = 1$.}
+            \item Recall the Gini Index is given by $GI = A/(A+B)$, where $A$ is the area between $f(x) = x$ and the Lorenz curve, and $B$ is the area under the Lorenz curve (see Figure \ref{fig:gini-lorenz}). Prove that,
+            $$
+            GI = 1 - 2\int_0^1L(x)\, \mathrm{d} x.
+            $$
+            \item Compute the Gini index of $L(x)$.\\
+            {\footnotesize Hint: The derivative of the function $f(x) = 2^x$ is $f'(x) = \ln(2)2^x$.}
+    \end{enumerate}
+    \end{minipage}
+    \begin{minipage}{0.35\textwidth}
+        \vspace{-2.52cm}
+        
+        \begin{center}
+            \includegraphics[width = \textwidth, height = 5cm]{img/Gini_Lorenz.png}
+            {\footnotesize Figure 1: Gini index and Lorenz curve}
+            \label{fig:gini-lorenz}
+        \end{center}
+    \end{minipage}
+
+% Solution
+\begin{solution}
+\begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+
+\item We need $L(0)=0$ and $L(1)=1$. So
+\begin{align*}
+L(0) &= \frac{2^0 - b}{a} = \frac{1 - b}{a} = 0 \;\Rightarrow\; b = 1,\quad 
+L(1) = \frac{2^1 - b}{a} = \frac{2 - 1}{a} = \frac{1}{a} = 1 \;\Rightarrow\; a = 1.
+\end{align*}
+
+\item The area under the line $f(x) = x$ on $[0,1]$ is
+$
+\int_0^1 x\,dx = \frac{1}{2}.
+$
+Let $B = \int_0^1 L(x)\,dx$ be the area under the Lorenz curve. Then the area between the line and the Lorenz curve is
+\[
+A = \int_0^1 (x - L(x))\,dx = \int_0^1 x\,dx - \int_0^1 L(x)\,dx = \frac{1}{2} - B.
+\]
+Hence
+\[
+GI = \frac{A}{A+B} = \frac{\frac{1}{2} - B}{\frac{1}{2}} = 1 - 2B 
+= 1 - 2\int_0^1 L(x)\,dx.
+\]
+
+\item For our $L(x) = 2^x - 1$,
+\[
+\int_0^1 L(x)\,dx = \int_0^1 (2^x - 1)\,dx 
+= \left[\frac{2^x}{\ln 2}\right]_0^1 - \left[x\right]_0^1
+= \frac{2 - 1}{\ln 2} - 1
+= \frac{1}{\ln 2} - 1.
+\]
+Therefore
+\[
+GI = 1 - 2\left(\frac{1}{\ln 2} - 1\right)
+= 1 - \frac{2}{\ln 2} + 2
+= 3 - \frac{2}{\ln 2}.
+\]
+
+
+\end{enumerate}
+\end{solution}
+
+
+% Question
+\question[3]
+     Suppose that an economy has three sectors, Agriculture, Manufacturing and Services, and:
+\begin{enumerate}[leftmargin = 0.5cm, label = (\textit{\roman*}), rightmargin = 0.2cm]
+    \item For each unit of output, Agriculture requires $0.5$ units from its own sector and no inputs from the other sectors;
+    \item Producing one unit of Manufacturing requires $0.25$ units from Agriculture and $0.5$ units from Manufacturing itself, but no inputs from Services;
+    \item Producing one unit of Services requires $0.25$ units from Manufacturing and $0.5$ units from Services itself, but no inputs from Agriculture.
+\end{enumerate}
+Assume that the final demand is $d_1 = 1000$ units of Agriculture, $d_2 = 2000$ units of Manufacturing and $d_3 = 4000$ units of Services, and let $x_1$, $x_2$ and $x_3$ be the total production of Agriculture, Manufacturing and Services needed to fulfil the demand, respectively.
+
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+    \item Write the system of linear equations given by the supply–demand equilibrium.
+
+    \item Express the system in matrix form, that is, for $\mathbf{x} = (x_1, x_2, x_3)^\top$ and $\mathbf{d} = (d_1, d_2, d_3)^\top$, find a matrix $B$ such that
+    \[
+        B \mathbf{x} = \mathbf{d}.
+    \]
+
+    \item Check that
+    \[
+        B^{-1} =
+        \begin{pmatrix}
+            2 & 1 & 0.5 \\
+            0 & 2 & 1 \\
+            0 & 0 & 2
+        \end{pmatrix}
+    \]
+    is the inverse matrix of $B$.
+
+    \item Find $x_1$, $x_2$ and $x_3$ using $B^{-1}$.
+
+\end{enumerate}
+
+    
+%% Solution
+\begin{solution}
+\begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+
+\item The total production of sector $i$, denoted $x_i$, must cover final demand $d_i$ plus the intermediate demand $\sum_{j=1}^3 a_{ij}x_j$, where $a_{ij}$ is the input from sector $i$ needed to produce one unit of output of sector $j$. That is,  $x_i = \sum_j a_{ij}x_j + d_i$. Using the particular data of this problem:
+\[
+\begin{cases}
+x_1 = 0.5x_1 + 0.25x_2 + d_1,\\[2pt]
+x_2 = 0.5x_2 + 0.25x_3 + d_2,\\[2pt]
+x_3 = 0.5x_3 + d_3.
+\end{cases}
+\]
+Equivalently,
+\[
+\begin{cases}
+0.5x_1 - 0.25x_2 = d_1,\\[2pt]
+0.5x_2 - 0.25x_3 = d_2,\\[2pt]
+0.5x_3 = d_3.
+\end{cases}
+\]
+
+\item Writing the system as $B\mathbf{x} = \mathbf{d}$, we have
+\[
+B = 
+\begin{pmatrix}
+0.5 & -0.25 & 0 \\
+0   & 0.5   & -0.25 \\
+0   & 0     & 0.5
+\end{pmatrix},
+\]
+
+\item We check that $B^{-1}$ is indeed the inverse:
+\begin{align*}
+B B^{-1} &=
+\begin{pmatrix}
+0.5 & -0.25 & 0 \\
+0   & 0.5   & -0.25 \\
+0   & 0     & 0.5
+\end{pmatrix}
+\begin{pmatrix}
+2 & 1 & 0.5 \\
+0 & 2 & 1 \\
+0 & 0 & 2
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+0.5\cdot 2 + (-0.25)\cdot 0 + 0\cdot 0 
+    & 0.5\cdot 1 + (-0.25)\cdot 2 + 0\cdot 0
+    & 0.5\cdot 0.5 + (-0.25)\cdot 1 + 0\cdot 2 \\[4pt]
+0\cdot 2 + 0.5\cdot 0 + (-0.25)\cdot 0
+    & 0\cdot 1 + 0.5\cdot 2 + (-0.25)\cdot 0
+    & 0\cdot 0.5 + 0.5\cdot 1 + (-0.25)\cdot 2 \\[4pt]
+0\cdot 2 + 0\cdot 0 + 0.5\cdot 0
+    & 0\cdot 1 + 0\cdot 2 + 0.5\cdot 0
+    & 0\cdot 0.5 + 0\cdot 1 + 0.5\cdot 2
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+
+Hence the given matrix is indeed $B^{-1}$.
+
+\item Using $\mathbf{x} = B^{-1}\mathbf{d}$ with
+$\mathbf{d} = (1000,2000,4000)^\top$:
+\[
+\mathbf{x}
+=
+\begin{pmatrix}
+2 & 1 & 0.5 \\
+0 & 2 & 1 \\
+0 & 0 & 2
+\end{pmatrix}
+\begin{pmatrix}
+1000\\[2pt] 2000\\[2pt] 4000
+\end{pmatrix}
+=
+\begin{pmatrix}
+2\cdot1000 + 1\cdot2000 + 0.5\cdot4000 \\
+0\cdot1000 + 2\cdot2000 + 1\cdot4000 \\
+0\cdot1000 + 0\cdot2000 + 2\cdot4000
+\end{pmatrix}
+=
+\begin{pmatrix}
+6000\\[2pt] 8000\\[2pt] 8000
+\end{pmatrix}.
+\]
+Thus
+\[
+x_1 = 6000,\quad x_2 = 8000,\quad x_3 = 8000.
+\]
+
+\end{enumerate}
+\end{solution}
+
+
+
+% Question
+\question[2]
+    Find the values of $\alpha$ and $\beta$ for which the following system of equations has: (\textit{i}) no solution; (\textit{ii}) infinitely many solutions; (\textit{iii}) exactly one solution.
+    \begin{equation*}
+        \left.
+        \begin{alignedat}{4}
+             x & {}+{} & y & {}+{} & z = \alpha \\
+             x & {}-{} & y & {}+{} & z = 1 \\
+             x & {}+{} & y & {}+{} & \beta z = \alpha \\
+        \end{alignedat}
+        \right\}
+    \end{equation*}
+
+%% Solution
+\begin{solution}[0cm]
+    Performing Gaussian elimination on the augmented matrix, we obtain
+    \[
+    \begin{pmatrix}
+    1 & 1 & 1 & \BAR & \alpha \\
+    1 & -1 & 1 & \BAR & 1 \\
+    1 & 1 & \beta & \BAR & \alpha
+    \end{pmatrix}
+    \xrightarrow{\substack{R_2\leftarrow R_2-R_1 \\ R_3\leftarrow R_3-R_1}}\
+    \begin{pmatrix}
+    1 & 1 & 1 & \BAR & \alpha \\
+    0 & -2 & 0 & \BAR & 1-\alpha \\
+    0 & 0 & \beta-1 & \BAR & 0
+    \end{pmatrix}.
+    \]
+    Then:
+    \begin{itemize}
+        \item[$\bullet$] If $\beta \neq 1$, the matrix has full rank and there is a \emph{unique} solution for any $\alpha$.
+        \item[$\bullet$] If $\beta = 1$, the last row becomes $(0\ 0\ 0\ |\ 0)$, so the rank is $2 < 3$ and there are \emph{infinitely many} solutions for any $\alpha$.
+        \item[$\bullet$] There is never a row of the form $(0\ 0\ 0\ |\ \star)$ with $\star \neq 0$, so the system has \emph{no} values of $(\alpha,\beta)$ giving \emph{no} solution. 
+    \end{itemize}
+\end{solution}
+
+% Question
+\question[2]
+    Denoting by \( u(t) \) the instantaneous utility function at time $t$, and \( r > 0 \) a discount rate, the integral
+    \[
+    U = \int_{0}^{\infty} u(t) \frac{1}{(r+t)^3} \, dt
+    \]
+    represents the present value of cumulative utility. Compute the value of $U$ for:
+    
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+        \item $u(t) = (r + t)$.\\
+        Hint: what is the derivative of $F(t) = (r + t)^{-1}$?
+        
+        \item $u(t) = (1 + t)^3te^{-t}$ and $r = 1$.\\
+        Hint: what is the derivative of $F(t) = \left(1 + t\right)e^{-t}$?
+        
+    \end{enumerate}
+
+% Solution
+\begin{solution}
+    \begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+        
+        \item With $u(t) = r + t$,
+        \[
+            U = \int_0^\infty \frac{r+t}{(r+t)^3}\,dt
+              = \int_0^\infty \frac{1}{(r+t)^2}\,dt.
+        \]
+        Note that $\dfrac{d}{dt}\big((r+t)^{-1}\big) = -\dfrac{1}{(r+t)^2}$, so
+        \[
+            U = -\int_0^\infty \frac{d}{dt}\big((r+t)^{-1}\big)\,dt
+              = -\big[(r+t)^{-1}\big]_0^\infty
+              = -\big[0 - \tfrac{1}{r}\big]
+              = \frac{1}{r}.
+        \]
+
+        \item With $r = 1$ and $u(t) = (1+t)^3 t e^{-t}$,
+        \[
+            U = \int_0^\infty \frac{(1+t)^3 t e^{-t}}{(1+t)^3}\,dt
+              = \int_0^\infty t e^{-t}\,dt.
+        \]
+        Using the hint, let $F(t) = (1+t)e^{-t}$. Then
+        \[
+            F'(t) = e^{-t} - (1+t)e^{-t} = -t e^{-t}
+            \quad\Rightarrow\quad t e^{-t} = -F'(t),
+        \]
+        so
+        \[
+            U = \int_0^\infty t e^{-t}\,dt
+              = -\int_0^\infty F'(t)\,dt
+              = -[F(t)]_0^\infty
+              = -(0 - 1) = 1,
+        \]
+        since $(1+t)e^{-t} \to 0$ as $t\to\infty$.
+
+    \end{enumerate}
+\end{solution}
+
+
+
+
+\end{questions}	
+
+\end{document}

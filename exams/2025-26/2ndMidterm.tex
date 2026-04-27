@@ -1,0 +1,341 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{exam}
+\printanswers % Uncomment to show answers
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\arabic{footnote}}} % Ensure numeric superscripts
+\renewcommand{\thefootnote}{\arabic{footnote}} % Ensure numeric labels
+\makeatother
+\setcounter{footnote}{1}
+\newcommand{\BAR}{%
+    \hspace{-\arraycolsep}%
+    \strut\vrule % the `\vrule` is as high and deep as a strut
+    \hspace{-\arraycolsep}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}{PPE}
+\newcommand{\exam}{2nd Midterm}
+\newcommand{\subject}{Mathematics}
+\newcommand{\theyear}{2025/26}
+\newcommand{\ccauthor}{A. G. Azze}
+\newcommand{\thedate}{Nov 14, 2025}
+\newcommand{\university}{CUNEF Universidad}
+% Setting header and footer
+\pagestyle{headandfoot}
+\header{\degree \\ \subject\ - \theyear}{}{\thedate \\ \ccauthor}
+\footer{\university}{}{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 50 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+            
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Question
+\question[3]
+    Suppose the distribution of wealth of a given region is determined by the Lorenz curve:  
+    \begin{align*}
+        L(x) &= 
+        \begin{cases}
+            a^2x, & x\in[0, a) \\
+            x^3, &  x\in[a, 1]
+        \end{cases}. 
+    \end{align*}
+    \vspace{-0.1cm}
+    
+    \begin{minipage}{0.6\textwidth}
+        \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+            \item Is $L(x)$ continuous?
+            \item For which value of $a$ is the Gini Index\footnote{Recall that $GI = A/(A+B)$, where $A$ is the area between $f(x) = x$ and the Lorenz curve, and $B$ is the area under the Lorenz curve (see Figure \ref{fig:gini-lorenz})} equal to $\frac{40}{81}$?
+            \item What is the Gini Index for $a = 1/2$?
+            \item Which case has a more fair distribution of wealth, (b) or (c)? 
+    \end{enumerate}
+    \end{minipage}
+    \begin{minipage}{0.35\textwidth}
+        \vspace{-2.52cm}
+        
+        \begin{center}
+            \includegraphics[width = \textwidth, height = 5cm]{img/Gini_Lorenz.png}
+            {\footnotesize Figure 1: Gini index and Lorenz curve}
+            \label{fig:gini-lorenz}
+        \end{center}
+    \end{minipage}
+
+% Solution
+% Solution
+\begin{solution}
+\begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+
+\item At $x=a$,
+\[
+\lim_{x\uparrow a} L(x)=a^2\times a=a^3 = L(a) = \lim_{x\downarrow a} L(x).
+\]
+
+\item 
+Using $GI=1-2\int_0^1 L(x)\,dx$,
+\[
+\int_0^1 L(x)\,dx
+=\int_0^a a^2x\,dx+\int_a^1 x^3\,dx
+=\frac{a^4}{2}+\Big[\frac{x^4}{4}\Big]_{x=a}^{x=1}
+=\frac{a^4}{2}+\frac{1}{4}-\frac{a^4}{4}
+=\frac{1+a^4}{4}.
+\]
+Therefore
+\[
+GI(a)=1-2\frac{1+a^4}{4}
+=\frac{1-a^4}{2}.
+\]
+Set $GI(a)=\dfrac{40}{81}$:
+\[
+\frac{1-a^4}{2}=\frac{40}{81}
+\quad\Longrightarrow\quad
+1-a^4=\frac{80}{81}
+\quad\Longrightarrow\quad
+a^4=\frac{1}{81}
+\quad\Longrightarrow\quad
+a=\frac{1}{3}.
+\]
+
+\item 
+\[
+GI\!\left(\tfrac{1}{2}\right)
+=\frac{1-(\tfrac{1}{2})^4}{2}
+=\frac{1-\tfrac{1}{16}}{2}
+=\frac{\tfrac{15}{16}}{2}
+=\tfrac{15}{32}.
+\]
+
+\item 
+A lower Gini index indicates a more equal distribution. We have
+\[
+\frac{40}{81}\Big/\frac{15}{32} = \frac{40\times32}{81\times 15} = \frac{8\times32}{81\times 3} = \frac{256}{243} > 1,
+\]
+Hence $GI_{\text{(b)}}=\frac{40}{81} > \frac{15}{32} = GI_{\text{(c)}}$, meaning that \textbf{case (c) is more fair}.
+
+\end{enumerate}
+\end{solution}
+
+
+
+% Question
+\question[3]
+     Suppose that an economy has two sectors, Electricity and Services, and:
+     \begin{enumerate}[leftmargin = 0.5cm, label = (\textit{\roman*}), rightmargin = 0.2cm]
+        \item For each unit of output, Electricity requires $0.5$ units from its own sector and $0.4$ units from Services;
+        \item Producing one unit of Services requires $0.5$ units from Electricity and $0.2$ units from its own sector.
+     \end{enumerate}
+        Assume that the final demand of $d_1 = 1000$ units of Electricity and $d_2 = 2000$ units of Services, and let $x_1$ and $x_2$ be the total production of Electricity and Services needed to fulfill the demand, respectively.
+
+        \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+            \item Write the system of linear equations given by the supply-demand equilibrium.
+            
+            \item Express the system in matrix form, that is, find a matrix $B$ such that $B{\bf x} = {\bf d}$, for ${\bf x} = (x_1, x_2)$ and ${\bf d} =(d_1, d_2)$.
+
+            \item Check that $B^{-1} = 
+            \begin{pmatrix}
+                4 & 2.5 \\
+                2 & 2.5 
+            \end{pmatrix}$ is the inverse matrix of $B$.
+
+            \item Find $x_1$ and $x_2$ using $B^{-1}$. 
+        
+        \end{enumerate}
+    
+%% Solution
+\begin{solution}
+\begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+
+\item The total production of product $i$, denoted by $x_i$, should be able to fulfill the final demand $d_i$ plus the input demand $\sum_{j=1}^n a_{ij}x_j$. That is, in this case,
+\[
+\begin{cases}
+x_1 = 0.5x_1 + 0.5x_2 + d_1,\\
+x_2 = 0.4x_1 + 0.2x_2 + d_2.
+\end{cases}
+\]
+Equivalently,
+\[
+0.5x_1 - 0.5x_2 = d_1,\qquad -0.4x_1 + 0.8x_2 = d_2.
+\]
+
+\item The supply demand equilibrium can be expressed as
+\[
+B\mathbf{x}=\mathbf{d},\quad
+B=\begin{pmatrix}
+0.5 & -0.5\\
+-0.4 & 0.8
+\end{pmatrix}.
+\]
+% for $\mathbf{x}=(x_1,x_2)'$ and $\mathbf{d}=(d_1,d_2)'$.
+
+\item
+It follows immediately after
+\[
+\begin{pmatrix}
+0.5 & -0.5\\
+-0.4 & 0.8
+\end{pmatrix}
+\begin{pmatrix}
+4 & 2.5 \\
+2 & 2.5 
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1 
+\end{pmatrix}
+\]
+
+\item
+\[
+\mathbf{x}=B^{-1}\mathbf{d}
+=\begin{pmatrix}4&2.5\\[2pt]2&2.5\end{pmatrix}
+\begin{pmatrix}1000\\2000\end{pmatrix}
+=\begin{pmatrix}9000\\7000\end{pmatrix}.
+\]
+Hence,
+\[
+x_1=9000,\quad x_2=7000.
+\]
+
+\end{enumerate}
+\end{solution}
+
+
+% Question
+\question[2]
+    Find the values of $\alpha$ and $\beta$ for which the following system of equations has: (\textit{i}) no solution; (\textit{ii}) infinitely many solutions; (\textit{iii}) exactly one solution.
+    \begin{equation*}
+        \left.
+        \begin{alignedat}{4}
+             x & {}+{} & y & {}+{} & z = \alpha \\
+             x & {}-{} & y & {}+{} & z = 1 \\
+             x & {}+{} & y & {}+{} & \beta z = 4 \\
+        \end{alignedat}
+        \right\}
+    \end{equation*}
+
+%% Solution
+\begin{solution}[0cm]
+    Performing Gaussian elimination once to the augmented matrix form, we get the following row echelon form
+    \[
+    \begin{pmatrix}
+    1 & 1 & 1 & \BAR & \alpha \\
+    1 & -1 & 1 & \BAR & 1 \\
+    1 & 1 & \beta & \BAR & 4
+    \end{pmatrix}
+    \xrightarrow{\substack{R_2\leftarrow R_2-R_1 \\ R_3\leftarrow R_3-R_1}}\
+    \begin{pmatrix}
+    1 & 1 & 1 & \BAR & \alpha \\
+    0 & -2 & 0 & \BAR & 1-\alpha \\
+    0 & 0 & \beta-1 & \BAR & 4-\alpha
+    \end{pmatrix}.
+    \]
+    Then, 
+    \begin{itemize}
+    \item[$\bullet$] if $\beta \neq 1$, the matrix has full rank and there exist a unique solution; 
+    \item[$\bullet$] if $\beta = 1$ either,
+    \begin{itemize}
+        \item[$*$] $\alpha = 4$, in which case the last row is of the form $(0\ 0\ 0\ |\ 0)$, meaning that the rank is $2$ and, hence, there are infinitely many solutions and one degree of freedom.
+        \item[$*$] $\alpha \neq 4$ in which case the last row is of the form $(0\ 0\ 0\ |\ \star)$, with $\star \neq 0$, which results in having no solution.
+    \end{itemize}
+    \end{itemize}
+\end{solution}
+
+% Question
+\question[2]
+    Denoting by \( u(t) \) the instantaneous utility function at time $t$, and \( r > 0 \) a discount rate, the integral
+    \[
+    U = \int_{0}^{\infty} u(t) e^{-rt} \, dt
+    \]
+    represents the present value of cumulative utility. Compute the value of $U$ for:
+    
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+        \item $u(t) = \frac{r}{2}e^{\frac{r}{2}t}$.
+        
+        \item $u(t) = (1 + t)/2$ and $r = 1$\\
+        Hint: what is the derivative of $F(t) = e^{-t}(t+2)$?
+        
+    \end{enumerate}
+
+% Solution
+\begin{solution}
+    \begin{enumerate}[leftmargin=0.55cm, label=(\alph*), rightmargin=0.2cm]
+        
+        \item 
+        \[
+        U=\int_{0}^{\infty}\Big(\tfrac{r}{2}e^{\frac{r}{2}t}\Big)e^{-rt}\,dt
+        =\int_{0}^{\infty} \tfrac{r}{2}e^{-\frac{r}{2}t}\,dt
+        =-e^{-\frac{r}{2}t}\big|_0^\infty
+        =1.
+        \]
+        
+        \item With $r=1$ and $u(t)=\dfrac{1+t}{2}$,
+        \[
+        U=\int_0^\infty \frac{1+t}{2}\,e^{-t}\,dt
+        =\frac{1}{2}\int_0^\infty (1+t)e^{-t}\,dt.
+        \]
+        Using the hint, let $F(t)=e^{-t}(t+2)$. Then
+        \[
+        F'(t)=e^{-t}-(t+2)e^{-t}=-(t+1)e^{-t}
+        \Rightarrow\
+        U=\frac{1}{2}\int_0^\infty (1+t)e^{-t}\,dt
+        =\frac{1}{2}\big[-F(t)\big]_0^\infty
+        =1,
+        \]
+        where we use the fact that $e^{-t}(t+2)\to 0$ as $t\to\infty$. 
+
+    \end{enumerate}
+\end{solution}
+
+
+\end{questions}	
+
+\end{document}

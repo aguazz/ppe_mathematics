@@ -1,0 +1,280 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{exam}
+\printanswers % Uncomment to show answers
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\arabic{footnote}}} % Ensure numeric superscripts
+\renewcommand{\thefootnote}{\arabic{footnote}} % Ensure numeric labels
+\makeatother
+\setcounter{footnote}{1}
+\newcommand{\BAR}{%
+    \hspace{-\arraycolsep}%
+    \strut\vrule % the `\vrule` is as high and deep as a strut
+    \hspace{-\arraycolsep}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}{PPE}
+\newcommand{\exam}{1st Midterm - Retake}
+\newcommand{\subject}{Mathematics}
+\newcommand{\theyear}{2025/26}
+\newcommand{\ccauthor}{A. G. Azze - CUNEF Universidad}
+\newcommand{\thedate}{Oct 10, 2025}
+\newcommand{\university}{CUNEF Universidad}
+% Setting header and footer
+\pagestyle{headandfoot}
+\header{\degree \\ \subject\ - \theyear}{}{\thedate \\ \ccauthor}
+\footer{\university}{}{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 50 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+            
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Question
+\question[3]
+Consider the demand and supply functions
+\[
+p_D(q)=20 - q^2 + 2q,
+\qquad
+p_S(q)=\frac{q^2 - 14q + 70}{5}.
+\]
+
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+  \item Find the supply–demand equilibrium.
+  \item Let $M(q)=p_D(q)-p_S(q)$ be the per–unit margin. What value of $q$ maximizes $M(q)$?
+\end{enumerate}
+
+%% Solution
+\begin{solution}[0cm]
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+
+  \item Solve $p_D(q)=p_S(q)$:
+  \[
+  M(q)=p_D(q)-p_S(q)
+  =-\frac{6}{5}\bigl(q^2-4q-5\bigr)
+  =-\frac{6}{5}(q-5)(q+1).
+  \]
+  Hence $(q-5)(q+1)=0\Rightarrow q\in\{-1,5\}$. The feasible equilibrium is
+  \[
+  q^*=5,\qquad p^*=p_D(5)=20-25+10=5.
+  \]
+
+  \item Since $M(q)=-\dfrac{6}{5}(q^2-4q-5)$, then
+\[
+M'(q)=-\frac{6}{5}\,(2q-4)=-\frac{12}{5}(q-2),\qquad
+M''(q)=-\frac{12}{5}<0.
+\]
+The only critical point ($M'(q)=0$) is $q=2$. Since $M'(q)=-\dfrac{12}{5}(q-2)$, the only critical point is $q=2$. Moreover,
+$M''(q)=-\dfrac{12}{5}<0$ for all $q$, so $M$ is concave everywhere and $q=2$
+gives the global maximum. The maximum value is
+\[
+M(2)=-\frac{6}{5}\,(4-8-5)=\frac{54}{5}.
+\]
+\end{enumerate}
+\end{solution}
+
+
+
+
+
+% Question
+\question[2]
+    The biodiversity of a forest decays at $2\%$ every year. How long will it take for the biodiversity to be halved?    
+%% Solution
+\begin{solution}[0cm]
+Let $B(t)$ represent the biodiversity at year $t$. Then, $B(t)=B_0(0.98)^t$. We want to find $t$ such that $B(t)=\tfrac{1}{2}B_0$:
+\[
+(0.98)^t=\tfrac12
+\quad\Longrightarrow\quad
+t=\frac{\ln(1/2)}{\ln(0.98)}\approx \frac{-0.6931}{-0.0202}\approx 34.3\ \text{years}.
+\]
+\end{solution}
+
+% Question
+\question[2]
+    Define the functions $f_1(q) = 50 - \frac{q^2}{q^3+1}$ and $f_2(q) = 5(10 + e^{-q})$. 
+    \begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+        \item What is the domain of $f_1(q) = 50 - \frac{q^2}{q^3+1}$? What is the domain of $f_2(q) = 5(10 + e^{-q})$
+        \item Find the limits $\lim_{q\rightarrow \infty} f_1(q)$ and $\lim_{q\rightarrow \infty} f_2(q)$.
+        \item Define another function $h(q)$ such that, for all $q > 0$,
+        \[
+        f_1(q) \;\le\; h(q) \;\le\; f_2(q).
+        \]
+        Compute the limit $\lim_{q\rightarrow \infty} h(q)$ (or at least find upper and lower bounds for the limit)
+    \end{enumerate}
+    
+%% Solution
+\begin{solution}[0cm]
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+
+  \item 
+  \[
+  f_1(q)=50-\frac{q^2}{q^3+1}\quad\Rightarrow\quad q^3+1\neq 0\ \Longrightarrow\ q\neq -1.
+  \]
+  Hence \(\mathrm{Dom}(f_1)=\mathbb{R}\setminus\{-1\}\).
+  Since \(f_2(q)=5\big(10+e^{-q}\big)\) is defined for every \(q\in\mathbb{R}\), we have
+  \(\mathrm{Dom}(f_2)=\mathbb{R}\).
+
+  \item 
+  \begin{align*}
+      \lim_{q\to\infty} f_1(q)
+      &= \lim_{q\to\infty}\!\left(50-\frac{q^2}{q^3+1}\right)
+      = 50-\lim_{q\to\infty}\frac{q^2}{q^3(1+1/q^3)}
+      = 50-\lim_{q\to\infty}\frac{1}{q(1+1/q^3)}
+      = 50. \\
+      \lim_{q\to\infty} f_2(q) 
+      &= \lim_{q\to\infty} 5\big(10+e^{-q}\big)=5(10+0)=50.
+    \end{align*}
+
+  \item Since for all $q>0$ we have $f_1(q)\le h(q)\le f_2(q)$, taking limits as $q\to\infty$ and using part (b):
+\[
+\lim_{q\to\infty} f_1(q)=50,\qquad \lim_{q\to\infty} f_2(q)=50.
+\]
+Hence,
+\[
+\lim_{q\to\infty} f_1(q)\ \le\ \lim_{q\to\infty} h(q)\ \le\ \lim_{q\to\infty} f_2(q),
+\]
+so by the Squeeze Theorem, $\displaystyle \lim_{q\to\infty} h(q)=50$.
+
+\end{enumerate}
+\end{solution}
+
+
+% Question
+\question[3]
+Let $q(p)$ be the number of units a company sells when the price-per-unit is $p$, let $p(t)$ be the price per unit at time $t$. Define $Q(t) = q(p(t))$.
+\begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+    \item Provide an interpretation of $Q(t)$.
+    \item Provide an approximation of $Q(1.5)$, given that $q(20) = 50$, $q'(20) = 10$, $p(1) = 20$, and $p'(1) = 1$.
+    \item Let $R(t) = Q(t)p(t)$ be the revenue of the company at time $t$. \\
+    Assume that $R(t)$ reaches a minimum at $t^*$. 
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\roman*), rightmargin = 0.2cm]
+        
+        \item Prove that $\frac{Q'(t^*)}{Q(t^*)} = -\frac{p'(t^*)}{p(t^*)}$.
+
+        \item What is the sign of $R'(t)$ for values of $t$ near $t^*$?  
+        
+    \end{enumerate}
+\end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+  \item $Q(t)=q(p(t))$ is the quantity sold at time $t$, induced by the price $p(t)$ set at time $t$.
+
+  \item Linear approximation at $t=1$:
+  \[
+  Q'(1) = q'(p(1))\,p'(1)=q'(20)\cdot 1=10,\quad 
+  Q(1) = q(20) = 50, \quad
+  Q(1.5)\approx Q(1)+Q'(1)\cdot 0.5=55.
+  \]
+
+  \item $R(t)$ has a minimum at $t^*$.
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\roman*), rightmargin = 0.2cm]
+      \item With $R(t)=Q(t)p(t)$,
+      \[
+      R'(t)=Q'(t)p(t)+Q(t)p'(t).
+      \]
+      At a minimum $t^*$, $R'(t^*)=0$, so
+      \[
+      Q'(t^*)\,p(t^*)+Q(t^*)\,p'(t^*)=0
+      \;\Longrightarrow\;
+      \boxed{\;\dfrac{Q'(t^*)}{Q(t^*)}=-\,\dfrac{p'(t^*)}{p(t^*)}\;}.
+      \]
+      \item Since $t^*$ is a local minimum, $R'(t)\leq0$ for $t<t^*$ and $R'(t)\geq0$ for $t>t^*$ (i.e., it changes from non-positive to non-negative across $t^*$).
+    \end{enumerate}
+\end{enumerate}
+\end{solution}
+
+\end{questions}	
+
+\newpage
+\begin{center}
+You may find useful the following derivatives of basic functions and rules of derivatives
+\end{center}
+
+\begin{center}
+    \textbf{Differentiation rules}
+\end{center}
+        
+        \begin{enumerate}[leftmargin = 0.5cm, label = , rightmargin = 0.2cm]
+
+        \item \textbf{Linearity:} $h(x) = a f(x) + b g(x) \Longrightarrow h'(x) = a f'(x) + b g'(x)$, for $a, b \in\R$
+
+        \item \textbf{Product rule:} $h(x) = f(x)g(x) \Longrightarrow h'(x) = f'(x)g(x) + f(x)g'(x)$
+
+        \item \textbf{Quotient rule:} $h(x) = f(x)/g(x) \text{ and } g(x) \neq 0 \Longrightarrow h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$
+
+        \item \textbf{Chain rule:} $h(x) = g(f(x)) \Longrightarrow h'(x) = g'(f(x))f'(x)$
+
+        \item \textbf{Inverse rule:} $h(x) = f^{-1}(y) \Longrightarrow h'(y) = 1/f'(f^{-1}(y))$
+        
+        \end{enumerate}
+
+\begin{center}
+    \textbf{Derivative of usual functions}
+\end{center}
+
+        \begin{enumerate}[leftmargin = 0.5cm, label = , rightmargin = 0.2cm]
+
+        \item \textbf{Constant:} $f(x) = a,\; a \in\R \Longrightarrow f'(x) = 0$
+        
+        \item \textbf{Power:} $f(x) = x^a \Longrightarrow f'(x) = a x^{a-1}$
+        
+
+        \item \textbf{Exponential:} $f(x) = e^x \Longrightarrow f'(x) = e^x$
+
+        \item \textbf{Logarithm:} $f(x) = \ln(x) \Longrightarrow f'(x) = 1/x$
+
+        \item \textbf{Trigonometric:} $f(x) = \sin(x),\; g(x) = \cos(x) \Longrightarrow f'(x) = \cos(x),\; g'(x) = -\sin(x)$
+        
+        \end{enumerate}
+
+\end{document}

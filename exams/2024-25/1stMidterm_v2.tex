@@ -1,0 +1,184 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{exam}
+\printanswers % Uncomment to show answers
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\arabic{footnote}}} % Ensure numeric superscripts
+\renewcommand{\thefootnote}{\arabic{footnote}} % Ensure numeric labels
+\makeatother
+\setcounter{footnote}{1}
+\newcommand{\BAR}{%
+    \hspace{-\arraycolsep}%
+    \strut\vrule % the `\vrule` is as high and deep as a strut
+    \hspace{-\arraycolsep}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}{PPE}
+\newcommand{\exam}{1st Midterm}
+\newcommand{\subject}{Mathematics}
+\newcommand{\theyear}{2024/25}
+\newcommand{\ccauthor}{A. G. Azze}
+\newcommand{\thedate}{Oct 30, 2024}
+\newcommand{\university}{CUNEF Universidad}
+% Setting header and footer
+\pagestyle{headandfoot}
+\header{\degree \\ \subject\ - \theyear}{}{\thedate \\ \ccauthor}
+\footer{\university}{}{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+    \begin{flushright}
+        \textbf{Time Limit:} 50 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Question 1
+\question[3]
+    Consider the function $f(x) = \sqrt{x - 5}\ln(x - 5)$.
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Find the domain of $f$.
+        \item Find the continuity domain of $f$.
+        \item Calculate the limit $\lim_{x\rightarrow 5} f(x)$. (Hint: Note that $\sqrt{x - 5}\ln(x - 5) = \frac{\ln(x - 5)}{(x - 5)^{-1/2}}$ and use the L'Hospital rule)
+        \item For $h(x) = x^3 + 1$ and $g(x) = 2x$, find the limit $\lim_{x\rightarrow 5} (h \circ g \circ f)(x)$.
+    \end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item The domain of $f$ is $D = (5, \infty)$.
+        \item The continuity domain is also $D$.
+        \item Using the L'Hospital rule, we find $\lim_{x\rightarrow 5} f(x) = 0$.
+        \item $\lim_{x\rightarrow 5} (h \circ g \circ f)(x) = h(0) = 1$.
+    \end{enumerate}
+\end{solution}
+
+% Question 2
+\question[3]
+    Let $f(x) = xe^{-x}$.
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Calculate $f'(x)$.
+        \item Use $f'(0)$ to approximate $f(0.01)$.
+        \item Evaluate $\lim_{x \rightarrow \infty} f(x)$.
+    \end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item $f'(x) = e^{-x}(1 - x)$.
+        \item $f(0.01) \approx f(0) + f'(0)(0.01 - 0) = 0.01$.
+        \item $\lim_{x \to \infty} f(x) = 0$.
+    \end{enumerate}
+\end{solution}
+
+% % Question 3
+% \question[2]
+%     If $f(x)$ is an increasing function, determine if $g(x) = f(-x)$ is increasing, decreasing, or neither, and justify.
+
+% % Solution
+% \begin{solution}[0cm]
+%     $g(x)$ is a decreasing function.
+% \end{solution}
+
+% Question 4
+\question[4]
+    Consider the function $f(x) = x^3 - 3x^2 + 4$ defined on the interval $x \in [0, 3]$
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Compute $f'(x)$.
+        \item Find the critical points of $f(x)$ in the interval $[0, 3]$.
+        \item Find the local extreme points of $f(x)$.
+        \item Find the global maximum and minimum of $f(x)$ on the interval $[0, 3]$.
+        \item Do the global extremes change if the domain is taken to be $\mathbb{R}$ instead of $[0, 3]$? Why?
+    \end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item $f'(x) = 3x^2 - 6x = 3x(x - 2)$.
+        \item The critical points in $[0, 3]$ are $x = 0$ and $x = 2$.
+        \item There is a local maximum at $x = 0$ and a local minimum at $x = 2$.
+        \item $f(0) = 4$, $f(2) = 0$, and $f(3) = 4$, therefore the global maximum is $4$ (attained at $x = 0$ and $x = 3$) and the global minimum is $0$ (attained at $x = 2$)
+        
+        \item $\lim_{x\rightarrow\infty} f(x) = \infty$ and $\lim_{x\rightarrow-\infty} f(x) = -\infty$, therefore there is no global maximum or minimum when the domain is considered to be $\mathbb{R}$.
+    \end{enumerate}
+\end{solution}
+
+\end{questions}	
+
+\begin{center}
+You may find useful the following derivatives of basic functions and rules of derivatives
+\end{center}
+
+\begin{center}
+    \textbf{Differentiation rules}
+\end{center}
+        
+        \begin{enumerate}[leftmargin = 0.5cm, label = , rightmargin = 0.2cm]
+
+        \item \textbf{Linearity:} $h(x) = a f(x) + b g(x) \Rightarrow h'(x) = a f'(x) + b g'(x)$, for $a, b \in\R$
+
+        \item \textbf{Product rule:} $h(x) = f(x)g(x) \Rightarrow h'(x) = f'(x)g(x) + f(x)g'(x)$
+
+        \item \textbf{Quotient rule:} $h(x) = f(x)/g(x) \text{ and } g'(x) \neq 0 \Rightarrow h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$
+
+        \item \textbf{Chain rule:} $h(x) = g(f(x)) \Rightarrow h'(x) = g'(f(x))f'(x)$
+
+        \end{enumerate}
+
+\begin{center}
+    \textbf{Derivatives of basic functions}
+\end{center}
+
+        \begin{enumerate}[leftmargin = 0.5cm, label = , rightmargin = 0.2cm]
+
+        \item \textbf{Constant:} $f(x) = a \Rightarrow f'(x) = 0$
+        
+        \item \textbf{Power:} $f(x) = x^a \Rightarrow f'(x) = a x^{a-1}$
+        
+        \item \textbf{Exponential:} $f(x) = e^x \Rightarrow f'(x) = e^x$
+
+        \item \textbf{Logarithm:} $f(x) = \ln(x) \Rightarrow f'(x) = 1/x$
+        
+        \end{enumerate}
+
+\end{document}

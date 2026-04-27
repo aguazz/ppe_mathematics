@@ -1,0 +1,239 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{exam}
+\printanswers % Uncomment to show answers
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\arabic{footnote}}} % Ensure numeric superscripts
+\renewcommand{\thefootnote}{\arabic{footnote}} % Ensure numeric labels
+\makeatother
+\setcounter{footnote}{1}
+\newcommand{\BAR}{%
+    \hspace{-\arraycolsep}%
+    \strut\vrule % the `\vrule` is as high and deep as a strut
+    \hspace{-\arraycolsep}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}{PPE}
+\newcommand{\exam}{1st Midterm}
+\newcommand{\subject}{Mathematics}
+\newcommand{\theyear}{2024/25}
+\newcommand{\ccauthor}{A. G. Azze}
+\newcommand{\thedate}{Oct 17, 2024}
+\newcommand{\university}{CUNEF Universidad}
+% Setting header and footer
+\pagestyle{headandfoot}
+\header{\degree \\ \subject\ - \theyear}{}{\thedate \\ \ccauthor}
+\footer{\university}{}{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 50 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+            
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Question
+\question[3]
+    Consider the function $f(x) = \frac{\sqrt{x + 11} - 4}{x - 5}$.
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item What is the domain of $f$?
+        \item What is the continuity domain of $f$?
+        \item Calculate the limit $\lim_{x\rightarrow 5} f(x)$.
+        \item For $h(x) = e^{x} + x^2$ and $g(x) = 8x$, obtain the limit $\lim_{x\rightarrow 5} (h\circ g \circ f)(x)$.
+    \end{enumerate}
+% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item Note that $f(x) = r_1(x)/r_2(x)$, with $r_1(x) = \sqrt{x + 11} - 4$ and $r_2(x) = x - 5$. Therefore, the domain of $f$, call it $D$, is the intersection of the domain of $g$ and the domain of $h$, subtracting the points where $r_2(h) = 0$. That is, $D = [-11, \infty)\backslash\{5\}$.
+        
+        \item Since $g(x)$ and $h(x)$ are continuous functions in their whole domain (they only involve adding constants and the square root function, which is continuous), then $f(x)$ is also a continuous function in its whole domain. That is, the continuity domain of $f$ is also $D$.
+        
+        \item The limit can be computed using the ``conjugate trick'':
+        \begin{align*}
+            \lim_{x\rightarrow 5} \frac{\sqrt{x + 11} - 4}{x - 5} 
+            &= \lim_{x\rightarrow 5} \frac{\sqrt{x + 11} - 4}{x - 5}\frac{\sqrt{x + 11} + 4}{\sqrt{x + 11} + 4} 
+            = \lim_{x\rightarrow 5} \frac{\sqrt{x + 11}^2 - 4^2}{(x - 5)\sqrt{x + 11} + 4} \\
+            &= \lim_{x\rightarrow 5} \frac{1}{\sqrt{x + 11} + 4} 
+            = 1/8.
+        \end{align*}
+        
+        \item The functions $g(x)$ and $h(x)$ are continuous for all $x\in\R$, then
+        \begin{align*}
+            \lim_{x\rightarrow 5} h(g(f(x))) = h(g(\lim_{x\rightarrow 5} f(x))) = h(g(1/8)) = e + 1.
+        \end{align*}
+        
+    \end{enumerate}
+\end{solution}
+
+% Question
+\question[3]
+    Consider the function $f(x) = e^{e^{x}}$.
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item Compute the derivative of $f(x)$.
+
+        \item Use the value of $f'(0)$ to offer an approximation of the function at $f(0.01)$.
+
+        \item Are the limits $l_1 = \lim_{x\rightarrow 0} \frac{f(x) - e}{x}$ and $l_ 2 = \lim_{x \rightarrow\infty} xf(x)$ determinate or indeterminate forms of limits?
+
+        \item Obtain the values of $l_1$ and $l_2$, if they exist.
+        
+    \end{enumerate}
+    
+%% Solution
+\begin{solution}[0cm]
+    
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item Note that $f(x) = g(h(x))$, for $g(x) = e^x$ and $h(x) = x^2$. Then, by using the composition rule twice, we obtain that
+            \begin{align*}
+                f'(x) = h'(x)g'(h(x)) = e^{x}e^{e^{x}}.    
+            \end{align*}
+            
+        \item We know that $f(a + \Delta) \approx f(a) + f'(a)\Delta$. Taking $a = 0$ and $\Delta = 0.01$, we obtain that $f(0.01) \approx f(0) + f'(0)0.01$. From the previous part we get that $f'(0) = e$, and from the definition of $f$ we get that $f(0) = e$. Hence,
+        \begin{align*}
+            f(0.01) \approx e(1 + 0.01) \approx 2.74546.
+        \end{align*}
+        The actual value of $f(0.01)$ is $e^{e^{0.01}} \approx 2.74574$, for you to appreciate the accuracy of the estimation.
+
+        \item The limit $l_2$ is a determinate form of the type $\infty\times\infty$, while the limit $l_1$ is an indeterminate form of the type $0/0$. 
+
+        \item It is trivial to get $l_2 = \infty$. Using L'Hospital rule we obtain that
+        \begin{align*}
+            l_1 = \lim_{x\rightarrow 0} \frac{f(x) - e}{x^2} 
+            = \lim_{x\rightarrow 0} f'(x)
+            = \lim_{x\rightarrow 0} e^{x}e^{e^{x}}
+            = e.
+        \end{align*}
+        
+    \end{enumerate}
+    
+    
+\end{solution}
+
+% Question
+\question[1]
+    Let $f(x)$ and $g(x)$ be an increasing and decreasing function, respectively. Is the function $h(x) = g(f(x))$ increasing, decreasing, or neither? Justify your answer with a proof.
+%% Solution
+\begin{solution}[0cm]
+    Take $x_1 \leq x_2$; then, since $f$ is increasing, $f(x_1) \geq f(x_2)$; then since $g$ is decreasing, $h(x_1) = g(f(x_1)) \leq g(f(x_2))$, meaning that $h$ is decreasing.
+\end{solution}
+
+% Question
+\question[3]
+    You own a barrel of wine whose initial price in the market is $K = 100$ dollars. As the wine gets older, its price increases, such that the barrel price after $t$ years is given by $W(t) = e^{2\sqrt{t}}K$. On the other hand, the inflation rate of the country makes future profits decrease exponentially at a rate of $0.5$, that is, $x$ dollars today equals $e^{-0.5t}x$ dollars $t$ years from now. 
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item Obtain the function $P(t)$ that determines the wine barrel price after $t$ years
+
+        \item When should you sell the wine to maximize your profit and what would be that optimal profit?
+
+        \item Prove that the optimal time to sell does not change if the value of $K$ changes.
+        
+    \end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item The wine barrel price after $t$ years is given by $P(t) = Ke^{2\sqrt{t} - 0.5t}$.
+
+        \item Note that $P'(t) = Ke^{2\sqrt{t} - 0.5t}\left(\frac{1}{\sqrt{t}} - 0.5\right)$. Then, $P'(t) > 0$ for all $0 < t < 4$, $P'(4) = 0$, and $P'(t) < 0$ for all $t > 4$, meaning that the function increases until $t = 4$, where it reaches a maximum, and decreases afterwards. The maximum profit is given $P(4) = 100e^{2\sqrt{4} - 2} = 100e^2$.
+
+        \item Note that the point of maximum ($t = 4$) obtained in the previous part does not depend on $K$, hence, The profit made by considering an arbitrary $K$ gets also maximized at $t = 4$.
+        
+    \end{enumerate}
+\end{solution}
+
+\end{questions}	
+
+\begin{center}
+You may find useful the following derivatives of basic functions and rules of derivatives
+\end{center}
+
+\begin{center}
+    \textbf{Differentiation rules}
+\end{center}
+        
+        \begin{enumerate}[leftmargin = 0.5cm, label = , rightmargin = 0.2cm]
+
+        \item \textbf{Linearity:} $h(x) = a f(x) + b g(x) \Longrightarrow h'(x) = a f'(x) + b g'(x)$, for $a, b \in\R$
+
+        \item \textbf{Product rule:} $h(x) = f(x)g(x) \Longrightarrow h'(x) = f'(x)g(x) + f(x)g'(x)$
+
+        \item \textbf{Quotient rule:} $h(x) = f(x)/g(x) \text{ and } g'(x) \neq 0 \Longrightarrow h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$
+
+        \item \textbf{Chain rule:} $h(x) = g(f(x)) \Longrightarrow h'(x) = g'(f(x))f'(x)$
+
+        \item \textbf{Inverse rule:} $h(x) = f^{-1}(y) \Longrightarrow h'(y) = 1/f'(f^{-1}(y))$
+        
+        \end{enumerate}
+
+\begin{center}
+    \textbf{Derivative of usual functions}
+\end{center}
+
+        \begin{enumerate}[leftmargin = 0.5cm, label = , rightmargin = 0.2cm]
+
+        \item \textbf{Constant:} $f(x) = a,\; a \in\R \Longrightarrow f'(x) = 0$
+        
+        \item \textbf{Power:} $f(x) = x^a \Longrightarrow f'(x) = a x^{a-1}$
+        
+
+        \item \textbf{Exponential:} $f(x) = e^x \Longrightarrow f'(x) = e^x$
+
+        \item \textbf{Logarithm:} $f(x) = \ln(x) \Longrightarrow f'(x) = 1/x$
+
+        \item \textbf{Trigonometric:} $f(x) = \sin(x),\; g(x) = \cos(x) \Longrightarrow f'(x) = \cos(x),\; g'(x) = -\sin(x)$
+        
+        \end{enumerate}
+
+\end{document}

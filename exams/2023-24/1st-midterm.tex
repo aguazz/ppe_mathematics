@@ -1,0 +1,235 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11.0pt]{exam}
+\printanswers % Uncomment to show answers
+\include{formatAndDefs}
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{CUNEForange}{RGB}{237, 114, 1}
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}[1]{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}[1]{PPE}
+\newcommand{\exam}[1]{1st Midterm}
+\newcommand{\subject}[1]{Mathematics}
+\newcommand{\theyear}[1]{2023/24}
+\newcommand{\ccauthor}[1]{A. Azze \textcopyright\the\year}
+\newcommand{\thedate}[1]{Oct 18, 2023}
+\newcommand{\university}[1]{CUNEF University}
+% Setting header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.1mm}
+\renewcommand{\footrulewidth}{0.1mm}
+% \renewcommand{\sectionmark}[1] % To avoid sections' titles being displayed on the header
+{\markright{\MakeUppercase{}}}
+\setlength\headsep{0.5cm}
+% Header and footer
+\fancyhead[L]{\degree{} \\ \subject{} - \theyear{}}
+\fancyhead[R]{\thedate{} \\ \ccauthor{}}
+\fancyfoot[L]{\university{}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 50 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+
+            \item You can use physical resources such as books, notes, and other printed materials to assist you during the exam.
+ 
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+
+\begin{questions}
+
+% Question
+\question[3]
+    Consider the function $f(x) = \frac{18x^3 - 3x^2 + 5x + 1}{6x^3 - 24x}$.
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Calculate the limit $\lim_{x\rightarrow\infty} f(x)$.
+        \item For $g(x) = f(x) + \ln(x)/\sqrt{x}$ obtain the limit $\lim_{x\rightarrow\infty} g(x)$.
+        \item For $h(x)$ such that $f(x) \leq h(x) \leq g(x)$, calculate the limit $\lim_{x\rightarrow\infty} h(x)$.
+    \end{enumerate}
+% Solution
+\begin{solution}[0cm]
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        \item Dividing by $x^3$ both in the numerator and denominator of $f(x)$, we get that
+        \begin{align*}
+            \lim_{x\rightarrow\infty} f(x) = \frac{18x^3 - 3x^2 + 5x + 1}{6x^3 - 24x} = \lim_{x\rightarrow\infty} f(x) = \frac{18 - 3x^{-1} + 5x^{-2} + 1x^{-3}}{6 - 24x^{-2}} = 2
+        \end{align*}
+        \item By using L'Hôspital's rule, we obtain 
+        \begin{align*}
+            \lim_{x\rightarrow\infty} \frac{\ln(x)}{\sqrt{x}} = \lim_{x\rightarrow\infty} \frac{2\sqrt{x}}{x} = 0.
+        \end{align*}
+        Hence, the linearity of the limit operator implies that $\lim_{x\rightarrow\infty} g(x) = \lim_{x\rightarrow\infty}f(x) = 2$.
+        \item Since $f(x) \leq h(x) \leq g(x)$, then 
+        \begin{align*}
+            2 = \lim_{x\rightarrow\infty}f(x) \leq \lim_{x\rightarrow\infty}h(x) \leq \lim_{x\rightarrow\infty}g(x) = 2.
+        \end{align*}
+        Hence, $\lim_{x\rightarrow\infty}h(x) = 2$.
+    \end{enumerate}
+\end{solution}
+
+% Question
+\question[2]
+    Compute the derivative of the function $f(x) = x + (x + x^2)^2$ at $x = 1$ and use it to propose an approximation of $f(1.01)$.
+%% Solution
+\begin{solution}[0cm]
+    By applying the linearity of the differential operator and the chain rule, we get that 
+    \begin{align*}
+        f'(x) = 1 + 2(x + x^2)(x + x^2)' = 1 + 2(x + x^2)(1 + 2x).
+    \end{align*}
+    Due to the definition of the derivative, we can propose the approximation
+    \begin{align*}
+        f(1.01) \approx f'(1)(1 - 1.01) + f(1),
+    \end{align*}
+    Where $f'(1) = 1 + 2\times2\times 3 = 13$ and $f(1) = 5$. Then,
+    \begin{align*}
+        f(1.01) \approx 13\times0.01 + 5 = 0.13 + 5 = 5.13.
+    \end{align*}
+    The actual value of $f(1.01)$, rounded to 4 decimal places, is $5.1313$, so you can appreciate the accuracy of the approximation based on the first derivative.
+\end{solution}
+
+% Question
+\question[1]
+    Obtain the product rule of differentiation by using the quotient rule.
+%% Solution
+\begin{solution}[0cm]
+    Let $f(x)$ and $g(x)$ be two functions. Assume that $g(x)\neq 0$ for all $x$. Then
+    \begin{align*}
+        (f(x)g(x))' = \left(\frac{f(x)}{1/g(x)}\right)' &= \frac{f'(x)/g(x) + f(x)g'(x)/g^2(x)}{1/g^2(x)} \\
+        &= g^2(x)(f'(x)/g(x) + f(x)g'(x)/g^2(x)) = f'(x)g(x) + f(x)g'(x).
+    \end{align*}
+\end{solution}
+
+% Question
+\question[1]
+    Let $f(x)$ be a convex function. Is $g(x) = e^{f(x)}$ convex?
+%% Solution
+\begin{solution}[0cm]
+    By applying the chain rule and the product rule, we get
+    \begin{align*}
+        g'(x) = f'(x)e^{f(x)}, \quad g''(x) = f''(x)e^{f(x)} + (f'(x))^2e^{f(x)}.
+    \end{align*}
+    Therefore, $g''(x) \geq 0$, meaning that $g(x)$ is convex.
+\end{solution}
+
+% % Question
+% \question[2]
+% The tobacco market is a monopoly, with supply and demand sets
+% \begin{align*}
+%     S = \{(q, p) : 15p − 2q = 20\},\quad D = \{(q, p) : q + 5p = 40\}.
+% \end{align*}
+% Given that the government has imposed an excise tax of $T$ dollars to the tabaco market:
+
+% \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+%     \item Define the governments revenue function in terms of the excise tax and the number of units sold.
+
+%     \item Find the excise tax that maximizes the government revenue.
+        
+% \end{enumerate}
+% % Solution
+% \begin{solution}[0cm]
+%     Solution
+% \end{solution}
+
+% % Question
+% \question[2]
+%     A firm manufactures two goods, $X$ and $Y$. The market price of these goods is unaffected by the level of the firm's production. The firm's cost function is $C(x, y) = 2x^2+ xy + 2y^2$. The market prices for $X$ and $Y$ are $12$ and $18$ dollars per unit, respectively. Determine the number of units of each good that the firm should produce to maximize its profit.  
+% % Solution
+% \begin{solution}[0cm]
+%     Solution
+% \end{solution}
+
+% % Question
+% \question[2]
+%     A wine dealer has certain amount of units of barrels of wine, which he can sell today at $K$ dollars or wait for a better deal. The price of his barrels of wine increases in time according the the function $Kt^n$, for $n \in \N$. Assume that the market holds an interest rate of $r \R_+$ on continuously compounding levels, that is, $x$ today's dollars equal $xe^{-r t}$ dollars $t$ units of time ahead.
+    
+%     \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+
+%         \item Define the profit made by selling the barrels of wine at time $t$.
+    
+%         \item When should the dealer sell the barrels of wine to maximize his profit? Hint: you can use Problem 3 to ease the optimization.
+    
+%     \end{enumerate}
+% % Solution
+% \begin{solution}[0cm]
+%     Solution
+% \end{solution}
+
+% Question
+\question[3]
+    A firm's production function is defined as $P(k, l) = k^2l$, where $k$ stands for capital invested and $l$ for labour input. At time $t\in\R_+$, the capital invested and labour input are given by
+    $$
+    k(t) = 4 + 3t, \quad l(t) = 9e^{-t}.
+    $$
+
+    \begin{enumerate}[leftmargin = 0.5cm, label = (\alph*), rightmargin = 0.2cm]
+        
+        \item How does a small change in time affect production?
+
+        \item When would the production be maximized?
+
+        % \item Define the log-production function as $f(t) = \log(P(k(t), l(t)))$. When $f(t)$ reaches its maxima?
+        
+        % \item Proof that the production is also maximized at the times where $f(t)$ reaches its maxima.
+
+        % \item What is the maximum production level the firm can achieve?
+        
+    \end{enumerate}
+
+% Solution
+\begin{solution}[0cm]
+    Let $f(t) = P(k(t), l(t))$. By using the chain rule for two variables, and the fact that $k'(t) = 3$ and $l'(t) = -9e^{-t}$, and $P_k(k, l) = 2kl$ and $P_l(k, l) = k^2$, we get
+    \begin{align*}
+        f'(t) &= k'(t)P_k(k(t), l(t)) + l'(t)P_l(k(t), l(t)) \\
+        &= 6k(t)l(t) - 9e^{-t}k^2(t) \\
+        &= 6(4 + 3t)9e^{-t} - 9e^{-t}(4 + 3t)^2 \\
+        &= 9e^{-t}(4 + 3t)(2 - 3t).
+    \end{align*}
+    Therefore, for $t \geq 0$, $f'(t) = 0$ if and only if $2 - 3t = 0$, meaning that $t = 2/3$. It is easy to check that $f'(t) > 0$ for every $t\in[0, 2/3)$, and $f'(t) < 0$ for every $t \in (2/3, \infty)$. Hence, $f(t)$ reaches its global maximum at $t = 2/3$.
+\end{solution}
+
+\end{questions}	
+
+\end{document}

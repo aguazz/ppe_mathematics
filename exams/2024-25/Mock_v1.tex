@@ -1,0 +1,203 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{exam}
+\printanswers % Uncomment to show answers if desired
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm}  % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % Custom list environments
+\usepackage{textcomp} % Misc symbols
+\usepackage[top=2cm, bottom=2cm, right=1.2cm, left=1.2cm, paper=a4paper, headheight=6cm]{geometry} % Page layout
+\usepackage{xcolor}  % Colors
+\usepackage{graphicx} % Graphics
+%----------------------------------- TikZ
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{shapes,arrows,matrix,positioning,calc}
+\newcommand{\tikzmark}[1]{\tikz[baseline,remember picture] \coordinate (#1) {};}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{brickred}{RGB}{200, 50, 50}
+\definecolor{skyblue}{RGB}{0, 150, 220}
+\definecolor{olivegreen}{RGB}{120, 160, 60}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb{N}} % natural numbers
+\newcommand{\R}{\mathbb{R}} % real numbers
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\arabic{footnote}}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\makeatother
+\setcounter{footnote}{0}
+\newcommand{\BAR}{%
+  \hspace{-\arraycolsep}\strut\vrule\hspace{-\arraycolsep}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document information
+\newcommand{\degree}{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}{PPE}
+\newcommand{\exam}{Mock Exam 1}
+\newcommand{\subject}{Mathematics}
+\newcommand{\theyear}{2024/25}
+\newcommand{\ccauthor}{A. G. Azze}
+\newcommand{\thedate}{May 4, 2025}
+\newcommand{\university}{CUNEF Universidad}
+% Set header and footer
+\pagestyle{headandfoot}
+\header{\degree \\ \subject\ - \theyear}{}{\thedate \\ \ccauthor}
+\footer{\university}{}{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+    {\Huge \textbf{\exam{}}}
+    \begin{flushright}
+        \vspace{-0.3cm}
+        \textbf{Time Limit:} 120 minutes
+    \end{flushright}
+    \vspace{-0.1cm}
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin=0.5cm, label=$\bullet$, rightmargin=0.2cm]
+            \item Every non-trivial calculation and claim must be justified.
+            % \item Calculators are not necessary and will not be allowed.
+            \item Digital devices and internet access are prohibited.
+        \end{enumerate}
+    }}
+\end{center}
+
+\begin{questions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 1: Lorenz Curves & Gini
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[3]
+In the city of Greenvale, community gardens share irrigation hours among volunteer groups.  The Lorenz curve for weekly irrigation-hours is
+\[
+L(x)=\frac{3}{5}x^p + a\,x,\quad x\in[0,1],
+\]
+where \(L(x)\) is the fraction of total hours used by the least‑served \(100x\)% of groups.
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+  \item Show that \(L(1)=1\) implies \(a=\tfrac{2}{5}\).
+  \item Compute the area under the Lorenz curve, \(B=\int_0^1L(x)\,dx\), in terms of \(p > 0\).
+  \item Given that the Gini index satisfies \(G=1-2B\) and is measured to be \(0.30\), find \(p\).
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+  \item From \(L(1)=\tfrac35 + a=1\), so \(a=\tfrac25\).
+  \item 
+  \[ 
+    B=\int_0^1\Bigl(\tfrac35x^p + \tfrac25x\Bigr)dx
+    =\frac{3}{5(p+1)} + \frac{1}{5}.
+  \]
+  \item Since \(G=1-2B=0.30\),
+  \[
+    1-2\Bigl(\frac{3}{5(p+1)} + \frac{1}{5}\Bigr)=0.30
+    \;\Longrightarrow\;
+    p=3.
+  \]
+\end{enumerate}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 2: Input–Output
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[3]
+A region has two green industries: Waste Management (W) and Recycling (R).  To produce one tonne of output:
+\[
+\text{W needs }0.3\text{ t of W and }0.2\text{ t of R},\quad
+\text{R needs }0.4\text{ t of W and }0.3\text{ t of R}.
+\]
+Final demand is \(d_W=50\) t and \(d_R=30\) t.  Let outputs be \(x_W,x_R\).
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+  \item Write the equilibrium equations “output = intermediate + final.”
+  \item Cast them in matrix form \(A\,x=d\).
+  \item Compute the determinant of \(A\) and conclude whether the system has a unique solution.
+  \item Solve for \((x_W,x_R)\).
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+  \item Using \(a_{ij}\) = tonnes of input \(i\) per tonne of output \(j\),
+  \[
+    x_W = 0.3x_W + 0.4x_R + 50,\quad
+    x_R = 0.2x_W + 0.3x_R + 30.
+  \]
+  \item Rearranged:
+  \[
+    \begin{pmatrix}
+      0.7 & -0.4\\
+     -0.2 & 0.7
+    \end{pmatrix}
+    \begin{pmatrix}x_W\\x_R\end{pmatrix}
+    =
+    \begin{pmatrix}50\\30\end{pmatrix}.
+  \]
+  \item \(\displaystyle \det A = 0.7\cdot0.7 - (-0.4)(-0.2) = 0.49-0.08 = 0.41\neq 0\), so a unique solution exists.
+  \item For instance, multiply the equations by 10:
+  \[
+    7x_W - 4x_R = 500,\qquad -2x_W + 7x_R = 300.
+  \]
+  Solving this system gives
+  \[
+    x_R = \frac{3100}{41} \approx 75.61,\qquad
+    x_W = \frac{4700}{41} \approx 114.63.
+  \]
+\end{enumerate}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 3: Limits & Continuity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[2]
+In a wildlife reserve, the density of a rare flower at distance \(x\) (m) from water is
+\[
+f(x)=\frac{\sqrt{3x+1}-2}{x-1},\quad x\neq1.
+\]
+\begin{enumerate}[leftmargin=0.5cm,label=(\alph*),rightmargin=0.2cm]
+  \item Determine the domain and where \(f\) is continuous.
+  \item Compute \(\displaystyle\lim_{x\to1}f(x)\).
+  \item Find a value for \(f(1)\) that makes \(f\) continuous at \(x=1\).
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+  \item Domain: \(x\ge-1/3\), \(x\neq1\); continuous on its domain.
+  \item By L’Hôpital, limit = \(3/4\).
+  \item Set \(f(1)=3/4\) to restore continuity.
+\end{enumerate}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 4: Improper Integrals
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[2]
+Determine convergence and compute where possible:
+\begin{enumerate}[label=(\alph*)]
+\item \(\displaystyle\int_{0}^{\infty}e^{-2x}\,dx\).
+\item For which \(p>0\) does \(\int_{1}^{\infty}\frac{1}{x^p}\,dx\) converge?
+\item Using comparison of the functions $1/\sqrt{x}$ and $1/x$, decide whether \(\int_{1}^{\infty}\frac{1}{\sqrt{x}}\,dx\) converges or diverges.
+\item \(\displaystyle\int_{0}^{\infty}x e^{-x}\,dx\). Use the fact that, for $F(x) = - (x+1)e^{-x}$, $F'(x) = x e^{-x}$.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+\item \(\int_0^\infty e^{-2x}dx = -\tfrac12 (e^{-2x})_0^\infty = 1/2\).
+\item Converges iff \(p>1\).
+\item Since \(1/\sqrt{x}=x^{-1/2}\) and \(-1/2\le-1\)? Actually compare to \(1/x\): for large x, \(1/\sqrt{x}>1/x\), and \(\int1/x\) diverges, so this diverges.
+\item Use \(\int x e^{-x}dx = - (x+1)e^{-x}\).  At \(0\) gives \(-(0+1)\cdot1=-1\); at \(\infty\to0\).  Difference = \(1\).
+\end{enumerate}
+\end{solution}
+
+\end{questions}
+\end{document}

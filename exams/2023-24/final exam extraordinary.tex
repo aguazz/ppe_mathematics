@@ -1,0 +1,135 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{exam}
+\printanswers % Uncomment to show answers
+\include{formatAndDefs}
+%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % math fonts and symbols
+\usepackage{bbm} % Math blackboard font
+\usepackage{enumitem} % For reference enumerations lists
+\usepackage{textcomp} % some symbols (like copyright)
+\usepackage[top = 2cm, bottom = 2cm, right = 1.2cm, left = 1.2cm, paper = a4paper, headheight = 6cm]{geometry} % Margins setup
+\usepackage{xcolor} % Colors
+\usepackage{pgfplots}
+\usepackage{spalign}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MACROS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{CUNEForange}{RGB}{237, 114, 1}
+\newcommand{\N}{\mathbb{N}} % natural number set
+\newcommand{\R}{\mathbb{R}} % real number set
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER AND FOOT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining information
+\newcommand{\degree}[1]{Bachelor in Philosophy, Politics and Economics}
+\newcommand{\shortdeg}[1]{PPE}
+\newcommand{\exam}[1]{Final Exam}
+\newcommand{\subject}[1]{Mathematics}
+\newcommand{\theyear}[1]{2023/24}
+%\newcommand{\ccauthor}[1]{A. Azze \textcopyright\the\year}
+\newcommand{\thedate}[1]{10 06 2024}
+\newcommand{\university}[1]{CUNEF University}
+% Setting header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.1mm}
+\renewcommand{\footrulewidth}{0.1mm}
+% \renewcommand{\sectionmark}[1] % To avoid sections' titles being displayed on the header
+{\markright{\MakeUppercase{}}}
+\setlength\headsep{0.5cm}
+% Header and footer
+\fancyhead[L]{\degree{} \\ \subject{} - \theyear{}}
+\fancyhead[R]{\thedate{} \\ \ccauthor{}}
+\fancyfoot[L]{\university{}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%--- Instructions ---%
+\begin{center}
+
+    {\Huge \textbf{\exam{}}}
+    \vspace{0.7cm}
+
+    \begin{flushright}
+        \textbf{Time Limit:} 120 minutes
+    \end{flushright}
+    \vspace{-0.2cm}
+    
+    \fbox{\parbox{\textwidth}{\centering 
+        \begin{enumerate}[leftmargin = 0.5cm, label = $\bullet$, rightmargin = 0.2cm]
+    
+            \item \textbf{Every non-trivial calculation and claim in the exam must be properly justified.}
+
+            \item The use of calculators is not necessary and therefore not allowed.
+
+            \item Digital devices such as mobile phones, tablets, and laptops, as well as internet access, are forbidden.
+
+            \item You can use physical resources such as books, notes, and other printed materials to assist you during the exam.
+ 
+        \end{enumerate}
+    }}
+\end{center}
+%--- Instructions ---%
+
+%--- Questions ---%
+\noindent
+\begin{questions}
+
+\question[1] Given the following supply and demand sets,
+\[S=\left\lbrace 2p+q=5 \right\rbrace\qquad D=\left\lbrace 3p-q=8\right\rbrace.\]
+Plot the demand and supply sets and compute the equilibrium point. Explain its meaning using the plot.
+\question[2] Compute the following limits.
+\begin{itemize}
+    \item[i)] $\displaystyle\lim_{x\rightarrow 1}\frac{x^2-1}{x+1}$
+    \item[ii)] $\displaystyle\lim_{x\rightarrow\infty}\frac{x^2-x+1}{2x^2+3x-1}$
+\end{itemize}
+\question[1] Compute the global maximum and minimum, if they exist, of the function $$f(x)=x^3-\frac{3}{2}x^2$$ in the interval $[-2,2]$. How do they change if we expand the interval to $[-10,10]$?
+
+\question[1] Determine the maxima and minima, if they exist, of the function $$f(x,y)=3x^2-2xy-y^2-8y.$$
+
+\question[2] Compute the following integrals.
+\begin{itemize}
+    \item[i)] $\displaystyle \int \frac{1}{(x-3)(x-2)} dx$
+    \item[ii)] $\displaystyle \int_1^{\infty} 2xe^{-3x^2} dx$
+\end{itemize}
+\question[3] Given the following matrices.
+\begin{equation*}
+A=\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & 1 & 0
+\end{pmatrix},
+\enspace
+B=\begin{pmatrix}
+1 & 2 & 0\\
+1 & -2 & -1\\
+2 & 0 & -1
+\end{pmatrix},
+\enspace
+t=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix},
+\enspace
+c=\begin{pmatrix}
+0\\
+1\\
+1
+\end{pmatrix}.
+\end{equation*}
+\begin{itemize}
+    \item[i)] Compute $A^{1245}$
+    \item[ii)] Determine the value of the matrix $C$ that satisfies $C\cdot A=B$
+    \item[iii)] Write the linear system $Bt=c$ and solve it using Gaussian elimination.
+\end{itemize}
+\end{questions}	
+\end{document}
